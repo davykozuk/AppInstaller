@@ -1377,3 +1377,9 @@
 [18:05:13][INFO] Detection Everything : False
 [18:05:14][INFO] Detection Greenshot : False
 [18:05:14][INFO] Configuration chargee (29)
+[18:30:35][INFO] Desinstallation 7-Zip...
+[18:30:38][INFO] 7-Zip desinstalle avec succÃ¨s
+[18:30:38][INFO] Desinstallation terminee
+[19:35:18][INFO] Installation Adobe Acrobat Reader DC...
+[19:36:10][ERROR] Erreur installation Adobe Acrobat Reader DC (code -2147023673)
+[19:36:10][INFO] Installation LibreOffice...

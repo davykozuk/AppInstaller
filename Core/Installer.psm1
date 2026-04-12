@@ -122,43 +122,22 @@ function Get-SoftwareInfo {
     $result = [PSCustomObject]@{
         Installed = $false
         InstalledVersion = $null
-        AvailableVersion = $null
     }
 
     try {
-        # -------- INSTALLED --------
-        $listOutput = winget list --id $Id --exact 2>$null
+        $output = winget list --id $Id --exact 2>$null
 
-        if ($listOutput -notmatch "Aucun package") {
+        if ($output -notmatch "Aucun package") {
 
-            $lines = $listOutput -split "`n" | ForEach-Object { $_.Trim() } | Where-Object { $_ }
+            $lines = $output -split "`n" | ForEach-Object { $_.Trim() } | Where-Object { $_ }
 
             if ($lines.Count -ge 3) {
                 $data = $lines[2]
-
-                # Split sur espaces multiples
                 $parts = $data -split "\s{2,}"
 
                 if ($parts.Count -ge 3) {
                     $result.Installed = $true
                     $result.InstalledVersion = $parts[2]
-                }
-            }
-        }
-
-        # -------- AVAILABLE --------
-        $upgradeOutput = winget upgrade --id $Id --exact 2>$null
-
-        if ($upgradeOutput -notmatch "Aucun package") {
-
-            $lines = $upgradeOutput -split "`n" | ForEach-Object { $_.Trim() } | Where-Object { $_ }
-
-            if ($lines.Count -ge 3) {
-                $data = $lines[2]
-                $parts = $data -split "\s{2,}"
-
-                if ($parts.Count -ge 4) {
-                    $result.AvailableVersion = $parts[3]
                 }
             }
         }

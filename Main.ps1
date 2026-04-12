@@ -1,12 +1,10 @@
+﻿[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
 Add-Type -AssemblyName PresentationFramework
-
+$ProgressPreference = 'SilentlyContinue'
+$ErrorActionPreference = 'SilentlyContinue'
 # =========================
-# Nettoyage modules
-# =========================
-Get-Module ConfigLoader, Installer, WinGetService, LogService, WingetInstaller | Remove-Module -Force -ErrorAction SilentlyContinue
-
-# =========================
-# Imports
+# IMPORTS
 # =========================
 Import-Module "$PSScriptRoot\Services\LogService.psm1" -Force
 Import-Module "$PSScriptRoot\Services\WinGetService.psm1" -Force
@@ -14,186 +12,179 @@ Import-Module "$PSScriptRoot\Core\ConfigLoader.psm1" -Force
 Import-Module "$PSScriptRoot\Core\Installer.psm1" -Force
 Import-Module "$PSScriptRoot\Services\WingetInstaller.psm1" -Force
 
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-
 # =========================
-# UI
+# UI LOAD
 # =========================
 [xml]$xaml = Get-Content "$PSScriptRoot\UI\MainWindow.xaml" -Raw
 $reader = New-Object System.Xml.XmlNodeReader $xaml
 $window = [Windows.Markup.XamlReader]::Load($reader)
 
-$SoftwareList = $window.FindName("SoftwareList")
-$LogBox       = $window.FindName("LogBox")
-$BtnInstall   = $window.FindName("BtnInstall")
-$ChkSilent    = $window.FindName("ChkSilent")
+$SoftwareList   = $window.FindName("SoftwareList")
+$LogBox         = $window.FindName("LogBox")
+$BtnInstall     = $window.FindName("BtnInstall")
+$ChkSilent      = $window.FindName("ChkSilent")
+$CategoryFilter = $window.FindName("CategoryFilter")
+$Loader         = $window.FindName("LoaderOverlay")
 
-$script:checkboxes = @()
 $script:apps = @()
+$script:checkboxes = @()
 
 # =========================
-# WinGet check
+# LOADER
 # =========================
-if (-not (Test-WinGet)) {
+function Show-Loader { $Loader.Visibility = "Visible" }
+function Hide-Loader { $Loader.Visibility = "Collapsed" }
 
-    Write-Log "WinGet absent - installation..." "WARN" $LogBox
+# =========================
+# LOAD APPS
+# =========================
+function Get-CategoryIcon {
+    param($category)
 
-    Install-WinGet -LogBox $LogBox
-    Start-Sleep 3
-
-    if (-not (Test-WinGet)) {
-        [System.Windows.MessageBox]::Show("WinGet non disponible", "Erreur", "OK", "Error")
-        exit
+    switch ($category) {
+        "Navigateur" { "🌐" }
+        "Bureautique" { "🧾" }
+        "Utilitaires" { "🛠" }
+        "Developpement" { "💻" }
+        "Communication" { "💬" }
+        "Support" { "🧑‍💻" }
+        "Reseau" { "🌍" }
+        "Runtime" { "⚙" }
+        "default" { "📦" }
     }
 }
 
-# =========================
-# Load apps
-# =========================
 function Load-Applications {
 
     $SoftwareList.Children.Clear()
     $script:checkboxes = @()
 
-    $path = Join-Path $PSScriptRoot "Config\apps.json"
-    $script:apps = Get-SoftwareConfig -Path $path
-
     $groups = $script:apps | Group-Object Category | Sort-Object Name
 
     foreach ($group in $groups) {
 
-        # ===== Category label =====
+        # ===== TITRE CATEGORIE =====
         $lbl = New-Object System.Windows.Controls.TextBlock
-        $lbl.Text = $group.Name.ToUpper()
+        $icon = Get-CategoryIcon $group.Name
+
+        $lbl.Text = "$icon  $($group.Name.ToUpper())"
         $lbl.FontWeight = "Bold"
-        $lbl.FontSize = 14
+        $lbl.FontSize = 16
+        $lbl.Foreground = "#34495E"
         $lbl.Margin = "5,10,0,5"
 
         $SoftwareList.Children.Add($lbl) | Out-Null
 
         foreach ($app in $group.Group) {
 
-            # ===== Grid propre =====
+            # ===== GRID =====
             $panel = New-Object System.Windows.Controls.Grid
-            $panel.Margin = "5,2,5,2"
+            $panel.Margin = "10,2"
 
             $col1 = New-Object System.Windows.Controls.ColumnDefinition
-            $col1.Width = "*"
+            $col1.Width = "Auto"
 
             $col2 = New-Object System.Windows.Controls.ColumnDefinition
-            $col2.Width = "40"
+            $col2.Width = "35"
 
             $col3 = New-Object System.Windows.Controls.ColumnDefinition
-            $col3.Width = "50"
+            $col3.Width = "35"
 
             $panel.ColumnDefinitions.Add($col1)
             $panel.ColumnDefinitions.Add($col2)
             $panel.ColumnDefinitions.Add($col3)
-
-            # ===== Checkbox =====
+            $panel.HorizontalAlignment = "Left" 
+            # ===== CHECKBOX =====
             $cb = New-Object System.Windows.Controls.CheckBox
+            $cb.Content = $app.Name
             $cb.Tag = $app
             $cb.VerticalAlignment = "Center"
 
             [System.Windows.Controls.Grid]::SetColumn($cb, 0)
 
-            # ===== Bouton uninstall =====
+            # ===== BOUTON DELETE =====
             $btnRemove = New-Object System.Windows.Controls.Button
-            $btnRemove.Content = "X"
-            $btnRemove.Width = 25
-            $btnRemove.Height = 20
-            $btnRemove.Background = "Red"
-            $btnRemove.Foreground = "White"
+            $btnRemove.Content = "🗑"
+            $btnRemove.Width = 30
+            $btnRemove.Height = 22
+            $btnRemove.Background = "Transparent"
+            $btnRemove.BorderThickness = 0
             $btnRemove.Tag = $app
-
             $btnRemove.ToolTip = "Desinstaller $($app.Name)"
-
+            $btnRemove.Foreground = "#E74C3C"
             [System.Windows.Controls.Grid]::SetColumn($btnRemove, 1)
 
-            # ===== Bouton update =====
+            # ===== BOUTON UPDATE =====
             $btnUpdate = New-Object System.Windows.Controls.Button
-            $btnUpdate.Content = "Maj"
-            $btnUpdate.Width = 35
-            $btnUpdate.Height = 20
-            $btnUpdate.Background = "Orange"
+            $btnUpdate.Content = "⬆"
+            $btnUpdate.Width = 30
+            $btnUpdate.Height = 22
+            $btnUpdate.Background = "Transparent"
+            $btnUpdate.BorderThickness = 0
             $btnUpdate.Tag = $app
-
             $btnUpdate.ToolTip = "Mettre a jour $($app.Name)"
-
+            $btnUpdate.Foreground = "#F39C12"
             [System.Windows.Controls.Grid]::SetColumn($btnUpdate, 2)
 
-            # ===== Detection =====
+            # ===== DETECTION =====
             $isInstalled = Test-SoftwareInstalled -Id $app.Id
 
             if ($isInstalled) {
-
-                $cb.Content = "$($app.Name) (installe)"
-                $cb.Foreground = "Gray"
                 $cb.IsChecked = $true
                 $cb.IsEnabled = $false
+                $cb.Foreground = "#95A5A6"   # gris doux
 
                 $btnRemove.Visibility = "Visible"
                 $btnUpdate.Visibility = "Visible"
             }
             else {
-                $cb.Content = $app.Name
                 $cb.IsChecked = $false
                 $cb.IsEnabled = $true
+                $cb.Foreground = "#2C3E50"
 
                 $btnRemove.Visibility = "Collapsed"
                 $btnUpdate.Visibility = "Collapsed"
             }
 
-            Write-Log "Detection $($app.Name) : $isInstalled" "INFO" $LogBox
-
             # ===== UNINSTALL =====
             $btnRemove.Add_Click({
-                param($btn, $evt)
+                param($btn,$e)
 
                 $appData = $btn.Tag
 
                 $res = [System.Windows.MessageBox]::Show(
-                    "Confirmer desinstallation de $($appData.Name) ?",
+                    "Desinstaller $($appData.Name) ?",
                     "Confirmation",
-                    [System.Windows.MessageBoxButton]::YesNo,
-                    [System.Windows.MessageBoxImage]::Warning
+                    [System.Windows.MessageBoxButton]::YesNo
                 )
 
                 if ($res -ne "Yes") { return }
 
+                Show-Loader
                 Uninstall-SoftwareList -SoftwareList @($appData) -LogBox $LogBox
+                Hide-Loader
 
                 Load-Applications
             })
 
             # ===== UPDATE =====
             $btnUpdate.Add_Click({
-                param($btn, $evt)
+                param($btn,$e)
 
                 $appData = $btn.Tag
 
-                $res = [System.Windows.MessageBox]::Show(
-                    "Mettre a jour $($appData.Name) ?",
-                    "Confirmation",
-                    [System.Windows.MessageBoxButton]::YesNo,
-                    [System.Windows.MessageBoxImage]::Question
-                )
-
-                if ($res -ne "Yes") { return }
-
-                Write-Log "Maj $($appData.Name) en cours..." "INFO" $LogBox
+                Show-Loader
 
                 Start-Process "winget" `
                     -ArgumentList "upgrade --id $($appData.Id) --exact --accept-source-agreements --accept-package-agreements" `
                     -Wait `
                     -NoNewWindow
 
-                Write-Log "$($appData.Name) mis a jour" "INFO" $LogBox
-
+                Hide-Loader
                 Load-Applications
             })
 
-            # ===== Ajout UI =====
+            # ===== ADD =====
             $panel.Children.Add($cb) | Out-Null
             $panel.Children.Add($btnRemove) | Out-Null
             $panel.Children.Add($btnUpdate) | Out-Null
@@ -202,8 +193,6 @@ function Load-Applications {
             $script:checkboxes += $cb
         }
     }
-
-    Write-Log "Configuration chargee ($($script:apps.Count))" "INFO" $LogBox
 }
 
 # =========================
@@ -211,39 +200,33 @@ function Load-Applications {
 # =========================
 $BtnInstall.Add_Click({
 
-    $selected = $script:checkboxes | Where-Object { $_.IsChecked }
+    Show-Loader
 
-    if ($selected.Count -eq 0) {
-        Write-Log "Aucun logiciel selectionne" "WARN" $LogBox
-        return
+    $list = $script:apps | Where-Object {
+        -not (Test-SoftwareInstalled -Id $_.Id)
     }
-
-    $list = @()
-
-    foreach ($cb in $selected) {
-        $app = $cb.Tag
-
-        if (-not (Test-SoftwareInstalled -Id $app.Id)) {
-            $list += $app
-        }
-    }
-
-    if ($list.Count -eq 0) {
-        Write-Log "Rien a installer" "WARN" $LogBox
-        return
-    }
-
-    Write-Log "Installation en cours..." "INFO" $LogBox
 
     Install-SoftwareList -SoftwareList $list -Silent $ChkSilent.IsChecked -LogBox $LogBox
 
-    Write-Log "Installation terminee" "INFO" $LogBox
-
+    Hide-Loader
     Load-Applications
 })
 
 # =========================
-# START
+# INIT
 # =========================
+$script:apps = Get-SoftwareConfig -Path "$PSScriptRoot\Config\apps.json"
+
+# Categories
+$cats = $script:apps.Category | Sort-Object -Unique
+$CategoryFilter.Items.Add("ALL") | Out-Null
+$cats | ForEach-Object { $CategoryFilter.Items.Add($_) | Out-Null }
+$CategoryFilter.SelectedIndex = 0
+
+$CategoryFilter.Add_SelectionChanged({
+    Load-Applications
+})
+
 Load-Applications
+
 $window.ShowDialog() | Out-Null
