@@ -1,36 +1,29 @@
-function Test-SoftwareInstalled {
-    param(
-        [Parameter(Mandatory)]
-        [string]$Id
-    )
+function Invoke-WingetCommand {
+    param([string[]]$Arguments, $LogBox)
 
-    try {
-        $output = winget list --id $Id --exact 2>$null
+    $psi = New-Object System.Diagnostics.ProcessStartInfo
+    $psi.FileName = "winget"
+    $psi.Arguments = $Arguments -join " "
+    $psi.RedirectStandardOutput = $true
+    $psi.RedirectStandardError  = $true
+    $psi.UseShellExecute = $false
+    $psi.CreateNoWindow = $true
 
-        if (-not $output) {
-            return $false
+    $p = New-Object System.Diagnostics.Process
+    $p.StartInfo = $psi
+    $p.Start() | Out-Null
+
+    while (-not $p.HasExited) {
+        while (-not $p.StandardOutput.EndOfStream) {
+            Write-Log $p.StandardOutput.ReadLine() "INFO" $LogBox
         }
-
-        # Convertit en tableau de lignes propres
-        $lines = $output -split "`n" | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne "" }
-
-        # Cas : aucun résultat
-        if ($lines -match "Aucun package") {
-            return $false
+        while (-not $p.StandardError.EndOfStream) {
+            Write-Log $p.StandardError.ReadLine() "ERROR" $LogBox
         }
-
-        # Cherche une vraie ligne contenant l'ID EXACT
-        foreach ($line in $lines) {
-            if ($line -match "^\S+.*\s+$Id\s+") {
-                return $true
-            }
-        }
-
-        return $false
+        Start-Sleep -Milliseconds 100
     }
-    catch {
-        return $false
-    }
+
+    return $p.ExitCode
 }
 
 function Install-SoftwareList {
@@ -40,106 +33,63 @@ function Install-SoftwareList {
 
         Write-Log "Installation $($app.Name)..." "INFO" $LogBox
 
-        try {
-            if ($app.Type -eq "winget") {
+        $args = @("install","--id",$app.Id,"--exact","--accept-source-agreements","--accept-package-agreements")
 
-                $args = @(
-                    "install",
-                    "--id", $app.Id,
-                    "--accept-package-agreements",
-                    "--accept-source-agreements"
-                )
+        if ($Silent) { $args += "--silent" }
 
-                if ($Silent) {
-                    $args += "--silent"
-                }
-
-                $process = Start-Process "winget" `
-                    -ArgumentList $args `
-                    -Wait `
-                    -PassThru `
-                    -NoNewWindow
-
-                if ($process.ExitCode -eq 0) {
-                    Write-Log "$($app.Name) installe avec succès" "INFO" $LogBox
-                }
-                else {
-                    Write-Log "Erreur installation $($app.Name) (code $($process.ExitCode))" "ERROR" $LogBox
-                }
-            }
-        }
-        catch {
-            Write-Log "Exception installation $($app.Name) : $($_.Exception.Message)" "ERROR" $LogBox
-        }
+        Invoke-WingetCommand -Arguments $args -LogBox $LogBox
     }
-
-    Write-Log "Installation terminee" "INFO" $LogBox
 }
-function Uninstall-SoftwareList {
-    param($SoftwareList, $LogBox)
 
-    foreach ($app in $SoftwareList) {
+function Update-Software {
+    param($App, $LogBox)
 
-        Write-Log "Desinstallation $($app.Name)..." "INFO" $LogBox
+    Write-Log "Update $($App.Name)..." "INFO" $LogBox
 
-        try {
-            if ($app.Type -eq "winget") {
+    $args = @(
+        "upgrade",
+        "--id", $App.Id,
+        "--exact",
+        "--accept-source-agreements",
+        "--accept-package-agreements"
+    )
 
-                $args = @(
-                    "uninstall",
-                    "--id", $app.Id,
-                    "--accept-source-agreements"
-                )
-
-                $process = Start-Process "winget" `
-                    -ArgumentList $args `
-                    -Wait `
-                    -PassThru `
-                    -NoNewWindow
-
-                if ($process.ExitCode -eq 0) {
-                    Write-Log "$($app.Name) desinstalle avec succès" "INFO" $LogBox
-                }
-                else {
-                    Write-Log "Erreur desinstallation $($app.Name) (code $($process.ExitCode))" "ERROR" $LogBox
-                }
-            }
-        }
-        catch {
-            Write-Log "Exception desinstallation $($app.Name) : $($_.Exception.Message)" "ERROR" $LogBox
-        }
-    }
-
-    Write-Log "Desinstallation terminee" "INFO" $LogBox
+    Invoke-WingetCommand -Arguments $args -LogBox $LogBox
 }
 
 function Get-SoftwareInfo {
-    param(
-        [Parameter(Mandatory)]
-        [string]$Id
-    )
+    param([string]$Id)
 
-    $result = [PSCustomObject]@{
+    $result = @{
         Installed = $false
-        InstalledVersion = $null
+        Version   = ""
+        Update    = $false
     }
 
     try {
         $output = winget list --id $Id --exact 2>$null
 
-        if ($output -notmatch "Aucun package") {
+        if ($output -and $output -notmatch "Aucun package") {
 
-            $lines = $output -split "`n" | ForEach-Object { $_.Trim() } | Where-Object { $_ }
+            $lines = $output -split "`n" | Where-Object { $_.Trim() }
 
             if ($lines.Count -ge 3) {
-                $data = $lines[2]
-                $parts = $data -split "\s{2,}"
+                $parts = $lines[2] -split "\s{2,}"
 
                 if ($parts.Count -ge 3) {
                     $result.Installed = $true
-                    $result.InstalledVersion = $parts[2]
+                    $result.Version = $parts[2]
+                }
+
+                if ($parts.Count -ge 4) {
+                    $result.Update = $true
                 }
             }
+        }
+
+        # 🔥 FIX FIREFOX / CAS BIZARRE
+        if (-not $result.Installed -and $result.Update) {
+            $result.Installed = $true
         }
 
         return $result
@@ -149,4 +99,4 @@ function Get-SoftwareInfo {
     }
 }
 
-Export-ModuleMember -Function Test-SoftwareInstalled, Install-SoftwareList, Uninstall-SoftwareList, Get-SoftwareInfo
+Export-ModuleMember -Function *
