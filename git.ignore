@@ -1,0 +1,19 @@
+# Logs
+Logs/
+*.log
+
+# Temp
+Temp/
+
+# VSCode
+.vscode/
+
+# Windows
+Thumbs.db
+
+# PowerShell
+*.ps1xml
+
+# Bin / output (si tu en ajoutes plus tard)
+bin/
+obj/

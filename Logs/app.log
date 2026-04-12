@@ -1,0 +1,1379 @@
+[2026-04-12 14:25:57] [INFO] WinGet détecté
+[2026-04-12 14:28:09] [INFO] WinGet détecté
+[2026-04-12 14:29:05] [INFO] WinGet détecté
+[2026-04-12 14:33:45] [INFO] WinGet détecté
+[2026-04-12 14:33:48] [ERROR] Le terme ��Get-SoftwareConfig�� n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script ou programme ex�cutable. V�rifiez l'orthographe du nom, ou si un chemin d'acc�s existe, v�rifiez que le chemin d'acc�s est correct et r�essayez.
+[2026-04-12 14:37:08] [INFO] WinGet détecté
+[14:40:59][INFO] WinGet détecté
+[14:42:27][INFO] WinGet détecté
+[14:42:32][INFO] Chargement configuration...
+[14:42:32][INFO] Détection Google Chrome : True
+[14:42:32][INFO] Détection Mozilla Firefox : True
+[14:42:32][INFO] Détection 7-Zip : False
+[14:42:32][INFO] Détection Notepad++ : True
+[14:42:33][INFO] Détection Visual Studio Code : False
+[14:42:33][INFO] Détection Git : True
+[14:42:33][INFO] Détection TeamViewer Host : False
+[14:42:33][INFO] Configuration chargée (7)
+[14:42:42][INFO] Installation 7-Zip
+[14:46:04][INFO] WinGet détecté
+[14:46:04][INFO] Rafraîchissement état...
+[14:46:04][INFO] Chargement configuration...
+[14:46:04][INFO] Détection Google Chrome : True
+[14:46:04][INFO] Détection Mozilla Firefox : True
+[14:46:04][INFO] Détection 7-Zip : True
+[14:46:04][INFO] Détection Notepad++ : True
+[14:46:05][INFO] Détection Visual Studio Code : False
+[14:46:05][INFO] Détection Git : True
+[14:46:05][INFO] Détection TeamViewer Host : False
+[14:46:05][INFO] Configuration chargée (7)
+[14:47:03][INFO] WinGet détecté
+[14:47:03][INFO] Rafraîchissement état...
+[14:47:03][INFO] Chargement configuration...
+[14:47:03][INFO] Détection Google Chrome : True
+[14:47:03][INFO] Détection Mozilla Firefox : True
+[14:47:04][INFO] Détection 7-Zip : False
+[14:47:04][INFO] Détection Notepad++ : True
+[14:47:04][INFO] Détection Visual Studio Code : False
+[14:47:04][INFO] Détection Git : True
+[14:47:04][INFO] Détection TeamViewer Host : False
+[14:47:04][INFO] Configuration chargée (7)
+[14:47:10][INFO] Installation 7-Zip...
+[14:47:16][INFO] 7-Zip installé avec succès
+[14:47:16][INFO] Installation terminée
+[14:50:21][INFO] WinGet dÃ©tectÃ©
+[14:50:21][INFO] RafraÃ®chissement Ã©tat...
+[14:50:21][INFO] Chargement configuration...
+[14:50:21][INFO] DÃ©tection Google Chrome : True
+[14:50:21][INFO] DÃ©tection Mozilla Firefox : True
+[14:50:21][INFO] DÃ©tection 7-Zip : True
+[14:50:22][INFO] DÃ©tection Notepad++ : True
+[14:50:22][INFO] DÃ©tection Visual Studio Code : False
+[14:50:22][INFO] DÃ©tection Git : True
+[14:50:22][INFO] DÃ©tection TeamViewer Host : False
+[14:50:22][INFO] Configuration chargÃ©e (7)
+[14:50:31][INFO] Chargement configuration...
+[14:50:31][INFO] DÃ©tection Google Chrome : True
+[14:50:31][INFO] DÃ©tection Mozilla Firefox : True
+[14:50:31][INFO] DÃ©tection 7-Zip : True
+[14:50:31][INFO] DÃ©tection Notepad++ : True
+[14:50:32][INFO] DÃ©tection Visual Studio Code : False
+[14:50:32][INFO] DÃ©tection Git : True
+[14:50:32][INFO] DÃ©tection TeamViewer Host : False
+[14:50:32][INFO] Configuration chargÃ©e (7)
+[14:50:36][WARN] Aucun logiciel sÃ©lectionnÃ©
+[14:51:28][INFO] WinGet dÃ©tectÃ©
+[14:51:28][INFO] RafraÃ®chissement Ã©tat...
+[14:51:28][INFO] Chargement configuration...
+[14:51:28][INFO] DÃ©tection Google Chrome : True
+[14:51:28][INFO] DÃ©tection Mozilla Firefox : True
+[14:51:28][INFO] DÃ©tection 7-Zip : False
+[14:51:28][INFO] DÃ©tection Notepad++ : True
+[14:51:29][INFO] DÃ©tection Visual Studio Code : False
+[14:51:29][INFO] DÃ©tection Git : True
+[14:51:29][INFO] DÃ©tection TeamViewer Host : False
+[14:51:29][INFO] Configuration chargÃ©e (7)
+[14:51:32][INFO] Installation 7-Zip...
+[14:51:38][INFO] 7-Zip installÃ© avec succÃ¨s
+[14:51:38][INFO] Installation terminÃ©e
+[14:51:38][INFO] RafraÃ®chissement Ã©tat...
+[14:51:38][INFO] Chargement configuration...
+[14:51:38][INFO] DÃ©tection Google Chrome : True
+[14:51:39][INFO] DÃ©tection Mozilla Firefox : True
+[14:51:39][INFO] DÃ©tection 7-Zip : True
+[14:51:39][INFO] DÃ©tection Notepad++ : True
+[14:51:39][INFO] DÃ©tection Visual Studio Code : False
+[14:51:39][INFO] DÃ©tection Git : True
+[14:51:39][INFO] DÃ©tection TeamViewer Host : False
+[14:51:39][INFO] Configuration chargÃ©e (7)
+[14:53:03][INFO] WinGet detecte
+[14:53:03][INFO] RafraÃ®chissement etat...
+[14:53:03][INFO] Chargement configuration...
+[14:53:03][INFO] Detection Google Chrome : True
+[14:53:03][INFO] Detection Mozilla Firefox : True
+[14:53:03][INFO] Detection 7-Zip : True
+[14:53:04][INFO] Detection Notepad++ : True
+[14:53:04][INFO] Detection Visual Studio Code : False
+[14:53:04][INFO] Detection Git : True
+[14:53:04][INFO] Detection TeamViewer Host : False
+[14:53:04][INFO] Configuration chargee (7)
+[15:05:27][INFO] WinGet detecte
+[15:05:28][INFO] Rafraichissement etat...
+[15:05:28][INFO] Chargement configuration...
+[15:05:28][INFO] Detection Google Chrome : True
+[15:05:28][INFO] Detection Mozilla Firefox : True
+[15:05:28][INFO] Detection 7-Zip : True
+[15:05:28][INFO] Detection Notepad++ : True
+[15:05:28][INFO] Detection Visual Studio Code : False
+[15:05:28][INFO] Detection Git : True
+[15:05:29][INFO] Detection TeamViewer Host : False
+[15:05:29][INFO] Configuration chargee (7)
+[15:06:16][INFO] Chargement configuration...
+[15:06:16][INFO] Detection Google Chrome : True
+[15:06:16][INFO] Detection Mozilla Firefox : True
+[15:06:17][INFO] Detection 7-Zip : False
+[15:06:17][INFO] Detection Notepad++ : True
+[15:06:17][INFO] Detection Visual Studio Code : False
+[15:06:17][INFO] Detection Git : True
+[15:06:17][INFO] Detection TeamViewer Host : False
+[15:06:17][INFO] Configuration chargee (7)
+[15:06:25][INFO] Installation 7-Zip...
+[15:06:33][INFO] 7-Zip installÃ© avec succÃ¨s
+[15:06:33][INFO] Installation terminÃ©e
+[15:06:33][INFO] Rafraichissement etat...
+[15:06:33][INFO] Chargement configuration...
+[15:06:33][INFO] Detection Google Chrome : True
+[15:06:33][INFO] Detection Mozilla Firefox : True
+[15:06:34][INFO] Detection 7-Zip : True
+[15:06:34][INFO] Detection Notepad++ : True
+[15:06:34][INFO] Detection Visual Studio Code : False
+[15:06:34][INFO] Detection Git : True
+[15:06:34][INFO] Detection TeamViewer Host : False
+[15:06:34][INFO] Configuration chargee (7)
+[15:12:49][INFO] WinGet detecte
+[15:12:51][INFO] Chargement configuration...
+[15:12:52][INFO] Detection Google Chrome : True
+[15:12:52][INFO] Detection Mozilla Firefox : True
+[15:12:52][INFO] Detection 7-Zip : True
+[15:12:52][INFO] Detection Notepad++ : True
+[15:12:52][INFO] Detection Visual Studio Code : False
+[15:12:52][INFO] Detection Git : True
+[15:12:53][INFO] Detection TeamViewer Host : False
+[15:12:53][INFO] Configuration chargee (7)
+[15:40:26][INFO] WinGet detecte
+[15:40:33][INFO] Chargement configuration...
+[15:40:33][INFO] Detection Google Chrome : True
+[15:40:34][INFO] Detection Mozilla Firefox : True
+[15:40:34][INFO] Detection 7-Zip : True
+[15:40:34][INFO] Detection Notepad++ : True
+[15:40:34][INFO] Detection Visual Studio Code : False
+[15:40:34][INFO] Detection Git : True
+[15:40:34][INFO] Detection TeamViewer Host : False
+[15:40:34][INFO] Configuration chargee (7)
+[15:49:39][INFO] WinGet dÃ©tectÃ©
+[15:49:46][INFO] Chargement configuration...
+[15:49:46][INFO] Detection Google Chrome : True
+[15:49:46][INFO] Detection Mozilla Firefox : True
+[15:49:47][INFO] Detection 7-Zip : True
+[15:49:47][INFO] Detection Notepad++ : True
+[15:49:47][INFO] Detection Visual Studio Code : False
+[15:49:47][INFO] Detection Git : True
+[15:49:47][INFO] Detection TeamViewer Host : False
+[15:49:47][INFO] Configuration chargee (7)
+[15:51:12][INFO] WinGet dÃ©tectÃ©
+[15:51:14][INFO] Chargement configuration...
+[15:51:14][INFO] Detection Google Chrome : True
+[15:51:14][INFO] Detection Mozilla Firefox : True
+[15:51:14][INFO] Detection 7-Zip : False
+[15:51:15][INFO] Detection Notepad++ : True
+[15:51:15][INFO] Detection Visual Studio Code : False
+[15:51:15][INFO] Detection Git : True
+[15:51:15][INFO] Detection TeamViewer Host : False
+[15:51:15][INFO] Configuration chargee (7)
+[15:51:22][INFO] Installation 7-Zip...
+[15:51:28][INFO] 7-Zip installÃ© avec succÃ¨s
+[15:51:28][INFO] Installation terminÃ©e
+[15:51:28][INFO] Rafraichissement etat...
+[15:51:28][INFO] Chargement configuration...
+[15:51:28][INFO] Detection Google Chrome : True
+[15:51:28][INFO] Detection Mozilla Firefox : True
+[15:51:28][INFO] Detection 7-Zip : True
+[15:51:28][INFO] Detection Notepad++ : True
+[15:51:29][INFO] Detection Visual Studio Code : False
+[15:51:29][INFO] Detection Git : True
+[15:51:29][INFO] Detection TeamViewer Host : False
+[15:51:29][INFO] Configuration chargee (7)
+[15:56:30][INFO] WinGet dÃ©tectÃ©
+[15:56:59][INFO] Chargement configuration...
+[15:57:00][INFO] Detection Google Chrome : True
+[15:57:00][INFO] Detection Mozilla Firefox : True
+[15:57:00][INFO] Detection 7-Zip : True
+[15:57:00][INFO] Detection Notepad++ : True
+[15:57:00][INFO] Detection Visual Studio Code : False
+[15:57:00][INFO] Detection Git : True
+[15:57:01][INFO] Detection TeamViewer Host : False
+[15:57:01][INFO] Detection Microsoft 365 Apps for enterprise : True
+[15:57:01][INFO] Detection Adobe Acrobat Reader DC : False
+[15:57:01][INFO] Detection VLC Media Player : True
+[15:57:01][INFO] Detection Spotify : False
+[15:57:02][INFO] Detection Zoom : False
+[15:57:02][INFO] Detection Slack : False
+[15:57:02][INFO] Detection Discord : False
+[15:57:02][INFO] Configuration chargee (14)
+[15:58:15][INFO] Installation Adobe Acrobat Reader DC...
+[15:58:18][ERROR] Erreur installation Adobe Acrobat Reader DC (code -1978335212)
+[15:58:18][INFO] Installation terminÃ©e
+[15:58:18][INFO] Rafraichissement etat...
+[15:58:18][INFO] Chargement configuration...
+[15:58:18][INFO] Detection Google Chrome : True
+[15:58:18][INFO] Detection Mozilla Firefox : True
+[15:58:18][INFO] Detection 7-Zip : True
+[15:58:18][INFO] Detection Notepad++ : True
+[15:58:18][INFO] Detection Visual Studio Code : False
+[15:58:18][INFO] Detection Git : True
+[15:58:19][INFO] Detection TeamViewer Host : False
+[15:58:19][INFO] Detection Microsoft 365 Apps for enterprise : True
+[15:58:19][INFO] Detection Adobe Acrobat Reader DC : False
+[15:58:19][INFO] Detection VLC Media Player : True
+[15:58:19][INFO] Detection Spotify : False
+[15:58:20][INFO] Detection Zoom : False
+[15:58:20][INFO] Detection Slack : False
+[15:58:20][INFO] Detection Discord : False
+[15:58:20][INFO] Configuration chargee (14)
+[16:01:53][INFO] WinGet detecte
+[16:02:15][INFO] WinGet detecte
+[16:02:17][INFO] Chargement configuration...
+[16:02:18][INFO] Detection Google Chrome : True
+[16:02:18][INFO] Detection Mozilla Firefox : True
+[16:02:18][INFO] Detection Microsoft Edge : True
+[16:02:18][INFO] Detection Microsoft 365 Apps for enterprise : True
+[16:02:18][INFO] Detection Adobe Acrobat Reader DC : False
+[16:02:19][INFO] Detection LibreOffice : False
+[16:02:19][INFO] Detection 7-Zip : True
+[16:02:19][INFO] Detection Notepad++ : True
+[16:02:19][INFO] Detection VLC Media Player : True
+[16:02:19][INFO] Detection Everything : False
+[16:02:19][INFO] Detection Greenshot : False
+[16:02:20][INFO] Detection Visual Studio Code : False
+[16:02:20][INFO] Detection Git : True
+[16:02:20][INFO] Detection GitHub Desktop : False
+[16:02:20][INFO] Detection Postman : False
+[16:02:20][INFO] Detection Zoom : False
+[16:02:21][INFO] Detection Slack : False
+[16:02:21][INFO] Detection Microsoft Teams : True
+[16:02:21][INFO] Detection Discord : False
+[16:02:21][INFO] Detection TeamViewer Host : False
+[16:02:21][INFO] Detection TeamViewer (Full) : False
+[16:02:22][INFO] Detection AnyDesk : False
+[16:02:22][INFO] Detection Cisco AnyConnect : False
+[16:02:22][INFO] Detection FortiClient VPN : False
+[16:02:22][INFO] Detection OpenVPN : False
+[16:02:22][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[16:02:23][INFO] Detection .NET Desktop Runtime 8 : False
+[16:02:23][INFO] Detection Java Runtime (Temurin 17) : False
+[16:02:23][INFO] Detection Spotify : False
+[16:02:23][INFO] Configuration chargee (29)
+[16:06:14][INFO] WinGet dÃ©tectÃ©
+[16:06:16][INFO] Chargement configuration...
+[16:06:16][INFO] DÃ©tection Microsoft 365 Apps for enterprise : True
+[16:06:16][INFO] DÃ©tection Adobe Acrobat Reader DC : False
+[16:06:17][INFO] DÃ©tection LibreOffice : False
+[16:06:17][INFO] DÃ©tection Zoom : False
+[16:06:17][INFO] DÃ©tection Slack : False
+[16:06:17][INFO] DÃ©tection Microsoft Teams : True
+[16:06:17][INFO] DÃ©tection Discord : False
+[16:06:18][INFO] DÃ©tection Visual Studio Code : False
+[16:06:18][INFO] DÃ©tection Git : True
+[16:06:18][INFO] DÃ©tection GitHub Desktop : False
+[16:06:18][INFO] DÃ©tection Postman : False
+[16:06:18][INFO] DÃ©tection Google Chrome : True
+[16:06:18][INFO] DÃ©tection Mozilla Firefox : True
+[16:06:19][INFO] DÃ©tection Microsoft Edge : True
+[16:06:19][INFO] DÃ©tection Spotify : False
+[16:06:19][INFO] DÃ©tection Cisco AnyConnect : False
+[16:06:19][INFO] DÃ©tection FortiClient VPN : False
+[16:06:20][INFO] DÃ©tection OpenVPN : False
+[16:06:20][INFO] DÃ©tection Microsoft Visual C++ Redistributable 2015-2022 : False
+[16:06:20][INFO] DÃ©tection .NET Desktop Runtime 8 : False
+[16:06:20][INFO] DÃ©tection Java Runtime (Temurin 17) : False
+[16:06:20][INFO] DÃ©tection TeamViewer Host : False
+[16:06:21][INFO] DÃ©tection TeamViewer (Full) : False
+[16:06:21][INFO] DÃ©tection AnyDesk : False
+[16:06:21][INFO] DÃ©tection 7-Zip : True
+[16:06:21][INFO] DÃ©tection Notepad++ : True
+[16:06:21][INFO] DÃ©tection VLC Media Player : True
+[16:06:22][INFO] DÃ©tection Everything : False
+[16:06:22][INFO] DÃ©tection Greenshot : False
+[16:06:22][INFO] Configuration chargÃ©e (29)
+[16:25:33][INFO] WinGet dÃ©tectÃ©
+[16:25:37][INFO] Chargement configuration...
+[16:25:37][INFO] DÃ©tection Microsoft 365 Apps for enterprise : True
+[16:25:38][INFO] DÃ©tection Adobe Acrobat Reader DC : False
+[16:25:38][INFO] DÃ©tection LibreOffice : False
+[16:25:38][INFO] DÃ©tection Zoom : False
+[16:25:38][INFO] DÃ©tection Slack : False
+[16:25:38][INFO] DÃ©tection Microsoft Teams : True
+[16:25:39][INFO] DÃ©tection Discord : False
+[16:25:39][INFO] DÃ©tection Visual Studio Code : False
+[16:25:39][INFO] DÃ©tection Git : True
+[16:25:39][INFO] DÃ©tection GitHub Desktop : False
+[16:25:39][INFO] DÃ©tection Postman : False
+[16:25:40][INFO] DÃ©tection Google Chrome : True
+[16:25:40][INFO] DÃ©tection Mozilla Firefox : True
+[16:25:40][INFO] DÃ©tection Microsoft Edge : True
+[16:25:40][INFO] DÃ©tection Spotify : False
+[16:25:40][INFO] DÃ©tection Cisco AnyConnect : False
+[16:25:41][INFO] DÃ©tection FortiClient VPN : False
+[16:25:41][INFO] DÃ©tection OpenVPN : False
+[16:25:41][INFO] DÃ©tection Microsoft Visual C++ Redistributable 2015-2022 : False
+[16:25:41][INFO] DÃ©tection .NET Desktop Runtime 8 : False
+[16:25:42][INFO] DÃ©tection Java Runtime (Temurin 17) : False
+[16:25:42][INFO] DÃ©tection TeamViewer Host : False
+[16:25:42][INFO] DÃ©tection TeamViewer (Full) : False
+[16:25:42][INFO] DÃ©tection AnyDesk : False
+[16:25:43][INFO] DÃ©tection 7-Zip : False
+[16:25:43][INFO] DÃ©tection Notepad++ : True
+[16:25:43][INFO] DÃ©tection VLC Media Player : True
+[16:25:43][INFO] DÃ©tection Everything : False
+[16:25:43][INFO] DÃ©tection Greenshot : False
+[16:25:43][INFO] Configuration chargÃ©e (29)
+[16:33:16][INFO] WinGet dÃ©tectÃ©
+[16:33:16][INFO] Loading configuration...
+[16:33:16][INFO] Detection Microsoft 365 Apps for enterprise : True
+[16:33:16][INFO] Detection Adobe Acrobat Reader DC : False
+[16:33:16][INFO] Detection LibreOffice : False
+[16:33:16][INFO] Detection Zoom : False
+[16:33:17][INFO] Detection Slack : False
+[16:33:17][INFO] Detection Microsoft Teams : True
+[16:33:17][INFO] Detection Discord : False
+[16:33:17][INFO] Detection Visual Studio Code : False
+[16:33:17][INFO] Detection Git : True
+[16:33:18][INFO] Detection GitHub Desktop : False
+[16:33:18][INFO] Detection Postman : False
+[16:33:18][INFO] Detection Google Chrome : True
+[16:33:18][INFO] Detection Mozilla Firefox : True
+[16:33:18][INFO] Detection Microsoft Edge : True
+[16:33:19][INFO] Detection Spotify : False
+[16:33:19][INFO] Detection Cisco AnyConnect : False
+[16:33:19][INFO] Detection FortiClient VPN : False
+[16:33:19][INFO] Detection OpenVPN : False
+[16:33:19][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[16:33:20][INFO] Detection .NET Desktop Runtime 8 : False
+[16:33:20][INFO] Detection Java Runtime (Temurin 17) : False
+[16:33:20][INFO] Detection TeamViewer Host : False
+[16:33:20][INFO] Detection TeamViewer (Full) : False
+[16:33:21][INFO] Detection AnyDesk : False
+[16:33:21][INFO] Detection 7-Zip : False
+[16:33:21][INFO] Detection Notepad++ : True
+[16:33:21][INFO] Detection VLC Media Player : True
+[16:33:21][INFO] Detection Everything : False
+[16:33:22][INFO] Detection Greenshot : False
+[16:33:22][INFO] Configuration loaded (29)
+[16:39:31][INFO] WinGet detecte
+[16:39:31][INFO] Chargement de la configuration...
+[16:39:31][INFO] Detection Microsoft 365 Apps for enterprise : True
+[16:39:32][INFO] Detection Adobe Acrobat Reader DC : False
+[16:39:32][INFO] Detection LibreOffice : False
+[16:39:32][INFO] Detection Zoom : False
+[16:39:32][INFO] Detection Slack : False
+[16:39:32][INFO] Detection Microsoft Teams : True
+[16:39:33][INFO] Detection Discord : False
+[16:39:33][INFO] Detection Visual Studio Code : False
+[16:39:33][INFO] Detection Git : True
+[16:39:33][INFO] Detection GitHub Desktop : False
+[16:39:33][INFO] Detection Postman : False
+[16:39:34][INFO] Detection Google Chrome : True
+[16:39:34][INFO] Detection Mozilla Firefox : True
+[16:39:34][INFO] Detection Microsoft Edge : True
+[16:39:34][INFO] Detection Spotify : False
+[16:39:34][INFO] Detection Cisco AnyConnect : False
+[16:39:35][INFO] Detection FortiClient VPN : False
+[16:39:35][INFO] Detection OpenVPN : False
+[16:39:35][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[16:39:35][INFO] Detection .NET Desktop Runtime 8 : False
+[16:39:36][INFO] Detection Java Runtime (Temurin 17) : False
+[16:39:36][INFO] Detection TeamViewer Host : False
+[16:39:36][INFO] Detection TeamViewer (Full) : False
+[16:39:36][INFO] Detection AnyDesk : False
+[16:39:36][INFO] Detection 7-Zip : False
+[16:39:37][INFO] Detection Notepad++ : True
+[16:39:37][INFO] Detection VLC Media Player : True
+[16:39:37][INFO] Detection Everything : False
+[16:39:37][INFO] Detection Greenshot : False
+[16:39:37][INFO] Configuration loaded (29)
+[16:52:00][INFO] WinGet detecte
+[16:52:00][INFO] Chargement configuration...
+[16:52:01][INFO] Detection Microsoft 365 Apps for enterprise : True
+[16:52:01][INFO] Detection Adobe Acrobat Reader DC : False
+[16:52:01][INFO] Detection LibreOffice : False
+[16:52:01][INFO] Detection Zoom : False
+[16:52:02][INFO] Detection Slack : False
+[16:52:02][INFO] Detection Microsoft Teams : True
+[16:52:02][INFO] Detection Discord : False
+[16:52:02][INFO] Detection Visual Studio Code : False
+[16:52:02][INFO] Detection Git : True
+[16:52:03][INFO] Detection GitHub Desktop : False
+[16:52:03][INFO] Detection Postman : False
+[16:52:03][INFO] Detection Google Chrome : True
+[16:52:03][INFO] Detection Mozilla Firefox : True
+[16:52:03][INFO] Detection Microsoft Edge : True
+[16:52:04][INFO] Detection Spotify : False
+[16:52:04][INFO] Detection Cisco AnyConnect : False
+[16:52:04][INFO] Detection FortiClient VPN : False
+[16:52:04][INFO] Detection OpenVPN : False
+[16:52:04][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[16:52:05][INFO] Detection .NET Desktop Runtime 8 : False
+[16:52:05][INFO] Detection Java Runtime (Temurin 17) : False
+[16:52:05][INFO] Detection TeamViewer Host : False
+[16:52:05][INFO] Detection TeamViewer (Full) : False
+[16:52:06][INFO] Detection AnyDesk : False
+[16:52:06][INFO] Detection 7-Zip : False
+[16:52:06][INFO] Detection Notepad++ : True
+[16:52:06][INFO] Detection VLC Media Player : True
+[16:52:06][INFO] Detection Everything : False
+[16:52:07][INFO] Detection Greenshot : False
+[16:52:07][INFO] Configuration chargee (29)
+[16:53:20][INFO] WinGet detecte
+[16:53:20][INFO] Chargement configuration...
+[16:53:20][INFO] Detection Microsoft 365 Apps for enterprise : True
+[16:53:20][INFO] Detection Adobe Acrobat Reader DC : False
+[16:53:20][INFO] Detection LibreOffice : False
+[16:53:21][INFO] Detection Zoom : False
+[16:53:21][INFO] Detection Slack : False
+[16:53:21][INFO] Detection Microsoft Teams : True
+[16:53:21][INFO] Detection Discord : False
+[16:53:21][INFO] Detection Visual Studio Code : False
+[16:53:22][INFO] Detection Git : True
+[16:53:22][INFO] Detection GitHub Desktop : False
+[16:53:22][INFO] Detection Postman : False
+[16:53:22][INFO] Detection Google Chrome : True
+[16:53:22][INFO] Detection Mozilla Firefox : True
+[16:53:22][INFO] Detection Microsoft Edge : True
+[16:53:23][INFO] Detection Spotify : False
+[16:53:23][INFO] Detection Cisco AnyConnect : False
+[16:53:23][INFO] Detection FortiClient VPN : False
+[16:53:23][INFO] Detection OpenVPN : False
+[16:53:24][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[16:53:24][INFO] Detection .NET Desktop Runtime 8 : False
+[16:53:24][INFO] Detection Java Runtime (Temurin 17) : False
+[16:53:24][INFO] Detection TeamViewer Host : False
+[16:53:25][INFO] Detection TeamViewer (Full) : False
+[16:53:25][INFO] Detection AnyDesk : False
+[16:53:25][INFO] Detection 7-Zip : False
+[16:53:25][INFO] Detection Notepad++ : True
+[16:53:25][INFO] Detection VLC Media Player : True
+[16:53:26][INFO] Detection Everything : False
+[16:53:26][INFO] Detection Greenshot : False
+[16:53:26][INFO] Configuration chargee (29)
+[16:57:02][INFO] WinGet detecte
+[16:57:02][INFO] Chargement configuration...
+[16:57:02][INFO] Detection Microsoft 365 Apps for enterprise : True
+[16:57:03][INFO] Detection Adobe Acrobat Reader DC : False
+[16:57:03][INFO] Detection LibreOffice : False
+[16:57:03][INFO] Detection Zoom : False
+[16:57:03][INFO] Detection Slack : False
+[16:57:03][INFO] Detection Microsoft Teams : True
+[16:57:04][INFO] Detection Discord : False
+[16:57:04][INFO] Detection Visual Studio Code : False
+[16:57:04][INFO] Detection Git : True
+[16:57:04][INFO] Detection GitHub Desktop : False
+[16:57:04][INFO] Detection Postman : False
+[16:57:05][INFO] Detection Google Chrome : True
+[16:57:05][INFO] Detection Mozilla Firefox : True
+[16:57:05][INFO] Detection Microsoft Edge : True
+[16:57:05][INFO] Detection Spotify : False
+[16:57:05][INFO] Detection Cisco AnyConnect : False
+[16:57:06][INFO] Detection FortiClient VPN : False
+[16:57:06][INFO] Detection OpenVPN : False
+[16:57:06][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[16:57:06][INFO] Detection .NET Desktop Runtime 8 : False
+[16:57:07][INFO] Detection Java Runtime (Temurin 17) : False
+[16:57:07][INFO] Detection TeamViewer Host : False
+[16:57:07][INFO] Detection TeamViewer (Full) : False
+[16:57:07][INFO] Detection AnyDesk : False
+[16:57:07][INFO] Detection 7-Zip : False
+[16:57:08][INFO] Detection Notepad++ : True
+[16:57:08][INFO] Detection VLC Media Player : True
+[16:57:08][INFO] Detection Everything : False
+[16:57:08][INFO] Detection Greenshot : False
+[16:57:08][INFO] Configuration chargee (29)
+[17:06:28][INFO] WinGet detecte
+[17:06:28][INFO] Chargement configuration...
+[17:06:28][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:06:29][INFO] Detection Adobe Acrobat Reader DC : False
+[17:06:29][INFO] Detection LibreOffice : False
+[17:06:29][INFO] Detection Zoom : False
+[17:06:29][INFO] Detection Slack : False
+[17:06:29][INFO] Detection Microsoft Teams : True
+[17:06:30][INFO] Detection Discord : False
+[17:06:30][INFO] Detection Visual Studio Code : False
+[17:06:30][INFO] Detection Git : True
+[17:06:30][INFO] Detection GitHub Desktop : False
+[17:06:31][INFO] Detection Postman : False
+[17:06:31][INFO] Detection Google Chrome : True
+[17:06:31][INFO] Detection Mozilla Firefox : True
+[17:06:31][INFO] Detection Microsoft Edge : True
+[17:06:31][INFO] Detection Spotify : False
+[17:06:32][INFO] Detection Cisco AnyConnect : False
+[17:06:32][INFO] Detection FortiClient VPN : False
+[17:06:32][INFO] Detection OpenVPN : False
+[17:06:32][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:06:32][INFO] Detection .NET Desktop Runtime 8 : False
+[17:06:33][INFO] Detection Java Runtime (Temurin 17) : False
+[17:06:33][INFO] Detection TeamViewer Host : False
+[17:06:33][INFO] Detection TeamViewer (Full) : False
+[17:06:33][INFO] Detection AnyDesk : False
+[17:06:34][INFO] Detection 7-Zip : False
+[17:06:34][INFO] Detection Notepad++ : True
+[17:06:34][INFO] Detection VLC Media Player : True
+[17:06:34][INFO] Detection Everything : False
+[17:06:34][INFO] Detection Greenshot : False
+[17:06:34][INFO] Configuration chargee (29)
+[17:09:22][INFO] WinGet detecte
+[17:09:22][INFO] Chargement configuration...
+[17:09:23][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:09:23][INFO] Detection Adobe Acrobat Reader DC : False
+[17:09:23][INFO] Detection LibreOffice : False
+[17:09:23][INFO] Detection Zoom : False
+[17:09:24][INFO] Detection Slack : False
+[17:09:24][INFO] Detection Microsoft Teams : True
+[17:09:24][INFO] Detection Discord : False
+[17:09:24][INFO] Detection Visual Studio Code : False
+[17:09:24][INFO] Detection Git : True
+[17:09:25][INFO] Detection GitHub Desktop : False
+[17:09:25][INFO] Detection Postman : False
+[17:09:25][INFO] Detection Google Chrome : True
+[17:09:25][INFO] Detection Mozilla Firefox : True
+[17:09:25][INFO] Detection Microsoft Edge : True
+[17:09:26][INFO] Detection Spotify : False
+[17:09:26][INFO] Detection Cisco AnyConnect : False
+[17:09:26][INFO] Detection FortiClient VPN : False
+[17:09:26][INFO] Detection OpenVPN : False
+[17:09:26][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:09:27][INFO] Detection .NET Desktop Runtime 8 : False
+[17:09:27][INFO] Detection Java Runtime (Temurin 17) : False
+[17:09:27][INFO] Detection TeamViewer Host : False
+[17:09:27][INFO] Detection TeamViewer (Full) : False
+[17:09:28][INFO] Detection AnyDesk : False
+[17:09:28][INFO] Detection 7-Zip : False
+[17:09:28][INFO] Detection Notepad++ : True
+[17:09:28][INFO] Detection VLC Media Player : True
+[17:09:28][INFO] Detection Everything : False
+[17:09:29][INFO] Detection Greenshot : False
+[17:09:29][INFO] Configuration chargee (29)
+[17:09:52][INFO] Microsoft 365 Apps for enterprise deja installe - ignore
+[17:09:52][INFO] Microsoft Teams deja installe - ignore
+[17:09:53][INFO] Git deja installe - ignore
+[17:09:53][INFO] Google Chrome deja installe - ignore
+[17:09:53][INFO] Mozilla Firefox deja installe - ignore
+[17:09:53][INFO] Microsoft Edge deja installe - ignore
+[17:09:53][INFO] Notepad++ deja installe - ignore
+[17:09:53][INFO] VLC Media Player deja installe - ignore
+[17:09:53][INFO] Debut installation (1)
+[17:09:54][INFO] Installation 7-Zip...
+[17:10:02][INFO] 7-Zip installe avec succÃ¨s
+[17:10:02][INFO] Installation terminee
+[17:10:02][INFO] Installation terminee
+[17:10:02][INFO] Chargement configuration...
+[17:10:02][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:10:02][INFO] Detection Adobe Acrobat Reader DC : False
+[17:10:02][INFO] Detection LibreOffice : False
+[17:10:02][INFO] Detection Zoom : False
+[17:10:03][INFO] Detection Slack : False
+[17:10:03][INFO] Detection Microsoft Teams : True
+[17:10:03][INFO] Detection Discord : False
+[17:10:03][INFO] Detection Visual Studio Code : False
+[17:10:04][INFO] Detection Git : True
+[17:10:04][INFO] Detection GitHub Desktop : False
+[17:10:04][INFO] Detection Postman : False
+[17:10:04][INFO] Detection Google Chrome : True
+[17:10:04][INFO] Detection Mozilla Firefox : True
+[17:10:05][INFO] Detection Microsoft Edge : True
+[17:10:05][INFO] Detection Spotify : False
+[17:10:05][INFO] Detection Cisco AnyConnect : False
+[17:10:05][INFO] Detection FortiClient VPN : False
+[17:10:06][INFO] Detection OpenVPN : False
+[17:10:06][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:10:06][INFO] Detection .NET Desktop Runtime 8 : False
+[17:10:06][INFO] Detection Java Runtime (Temurin 17) : False
+[17:10:07][INFO] Detection TeamViewer Host : False
+[17:10:07][INFO] Detection TeamViewer (Full) : False
+[17:10:07][INFO] Detection AnyDesk : False
+[17:10:07][INFO] Detection 7-Zip : True
+[17:10:07][INFO] Detection Notepad++ : True
+[17:10:07][INFO] Detection VLC Media Player : True
+[17:10:08][INFO] Detection Everything : False
+[17:10:08][INFO] Detection Greenshot : False
+[17:10:08][INFO] Configuration chargee (29)
+[17:10:22][INFO] Desinstallation ...
+[17:10:22][INFO] Desinstallation terminee
+[17:10:22][INFO]  desinstalle
+[17:10:22][INFO] Chargement configuration...
+[17:10:22][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:10:22][INFO] Detection Adobe Acrobat Reader DC : False
+[17:10:22][INFO] Detection LibreOffice : False
+[17:10:22][INFO] Detection Zoom : False
+[17:10:23][INFO] Detection Slack : False
+[17:10:23][INFO] Detection Microsoft Teams : True
+[17:10:23][INFO] Detection Discord : False
+[17:10:23][INFO] Detection Visual Studio Code : False
+[17:10:23][INFO] Detection Git : True
+[17:10:24][INFO] Detection GitHub Desktop : False
+[17:10:24][INFO] Detection Postman : False
+[17:10:24][INFO] Detection Google Chrome : True
+[17:10:24][INFO] Detection Mozilla Firefox : True
+[17:10:24][INFO] Detection Microsoft Edge : True
+[17:10:25][INFO] Detection Spotify : False
+[17:10:25][INFO] Detection Cisco AnyConnect : False
+[17:10:25][INFO] Detection FortiClient VPN : False
+[17:10:25][INFO] Detection OpenVPN : False
+[17:10:26][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:10:26][INFO] Detection .NET Desktop Runtime 8 : False
+[17:10:26][INFO] Detection Java Runtime (Temurin 17) : False
+[17:10:26][INFO] Detection TeamViewer Host : False
+[17:10:27][INFO] Detection TeamViewer (Full) : False
+[17:10:27][INFO] Detection AnyDesk : False
+[17:10:27][INFO] Detection 7-Zip : True
+[17:10:27][INFO] Detection Notepad++ : True
+[17:10:27][INFO] Detection VLC Media Player : True
+[17:10:27][INFO] Detection Everything : False
+[17:10:28][INFO] Detection Greenshot : False
+[17:10:28][INFO] Configuration chargee (29)
+[17:16:06][INFO] WinGet detecte
+[17:16:06][INFO] Chargement configuration...
+[17:16:06][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:16:06][INFO] Detection Adobe Acrobat Reader DC : False
+[17:16:06][INFO] Detection LibreOffice : False
+[17:16:06][INFO] Detection Zoom : False
+[17:16:07][INFO] Detection Slack : False
+[17:16:07][INFO] Detection Microsoft Teams : True
+[17:16:07][INFO] Detection Discord : False
+[17:16:07][INFO] Detection Visual Studio Code : False
+[17:16:07][INFO] Detection Git : True
+[17:16:08][INFO] Detection GitHub Desktop : False
+[17:16:08][INFO] Detection Postman : False
+[17:16:08][INFO] Detection Google Chrome : True
+[17:16:08][INFO] Detection Mozilla Firefox : True
+[17:16:08][INFO] Detection Microsoft Edge : True
+[17:16:09][INFO] Detection Spotify : False
+[17:16:09][INFO] Detection Cisco AnyConnect : False
+[17:16:09][INFO] Detection FortiClient VPN : False
+[17:16:09][INFO] Detection OpenVPN : False
+[17:16:10][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:16:10][INFO] Detection .NET Desktop Runtime 8 : False
+[17:16:10][INFO] Detection Java Runtime (Temurin 17) : False
+[17:16:10][INFO] Detection TeamViewer Host : False
+[17:16:11][INFO] Detection TeamViewer (Full) : False
+[17:16:11][INFO] Detection AnyDesk : False
+[17:16:11][INFO] Detection 7-Zip : True
+[17:16:11][INFO] Detection Notepad++ : True
+[17:16:11][INFO] Detection VLC Media Player : True
+[17:16:11][INFO] Detection Everything : False
+[17:16:12][INFO] Detection Greenshot : False
+[17:16:12][INFO] Configuration chargee (29)
+[17:16:25][INFO] Desinstallation ...
+[17:16:25][INFO] Desinstallation terminee
+[17:16:25][INFO]  desinstalle
+[17:16:25][INFO] Chargement configuration...
+[17:16:25][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:16:25][INFO] Detection Adobe Acrobat Reader DC : False
+[17:16:25][INFO] Detection LibreOffice : False
+[17:16:26][INFO] Detection Zoom : False
+[17:16:26][INFO] Detection Slack : False
+[17:16:26][INFO] Detection Microsoft Teams : True
+[17:16:26][INFO] Detection Discord : False
+[17:16:26][INFO] Detection Visual Studio Code : False
+[17:16:27][INFO] Detection Git : True
+[17:16:27][INFO] Detection GitHub Desktop : False
+[17:16:27][INFO] Detection Postman : False
+[17:16:27][INFO] Detection Google Chrome : True
+[17:16:27][INFO] Detection Mozilla Firefox : True
+[17:16:28][INFO] Detection Microsoft Edge : True
+[17:16:28][INFO] Detection Spotify : False
+[17:16:28][INFO] Detection Cisco AnyConnect : False
+[17:16:28][INFO] Detection FortiClient VPN : False
+[17:16:29][INFO] Detection OpenVPN : False
+[17:16:29][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:16:29][INFO] Detection .NET Desktop Runtime 8 : False
+[17:16:29][INFO] Detection Java Runtime (Temurin 17) : False
+[17:16:29][INFO] Detection TeamViewer Host : False
+[17:16:30][INFO] Detection TeamViewer (Full) : False
+[17:16:30][INFO] Detection AnyDesk : False
+[17:16:30][INFO] Detection 7-Zip : True
+[17:16:30][INFO] Detection Notepad++ : True
+[17:16:30][INFO] Detection VLC Media Player : True
+[17:16:31][INFO] Detection Everything : False
+[17:16:31][INFO] Detection Greenshot : False
+[17:16:31][INFO] Configuration chargee (29)
+[17:16:49][INFO] WinGet detecte
+[17:16:49][INFO] Chargement configuration...
+[17:16:50][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:16:50][INFO] Detection Adobe Acrobat Reader DC : False
+[17:16:50][INFO] Detection LibreOffice : False
+[17:16:50][INFO] Detection Zoom : False
+[17:16:51][INFO] Detection Slack : False
+[17:16:51][INFO] Detection Microsoft Teams : True
+[17:16:51][INFO] Detection Discord : False
+[17:16:51][INFO] Detection Visual Studio Code : False
+[17:16:51][INFO] Detection Git : True
+[17:16:52][INFO] Detection GitHub Desktop : False
+[17:16:52][INFO] Detection Postman : False
+[17:16:52][INFO] Detection Google Chrome : True
+[17:16:52][INFO] Detection Mozilla Firefox : True
+[17:16:52][INFO] Detection Microsoft Edge : True
+[17:16:52][INFO] Detection Spotify : False
+[17:16:53][INFO] Detection Cisco AnyConnect : False
+[17:16:53][INFO] Detection FortiClient VPN : False
+[17:16:53][INFO] Detection OpenVPN : False
+[17:16:53][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:16:54][INFO] Detection .NET Desktop Runtime 8 : False
+[17:16:54][INFO] Detection Java Runtime (Temurin 17) : False
+[17:16:54][INFO] Detection TeamViewer Host : False
+[17:16:54][INFO] Detection TeamViewer (Full) : False
+[17:16:55][INFO] Detection AnyDesk : False
+[17:16:55][INFO] Detection 7-Zip : True
+[17:16:55][INFO] Detection Notepad++ : True
+[17:16:55][INFO] Detection VLC Media Player : True
+[17:16:55][INFO] Detection Everything : False
+[17:16:55][INFO] Detection Greenshot : False
+[17:16:55][INFO] Configuration chargee (29)
+[17:18:44][INFO] WinGet detecte
+[17:18:44][INFO] Chargement configuration...
+[17:18:44][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:18:44][INFO] Detection Adobe Acrobat Reader DC : False
+[17:18:44][INFO] Detection LibreOffice : False
+[17:18:45][INFO] Detection Zoom : False
+[17:18:45][INFO] Detection Slack : False
+[17:18:45][INFO] Detection Microsoft Teams : True
+[17:18:45][INFO] Detection Discord : False
+[17:18:45][INFO] Detection Visual Studio Code : False
+[17:18:46][INFO] Detection Git : True
+[17:18:46][INFO] Detection GitHub Desktop : False
+[17:18:46][INFO] Detection Postman : False
+[17:18:46][INFO] Detection Google Chrome : True
+[17:18:46][INFO] Detection Mozilla Firefox : True
+[17:18:47][INFO] Detection Microsoft Edge : True
+[17:18:47][INFO] Detection Spotify : False
+[17:18:47][INFO] Detection Cisco AnyConnect : False
+[17:18:47][INFO] Detection FortiClient VPN : False
+[17:18:48][INFO] Detection OpenVPN : False
+[17:18:48][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:18:48][INFO] Detection .NET Desktop Runtime 8 : False
+[17:18:48][INFO] Detection Java Runtime (Temurin 17) : False
+[17:18:48][INFO] Detection TeamViewer Host : False
+[17:18:49][INFO] Detection TeamViewer (Full) : False
+[17:18:49][INFO] Detection AnyDesk : False
+[17:18:49][INFO] Detection 7-Zip : True
+[17:18:49][INFO] Detection Notepad++ : True
+[17:18:49][INFO] Detection VLC Media Player : True
+[17:18:50][INFO] Detection Everything : False
+[17:18:50][INFO] Detection Greenshot : False
+[17:18:50][INFO] Configuration chargee (29)
+[17:19:08][INFO] WinGet detecte
+[17:19:08][INFO] Chargement configuration...
+[17:19:08][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:19:08][INFO] Detection Adobe Acrobat Reader DC : False
+[17:19:08][INFO] Detection LibreOffice : False
+[17:19:08][INFO] Detection Zoom : False
+[17:19:09][INFO] Detection Slack : False
+[17:19:09][INFO] Detection Microsoft Teams : True
+[17:19:09][INFO] Detection Discord : False
+[17:19:09][INFO] Detection Visual Studio Code : False
+[17:19:09][INFO] Detection Git : True
+[17:19:10][INFO] Detection GitHub Desktop : False
+[17:19:10][INFO] Detection Postman : False
+[17:19:10][INFO] Detection Google Chrome : True
+[17:19:10][INFO] Detection Mozilla Firefox : True
+[17:19:10][INFO] Detection Microsoft Edge : True
+[17:19:11][INFO] Detection Spotify : False
+[17:19:11][INFO] Detection Cisco AnyConnect : False
+[17:19:11][INFO] Detection FortiClient VPN : False
+[17:19:11][INFO] Detection OpenVPN : False
+[17:19:12][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:19:12][INFO] Detection .NET Desktop Runtime 8 : False
+[17:19:12][INFO] Detection Java Runtime (Temurin 17) : False
+[17:19:12][INFO] Detection TeamViewer Host : False
+[17:19:13][INFO] Detection TeamViewer (Full) : False
+[17:19:13][INFO] Detection AnyDesk : False
+[17:19:13][INFO] Detection 7-Zip : True
+[17:19:13][INFO] Detection Notepad++ : True
+[17:19:13][INFO] Detection VLC Media Player : True
+[17:19:13][INFO] Detection Everything : False
+[17:19:14][INFO] Detection Greenshot : False
+[17:19:14][INFO] Configuration chargee (29)
+[17:19:22][INFO] Desinstallation ...
+[17:19:22][INFO] Desinstallation terminee
+[17:19:22][INFO]  desinstalle
+[17:19:22][INFO] Chargement configuration...
+[17:19:23][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:19:23][INFO] Detection Adobe Acrobat Reader DC : False
+[17:19:23][INFO] Detection LibreOffice : False
+[17:19:23][INFO] Detection Zoom : False
+[17:19:24][INFO] Detection Slack : False
+[17:19:24][INFO] Detection Microsoft Teams : True
+[17:19:24][INFO] Detection Discord : False
+[17:19:24][INFO] Detection Visual Studio Code : False
+[17:19:24][INFO] Detection Git : True
+[17:19:25][INFO] Detection GitHub Desktop : False
+[17:19:25][INFO] Detection Postman : False
+[17:19:25][INFO] Detection Google Chrome : True
+[17:19:25][INFO] Detection Mozilla Firefox : True
+[17:19:25][INFO] Detection Microsoft Edge : True
+[17:19:26][INFO] Detection Spotify : False
+[17:19:26][INFO] Detection Cisco AnyConnect : False
+[17:19:26][INFO] Detection FortiClient VPN : False
+[17:19:26][INFO] Detection OpenVPN : False
+[17:19:27][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:19:27][INFO] Detection .NET Desktop Runtime 8 : False
+[17:19:27][INFO] Detection Java Runtime (Temurin 17) : False
+[17:19:27][INFO] Detection TeamViewer Host : False
+[17:19:28][INFO] Detection TeamViewer (Full) : False
+[17:19:28][INFO] Detection AnyDesk : False
+[17:19:28][INFO] Detection 7-Zip : True
+[17:19:28][INFO] Detection Notepad++ : True
+[17:19:28][INFO] Detection VLC Media Player : True
+[17:19:29][INFO] Detection Everything : False
+[17:19:29][INFO] Detection Greenshot : False
+[17:19:29][INFO] Configuration chargee (29)
+[17:21:40][INFO] WinGet detecte
+[17:21:40][INFO] Chargement configuration...
+[17:21:40][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:21:41][INFO] Detection Adobe Acrobat Reader DC : False
+[17:21:41][INFO] Detection LibreOffice : False
+[17:21:41][INFO] Detection Zoom : False
+[17:21:41][INFO] Detection Slack : False
+[17:21:41][INFO] Detection Microsoft Teams : True
+[17:21:42][INFO] Detection Discord : False
+[17:21:42][INFO] Detection Visual Studio Code : False
+[17:21:42][INFO] Detection Git : True
+[17:21:42][INFO] Detection GitHub Desktop : False
+[17:21:43][INFO] Detection Postman : False
+[17:21:43][INFO] Detection Google Chrome : True
+[17:21:43][INFO] Detection Mozilla Firefox : True
+[17:21:43][INFO] Detection Microsoft Edge : True
+[17:21:43][INFO] Detection Spotify : False
+[17:21:43][INFO] Detection Cisco AnyConnect : False
+[17:21:44][INFO] Detection FortiClient VPN : False
+[17:21:44][INFO] Detection OpenVPN : False
+[17:21:44][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:21:44][INFO] Detection .NET Desktop Runtime 8 : False
+[17:21:45][INFO] Detection Java Runtime (Temurin 17) : False
+[17:21:45][INFO] Detection TeamViewer Host : False
+[17:21:45][INFO] Detection TeamViewer (Full) : False
+[17:21:45][INFO] Detection AnyDesk : False
+[17:21:46][INFO] Detection 7-Zip : True
+[17:21:46][INFO] Detection Notepad++ : True
+[17:21:46][INFO] Detection VLC Media Player : True
+[17:21:46][INFO] Detection Everything : False
+[17:21:46][INFO] Detection Greenshot : False
+[17:21:46][INFO] Configuration chargee (29)
+[17:32:06][INFO] WinGet detecte
+[17:32:06][INFO] Chargement configuration...
+[17:32:06][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:32:06][INFO] Detection Adobe Acrobat Reader DC : False
+[17:32:07][INFO] Detection LibreOffice : False
+[17:32:07][INFO] Detection Zoom : False
+[17:32:07][INFO] Detection Slack : False
+[17:32:07][INFO] Detection Microsoft Teams : True
+[17:32:07][INFO] Detection Discord : False
+[17:32:08][INFO] Detection Visual Studio Code : False
+[17:32:08][INFO] Detection Git : True
+[17:32:08][INFO] Detection GitHub Desktop : False
+[17:32:08][INFO] Detection Postman : False
+[17:32:08][INFO] Detection Google Chrome : True
+[17:32:09][INFO] Detection Mozilla Firefox : True
+[17:32:09][INFO] Detection Microsoft Edge : True
+[17:32:09][INFO] Detection Spotify : False
+[17:32:09][INFO] Detection Cisco AnyConnect : False
+[17:32:10][INFO] Detection FortiClient VPN : False
+[17:32:10][INFO] Detection OpenVPN : False
+[17:32:10][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:32:10][INFO] Detection .NET Desktop Runtime 8 : False
+[17:32:10][INFO] Detection Java Runtime (Temurin 17) : False
+[17:32:11][INFO] Detection TeamViewer Host : False
+[17:32:11][INFO] Detection TeamViewer (Full) : False
+[17:32:11][INFO] Detection AnyDesk : False
+[17:32:11][INFO] Detection 7-Zip : True
+[17:32:11][INFO] Detection Notepad++ : True
+[17:32:12][INFO] Detection VLC Media Player : True
+[17:32:12][INFO] Detection Everything : False
+[17:32:12][INFO] Detection Greenshot : False
+[17:32:12][INFO] Configuration chargee (29)
+[17:32:19][INFO] Tentative desinstallation 7-Zip
+[17:32:19][INFO] Desinstallation 7-Zip...
+[17:32:23][INFO] 7-Zip desinstalle avec succÃ¨s
+[17:32:23][INFO] Desinstallation terminee
+[17:32:23][INFO] Chargement configuration...
+[17:32:23][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:32:24][INFO] Detection Adobe Acrobat Reader DC : False
+[17:32:24][INFO] Detection LibreOffice : False
+[17:32:24][INFO] Detection Zoom : False
+[17:32:24][INFO] Detection Slack : False
+[17:32:25][INFO] Detection Microsoft Teams : True
+[17:32:25][INFO] Detection Discord : False
+[17:32:25][INFO] Detection Visual Studio Code : False
+[17:32:25][INFO] Detection Git : True
+[17:32:25][INFO] Detection GitHub Desktop : False
+[17:32:26][INFO] Detection Postman : False
+[17:32:26][INFO] Detection Google Chrome : True
+[17:32:26][INFO] Detection Mozilla Firefox : True
+[17:32:26][INFO] Detection Microsoft Edge : True
+[17:32:26][INFO] Detection Spotify : False
+[17:32:27][INFO] Detection Cisco AnyConnect : False
+[17:32:27][INFO] Detection FortiClient VPN : False
+[17:32:27][INFO] Detection OpenVPN : False
+[17:32:27][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:32:28][INFO] Detection .NET Desktop Runtime 8 : False
+[17:32:28][INFO] Detection Java Runtime (Temurin 17) : False
+[17:32:28][INFO] Detection TeamViewer Host : False
+[17:32:28][INFO] Detection TeamViewer (Full) : False
+[17:32:29][INFO] Detection AnyDesk : False
+[17:32:29][INFO] Detection 7-Zip : False
+[17:32:29][INFO] Detection Notepad++ : True
+[17:32:29][INFO] Detection VLC Media Player : True
+[17:32:29][INFO] Detection Everything : False
+[17:32:30][INFO] Detection Greenshot : False
+[17:32:30][INFO] Configuration chargee (29)
+[17:32:53][INFO] Microsoft 365 Apps for enterprise deja installe - ignore
+[17:32:54][INFO] Microsoft Teams deja installe - ignore
+[17:32:54][INFO] Git deja installe - ignore
+[17:32:54][INFO] Google Chrome deja installe - ignore
+[17:32:54][INFO] Mozilla Firefox deja installe - ignore
+[17:32:54][INFO] Microsoft Edge deja installe - ignore
+[17:32:54][INFO] Notepad++ deja installe - ignore
+[17:32:54][INFO] VLC Media Player deja installe - ignore
+[17:32:55][INFO] Debut installation (1)
+[17:32:55][INFO] Installation Greenshot...
+[17:33:02][INFO] Greenshot installe avec succÃ¨s
+[17:33:02][INFO] Installation terminee
+[17:33:02][INFO] Installation terminee
+[17:33:02][INFO] Chargement configuration...
+[17:33:02][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:33:03][INFO] Detection Adobe Acrobat Reader DC : False
+[17:33:03][INFO] Detection LibreOffice : False
+[17:33:03][INFO] Detection Zoom : False
+[17:33:04][INFO] Detection Slack : False
+[17:33:04][INFO] Detection Microsoft Teams : True
+[17:33:04][INFO] Detection Discord : False
+[17:33:04][INFO] Detection Visual Studio Code : False
+[17:33:05][INFO] Detection Git : True
+[17:33:05][INFO] Detection GitHub Desktop : False
+[17:33:05][INFO] Detection Postman : False
+[17:33:05][INFO] Detection Google Chrome : True
+[17:33:06][INFO] Detection Mozilla Firefox : True
+[17:33:06][INFO] Detection Microsoft Edge : True
+[17:33:06][INFO] Detection Spotify : False
+[17:33:06][INFO] Detection Cisco AnyConnect : False
+[17:33:07][INFO] Detection FortiClient VPN : False
+[17:33:07][INFO] Detection OpenVPN : False
+[17:33:07][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:33:07][INFO] Detection .NET Desktop Runtime 8 : False
+[17:33:08][INFO] Detection Java Runtime (Temurin 17) : False
+[17:33:08][INFO] Detection TeamViewer Host : False
+[17:33:08][INFO] Detection TeamViewer (Full) : False
+[17:33:08][INFO] Detection AnyDesk : False
+[17:33:09][INFO] Detection 7-Zip : False
+[17:33:09][INFO] Detection Notepad++ : True
+[17:33:09][INFO] Detection VLC Media Player : True
+[17:33:09][INFO] Detection Everything : False
+[17:33:09][INFO] Detection Greenshot : False
+[17:33:09][INFO] Configuration chargee (29)
+[17:33:33][INFO] WinGet detecte
+[17:33:33][INFO] Chargement configuration...
+[17:33:34][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:33:34][INFO] Detection Adobe Acrobat Reader DC : False
+[17:33:34][INFO] Detection LibreOffice : False
+[17:33:34][INFO] Detection Zoom : False
+[17:33:35][INFO] Detection Slack : False
+[17:33:35][INFO] Detection Microsoft Teams : True
+[17:33:35][INFO] Detection Discord : False
+[17:33:35][INFO] Detection Visual Studio Code : False
+[17:33:35][INFO] Detection Git : True
+[17:33:36][INFO] Detection GitHub Desktop : False
+[17:33:36][INFO] Detection Postman : False
+[17:33:36][INFO] Detection Google Chrome : True
+[17:33:36][INFO] Detection Mozilla Firefox : True
+[17:33:36][INFO] Detection Microsoft Edge : True
+[17:33:37][INFO] Detection Spotify : False
+[17:33:37][INFO] Detection Cisco AnyConnect : False
+[17:33:37][INFO] Detection FortiClient VPN : False
+[17:33:37][INFO] Detection OpenVPN : False
+[17:33:38][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:33:38][INFO] Detection .NET Desktop Runtime 8 : False
+[17:33:38][INFO] Detection Java Runtime (Temurin 17) : False
+[17:33:38][INFO] Detection TeamViewer Host : False
+[17:33:38][INFO] Detection TeamViewer (Full) : False
+[17:33:39][INFO] Detection AnyDesk : False
+[17:33:39][INFO] Detection 7-Zip : False
+[17:33:39][INFO] Detection Notepad++ : True
+[17:33:39][INFO] Detection VLC Media Player : True
+[17:33:39][INFO] Detection Everything : False
+[17:33:40][INFO] Detection Greenshot : False
+[17:33:40][INFO] Configuration chargee (29)
+[17:38:30][INFO] WinGet detecte
+[17:38:30][INFO] Chargement configuration...
+[17:38:30][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:38:30][INFO] Detection Adobe Acrobat Reader DC : True
+[17:38:30][INFO] Detection LibreOffice : True
+[17:38:31][INFO] Detection Zoom : True
+[17:38:31][INFO] Detection Slack : True
+[17:38:31][INFO] Detection Microsoft Teams : True
+[17:38:31][INFO] Detection Discord : True
+[17:38:31][INFO] Detection Visual Studio Code : True
+[17:38:31][INFO] Detection Git : True
+[17:38:31][INFO] Detection GitHub Desktop : True
+[17:38:31][INFO] Detection Postman : True
+[17:38:32][INFO] Detection Google Chrome : True
+[17:38:32][INFO] Detection Mozilla Firefox : True
+[17:38:32][INFO] Detection Microsoft Edge : True
+[17:38:32][INFO] Detection Spotify : True
+[17:38:32][INFO] Detection Cisco AnyConnect : True
+[17:38:32][INFO] Detection FortiClient VPN : True
+[17:38:32][INFO] Detection OpenVPN : True
+[17:38:33][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : True
+[17:38:33][INFO] Detection .NET Desktop Runtime 8 : True
+[17:38:33][INFO] Detection Java Runtime (Temurin 17) : True
+[17:38:33][INFO] Detection TeamViewer Host : True
+[17:38:33][INFO] Detection TeamViewer (Full) : True
+[17:38:33][INFO] Detection AnyDesk : True
+[17:38:33][INFO] Detection 7-Zip : True
+[17:38:33][INFO] Detection Notepad++ : True
+[17:38:34][INFO] Detection VLC Media Player : True
+[17:38:34][INFO] Detection Everything : True
+[17:38:34][INFO] Detection Greenshot : True
+[17:38:34][INFO] Configuration chargee (29)
+[17:43:29][INFO] WinGet detecte
+[17:43:29][INFO] Chargement configuration...
+[17:43:31][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:43:32][INFO] Detection Adobe Acrobat Reader DC : False
+[17:43:33][INFO] Detection LibreOffice : False
+[17:43:34][INFO] Detection Zoom : False
+[17:43:35][INFO] Detection Slack : False
+[17:43:36][INFO] Detection Microsoft Teams : True
+[17:43:37][INFO] Detection Discord : True
+[17:43:38][INFO] Detection Visual Studio Code : True
+[17:43:39][INFO] Detection Git : False
+[17:43:40][INFO] Detection GitHub Desktop : False
+[17:43:41][INFO] Detection Postman : False
+[17:43:42][INFO] Detection Google Chrome : True
+[17:43:44][INFO] Detection Mozilla Firefox : True
+[17:43:45][INFO] Detection Microsoft Edge : True
+[17:43:46][INFO] Detection Spotify : False
+[17:43:47][INFO] Detection Cisco AnyConnect : False
+[17:43:48][INFO] Detection FortiClient VPN : False
+[17:43:49][INFO] Detection OpenVPN : False
+[17:43:50][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:43:51][INFO] Detection .NET Desktop Runtime 8 : False
+[17:43:52][INFO] Detection Java Runtime (Temurin 17) : False
+[17:43:53][INFO] Detection TeamViewer Host : False
+[17:43:54][INFO] Detection TeamViewer (Full) : True
+[17:43:55][INFO] Detection AnyDesk : False
+[17:43:56][INFO] Detection 7-Zip : False
+[17:43:58][INFO] Detection Notepad++ : False
+[17:43:59][INFO] Detection VLC Media Player : True
+[17:44:00][INFO] Detection Everything : False
+[17:44:01][INFO] Detection Greenshot : True
+[17:44:01][INFO] Configuration chargee (29)
+[17:44:14][INFO] Tentative desinstallation Greenshot
+[17:44:14][INFO] Desinstallation Greenshot...
+[17:44:28][INFO] Greenshot desinstalle avec succÃ¨s
+[17:44:28][INFO] Desinstallation terminee
+[17:44:28][INFO] Chargement configuration...
+[17:44:30][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:44:31][INFO] Detection Adobe Acrobat Reader DC : False
+[17:44:32][INFO] Detection LibreOffice : False
+[17:44:33][INFO] Detection Zoom : False
+[17:44:34][INFO] Detection Slack : False
+[17:44:35][INFO] Detection Microsoft Teams : True
+[17:44:36][INFO] Detection Discord : True
+[17:44:37][INFO] Detection Visual Studio Code : True
+[17:44:38][INFO] Detection Git : False
+[17:44:40][INFO] Detection GitHub Desktop : False
+[17:44:41][INFO] Detection Postman : False
+[17:44:42][INFO] Detection Google Chrome : True
+[17:44:43][INFO] Detection Mozilla Firefox : True
+[17:44:44][INFO] Detection Microsoft Edge : True
+[17:44:45][INFO] Detection Spotify : False
+[17:44:46][INFO] Detection Cisco AnyConnect : False
+[17:44:47][INFO] Detection FortiClient VPN : False
+[17:44:48][INFO] Detection OpenVPN : False
+[17:44:49][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:44:50][INFO] Detection .NET Desktop Runtime 8 : False
+[17:44:51][INFO] Detection Java Runtime (Temurin 17) : False
+[17:44:52][INFO] Detection TeamViewer Host : False
+[17:44:53][INFO] Detection TeamViewer (Full) : True
+[17:44:54][INFO] Detection AnyDesk : False
+[17:44:56][INFO] Detection 7-Zip : False
+[17:44:57][INFO] Detection Notepad++ : False
+[17:44:58][INFO] Detection VLC Media Player : True
+[17:44:59][INFO] Detection Everything : False
+[17:45:00][INFO] Detection Greenshot : False
+[17:45:00][INFO] Configuration chargee (29)
+[17:49:13][INFO] WinGet detecte
+[17:49:13][INFO] Chargement configuration...
+[17:49:15][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:49:16][INFO] Detection Adobe Acrobat Reader DC : False
+[17:49:17][INFO] Detection LibreOffice : False
+[17:49:18][INFO] Detection Zoom : False
+[17:49:19][INFO] Detection Slack : False
+[17:49:20][INFO] Detection Microsoft Teams : True
+[17:49:21][INFO] Detection Discord : True
+[17:49:22][INFO] Detection Visual Studio Code : True
+[17:49:23][INFO] Detection Git : False
+[17:49:24][INFO] Detection GitHub Desktop : False
+[17:49:25][INFO] Detection Postman : False
+[17:49:27][INFO] Detection Google Chrome : True
+[17:49:28][INFO] Detection Mozilla Firefox : True
+[17:49:29][INFO] Detection Microsoft Edge : True
+[17:49:30][INFO] Detection Spotify : False
+[17:49:31][INFO] Detection Cisco AnyConnect : False
+[17:49:32][INFO] Detection FortiClient VPN : False
+[17:49:33][INFO] Detection OpenVPN : False
+[17:49:34][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:49:35][INFO] Detection .NET Desktop Runtime 8 : False
+[17:49:36][INFO] Detection Java Runtime (Temurin 17) : False
+[17:49:37][INFO] Detection TeamViewer Host : False
+[17:49:38][INFO] Detection TeamViewer (Full) : True
+[17:49:39][INFO] Detection AnyDesk : False
+[17:49:41][INFO] Detection 7-Zip : False
+[17:49:42][INFO] Detection Notepad++ : False
+[17:49:43][INFO] Detection VLC Media Player : True
+[17:49:44][INFO] Detection Everything : False
+[17:49:45][INFO] Detection Greenshot : False
+[17:49:45][INFO] Configuration chargee (29)
+[17:50:09][INFO] WinGet detecte
+[17:50:09][INFO] Chargement configuration...
+[17:50:09][WARN] Erreur detection Microsoft 365 Apps for enterprise
+[17:50:09][INFO] Detection Microsoft 365 Apps for enterprise : False
+[17:50:09][WARN] Erreur detection Adobe Acrobat Reader DC
+[17:50:09][INFO] Detection Adobe Acrobat Reader DC : False
+[17:50:09][WARN] Erreur detection LibreOffice
+[17:50:09][INFO] Detection LibreOffice : False
+[17:50:09][WARN] Erreur detection Zoom
+[17:50:09][INFO] Detection Zoom : False
+[17:50:09][WARN] Erreur detection Slack
+[17:50:09][INFO] Detection Slack : False
+[17:50:09][WARN] Erreur detection Microsoft Teams
+[17:50:09][INFO] Detection Microsoft Teams : False
+[17:50:09][WARN] Erreur detection Discord
+[17:50:09][INFO] Detection Discord : False
+[17:50:09][WARN] Erreur detection Visual Studio Code
+[17:50:09][INFO] Detection Visual Studio Code : False
+[17:50:09][WARN] Erreur detection Git
+[17:50:09][INFO] Detection Git : False
+[17:50:09][WARN] Erreur detection GitHub Desktop
+[17:50:09][INFO] Detection GitHub Desktop : False
+[17:50:09][WARN] Erreur detection Postman
+[17:50:09][INFO] Detection Postman : False
+[17:50:10][WARN] Erreur detection Google Chrome
+[17:50:10][INFO] Detection Google Chrome : False
+[17:50:10][WARN] Erreur detection Mozilla Firefox
+[17:50:10][INFO] Detection Mozilla Firefox : False
+[17:50:10][WARN] Erreur detection Microsoft Edge
+[17:50:10][INFO] Detection Microsoft Edge : False
+[17:50:10][WARN] Erreur detection Spotify
+[17:50:10][INFO] Detection Spotify : False
+[17:50:10][WARN] Erreur detection Cisco AnyConnect
+[17:50:10][INFO] Detection Cisco AnyConnect : False
+[17:50:10][WARN] Erreur detection FortiClient VPN
+[17:50:10][INFO] Detection FortiClient VPN : False
+[17:50:10][WARN] Erreur detection OpenVPN
+[17:50:10][INFO] Detection OpenVPN : False
+[17:50:10][WARN] Erreur detection Microsoft Visual C++ Redistributable 2015-2022
+[17:50:10][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:50:10][WARN] Erreur detection .NET Desktop Runtime 8
+[17:50:10][INFO] Detection .NET Desktop Runtime 8 : False
+[17:50:10][WARN] Erreur detection Java Runtime (Temurin 17)
+[17:50:10][INFO] Detection Java Runtime (Temurin 17) : False
+[17:50:10][WARN] Erreur detection TeamViewer Host
+[17:50:10][INFO] Detection TeamViewer Host : False
+[17:50:10][WARN] Erreur detection TeamViewer (Full)
+[17:50:10][INFO] Detection TeamViewer (Full) : False
+[17:50:10][WARN] Erreur detection AnyDesk
+[17:50:10][INFO] Detection AnyDesk : False
+[17:50:10][WARN] Erreur detection 7-Zip
+[17:50:10][INFO] Detection 7-Zip : False
+[17:50:10][WARN] Erreur detection Notepad++
+[17:50:10][INFO] Detection Notepad++ : False
+[17:50:10][WARN] Erreur detection VLC Media Player
+[17:50:10][INFO] Detection VLC Media Player : False
+[17:50:10][WARN] Erreur detection Everything
+[17:50:10][INFO] Detection Everything : False
+[17:50:10][WARN] Erreur detection Greenshot
+[17:50:10][INFO] Detection Greenshot : False
+[17:50:10][INFO] Configuration chargee (29)
+[17:50:17][INFO] WinGet detecte
+[17:50:17][INFO] Chargement configuration...
+[17:50:17][WARN] Erreur detection Microsoft 365 Apps for enterprise
+[17:50:17][INFO] Detection Microsoft 365 Apps for enterprise : False
+[17:50:17][WARN] Erreur detection Adobe Acrobat Reader DC
+[17:50:17][INFO] Detection Adobe Acrobat Reader DC : False
+[17:50:17][WARN] Erreur detection LibreOffice
+[17:50:17][INFO] Detection LibreOffice : False
+[17:50:17][WARN] Erreur detection Zoom
+[17:50:17][INFO] Detection Zoom : False
+[17:50:17][WARN] Erreur detection Slack
+[17:50:17][INFO] Detection Slack : False
+[17:50:17][WARN] Erreur detection Microsoft Teams
+[17:50:17][INFO] Detection Microsoft Teams : False
+[17:50:17][WARN] Erreur detection Discord
+[17:50:17][INFO] Detection Discord : False
+[17:50:17][WARN] Erreur detection Visual Studio Code
+[17:50:17][INFO] Detection Visual Studio Code : False
+[17:50:17][WARN] Erreur detection Git
+[17:50:17][INFO] Detection Git : False
+[17:50:17][WARN] Erreur detection GitHub Desktop
+[17:50:17][INFO] Detection GitHub Desktop : False
+[17:50:17][WARN] Erreur detection Postman
+[17:50:17][INFO] Detection Postman : False
+[17:50:17][WARN] Erreur detection Google Chrome
+[17:50:17][INFO] Detection Google Chrome : False
+[17:50:17][WARN] Erreur detection Mozilla Firefox
+[17:50:17][INFO] Detection Mozilla Firefox : False
+[17:50:17][WARN] Erreur detection Microsoft Edge
+[17:50:17][INFO] Detection Microsoft Edge : False
+[17:50:17][WARN] Erreur detection Spotify
+[17:50:17][INFO] Detection Spotify : False
+[17:50:17][WARN] Erreur detection Cisco AnyConnect
+[17:50:17][INFO] Detection Cisco AnyConnect : False
+[17:50:17][WARN] Erreur detection FortiClient VPN
+[17:50:17][INFO] Detection FortiClient VPN : False
+[17:50:17][WARN] Erreur detection OpenVPN
+[17:50:17][INFO] Detection OpenVPN : False
+[17:50:17][WARN] Erreur detection Microsoft Visual C++ Redistributable 2015-2022
+[17:50:17][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[17:50:17][WARN] Erreur detection .NET Desktop Runtime 8
+[17:50:17][INFO] Detection .NET Desktop Runtime 8 : False
+[17:50:17][WARN] Erreur detection Java Runtime (Temurin 17)
+[17:50:17][INFO] Detection Java Runtime (Temurin 17) : False
+[17:50:17][WARN] Erreur detection TeamViewer Host
+[17:50:17][INFO] Detection TeamViewer Host : False
+[17:50:17][WARN] Erreur detection TeamViewer (Full)
+[17:50:17][INFO] Detection TeamViewer (Full) : False
+[17:50:17][WARN] Erreur detection AnyDesk
+[17:50:17][INFO] Detection AnyDesk : False
+[17:50:17][WARN] Erreur detection 7-Zip
+[17:50:17][INFO] Detection 7-Zip : False
+[17:50:17][WARN] Erreur detection Notepad++
+[17:50:17][INFO] Detection Notepad++ : False
+[17:50:17][WARN] Erreur detection VLC Media Player
+[17:50:17][INFO] Detection VLC Media Player : False
+[17:50:17][WARN] Erreur detection Everything
+[17:50:17][INFO] Detection Everything : False
+[17:50:17][WARN] Erreur detection Greenshot
+[17:50:17][INFO] Detection Greenshot : False
+[17:50:17][INFO] Configuration chargee (29)
+[17:50:36][INFO] WinGet detecte
+[17:50:36][INFO] Chargement configuration...
+[17:50:39][INFO] Detection Microsoft 365 Apps for enterprise : True
+[17:50:41][INFO] Detection Adobe Acrobat Reader DC : False
+[17:50:43][INFO] Detection LibreOffice : False
+[17:50:45][INFO] Detection Zoom : False
+[17:50:47][INFO] Detection Slack : False
+[17:51:23][INFO] Detection Microsoft Teams : True
+[17:51:25][INFO] Detection Discord : False
+[17:51:28][INFO] Detection Visual Studio Code : True
+[17:51:30][INFO] Detection Git : False
+[17:51:32][INFO] Detection GitHub Desktop : False
+[17:51:35][INFO] Detection Postman : False
+[17:52:39][INFO] WinGet detecte
+[17:52:39][INFO] Chargement configuration...
+[17:52:42][INFO] Detection Microsoft 365 Apps for enterprise : False
+[17:52:44][INFO] Detection Adobe Acrobat Reader DC : False
+[17:52:47][INFO] Detection LibreOffice : False
+[17:52:49][INFO] Detection Zoom : False
+[17:52:51][INFO] Detection Slack : False
+[17:52:55][INFO] Detection Microsoft Teams : False
+[17:52:58][INFO] Detection Discord : False
+[17:52:58][INFO] Detection Google Chrome : True
+[17:53:32][INFO] WinGet detecte
+[17:53:32][INFO] Chargement configuration...
+[17:53:35][INFO] Detection Microsoft 365 Apps for enterprise : False
+[17:53:37][INFO] Detection Adobe Acrobat Reader DC : False
+[17:53:40][INFO] Detection LibreOffice : False
+[17:53:42][INFO] Detection Zoom : False
+[17:53:45][INFO] Detection Slack : False
+[17:53:48][INFO] Detection Microsoft Teams : False
+[17:53:50][INFO] Detection Discord : False
+[17:53:53][INFO] Detection Visual Studio Code : False
+[17:53:55][INFO] Detection Git : False
+[17:53:58][INFO] Detection GitHub Desktop : False
+[17:54:00][INFO] Detection Postman : False
+[17:54:10][INFO] Detection Google Chrome : True
+[18:01:55][INFO] Detection Microsoft 365 Apps for enterprise : True
+[18:01:56][INFO] Detection Adobe Acrobat Reader DC : False
+[18:01:57][INFO] Detection LibreOffice : False
+[18:01:59][INFO] Detection Zoom : False
+[18:02:00][INFO] Detection Slack : False
+[18:02:01][INFO] Detection Microsoft Teams : True
+[18:02:02][INFO] Detection Discord : True
+[18:02:04][INFO] Detection Visual Studio Code : True
+[18:02:05][INFO] Detection Git : False
+[18:02:06][INFO] Detection GitHub Desktop : False
+[18:02:07][INFO] Detection Postman : False
+[18:02:09][INFO] Detection Google Chrome : True
+[18:02:10][INFO] Detection Mozilla Firefox : True
+[18:02:12][INFO] Detection Microsoft Edge : True
+[18:02:13][INFO] Detection Spotify : False
+[18:02:14][INFO] Detection Cisco AnyConnect : False
+[18:02:15][INFO] Detection FortiClient VPN : False
+[18:02:16][INFO] Detection OpenVPN : False
+[18:02:18][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[18:02:19][INFO] Detection .NET Desktop Runtime 8 : False
+[18:02:20][INFO] Detection Java Runtime (Temurin 17) : False
+[18:02:22][INFO] Detection TeamViewer Host : False
+[18:02:23][INFO] Detection TeamViewer (Full) : True
+[18:02:24][INFO] Detection AnyDesk : False
+[18:02:26][INFO] Detection 7-Zip : False
+[18:02:27][INFO] Detection Notepad++ : False
+[18:02:28][INFO] Detection VLC Media Player : True
+[18:02:30][INFO] Detection Everything : False
+[18:02:31][INFO] Detection Greenshot : False
+[18:02:31][INFO] Configuration chargee (29)
+[18:02:50][INFO] Maj Google Chrome en cours...
+[18:03:19][INFO] Google Chrome mis a jour
+[18:03:20][INFO] Detection Microsoft 365 Apps for enterprise : True
+[18:03:21][INFO] Detection Adobe Acrobat Reader DC : False
+[18:03:23][INFO] Detection LibreOffice : False
+[18:03:24][INFO] Detection Zoom : False
+[18:03:25][INFO] Detection Slack : False
+[18:03:26][INFO] Detection Microsoft Teams : True
+[18:03:28][INFO] Detection Discord : True
+[18:03:29][INFO] Detection Visual Studio Code : True
+[18:03:30][INFO] Detection Git : False
+[18:03:32][INFO] Detection GitHub Desktop : False
+[18:03:33][INFO] Detection Postman : False
+[18:03:35][INFO] Detection Google Chrome : True
+[18:03:36][INFO] Detection Mozilla Firefox : True
+[18:03:37][INFO] Detection Microsoft Edge : True
+[18:03:39][INFO] Detection Spotify : False
+[18:03:40][INFO] Detection Cisco AnyConnect : False
+[18:03:41][INFO] Detection FortiClient VPN : False
+[18:03:43][INFO] Detection OpenVPN : False
+[18:03:44][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[18:03:45][INFO] Detection .NET Desktop Runtime 8 : False
+[18:03:46][INFO] Detection Java Runtime (Temurin 17) : False
+[18:03:48][INFO] Detection TeamViewer Host : False
+[18:03:49][INFO] Detection TeamViewer (Full) : True
+[18:03:50][INFO] Detection AnyDesk : False
+[18:03:51][INFO] Detection 7-Zip : False
+[18:03:52][INFO] Detection Notepad++ : False
+[18:03:54][INFO] Detection VLC Media Player : True
+[18:03:55][INFO] Detection Everything : False
+[18:03:56][INFO] Detection Greenshot : False
+[18:03:56][INFO] Configuration chargee (29)
+[18:04:33][INFO] Installation en cours...
+[18:04:33][INFO] Installation 7-Zip...
+[18:04:39][INFO] 7-Zip installe avec succÃ¨s
+[18:04:39][INFO] Installation terminee
+[18:04:39][INFO] Installation terminee
+[18:04:40][INFO] Detection Microsoft 365 Apps for enterprise : True
+[18:04:41][INFO] Detection Adobe Acrobat Reader DC : False
+[18:04:43][INFO] Detection LibreOffice : False
+[18:04:44][INFO] Detection Zoom : False
+[18:04:45][INFO] Detection Slack : False
+[18:04:46][INFO] Detection Microsoft Teams : True
+[18:04:47][INFO] Detection Discord : True
+[18:04:49][INFO] Detection Visual Studio Code : True
+[18:04:50][INFO] Detection Git : False
+[18:04:51][INFO] Detection GitHub Desktop : False
+[18:04:53][INFO] Detection Postman : False
+[18:04:54][INFO] Detection Google Chrome : True
+[18:04:55][INFO] Detection Mozilla Firefox : True
+[18:04:56][INFO] Detection Microsoft Edge : True
+[18:04:58][INFO] Detection Spotify : False
+[18:04:59][INFO] Detection Cisco AnyConnect : False
+[18:05:00][INFO] Detection FortiClient VPN : False
+[18:05:01][INFO] Detection OpenVPN : False
+[18:05:02][INFO] Detection Microsoft Visual C++ Redistributable 2015-2022 : False
+[18:05:03][INFO] Detection .NET Desktop Runtime 8 : False
+[18:05:04][INFO] Detection Java Runtime (Temurin 17) : False
+[18:05:06][INFO] Detection TeamViewer Host : False
+[18:05:07][INFO] Detection TeamViewer (Full) : True
+[18:05:08][INFO] Detection AnyDesk : False
+[18:05:09][INFO] Detection 7-Zip : True
+[18:05:10][INFO] Detection Notepad++ : False
+[18:05:11][INFO] Detection VLC Media Player : True
+[18:05:13][INFO] Detection Everything : False
+[18:05:14][INFO] Detection Greenshot : False
+[18:05:14][INFO] Configuration chargee (29)
