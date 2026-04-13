@@ -83,7 +83,7 @@ function Initialize-UI {
         $catLabel.Foreground = "#2980B9"
 
         $catBorder.Child = $catLabel
-        $SoftwareList.Children.Add($catBorder)
+        [void]$SoftwareList.Children.Add($catBorder)
 
         # ── Apps de la catégorie ──────────────────────
         foreach ($app in $group.Group) {
@@ -116,10 +116,10 @@ function Initialize-UI {
             $c2 = New-Object System.Windows.Controls.ColumnDefinition; $c2.Width = "110"
             $c3 = New-Object System.Windows.Controls.ColumnDefinition; $c3.Width = "32"
             $c4 = New-Object System.Windows.Controls.ColumnDefinition; $c4.Width = "32"
-            $grid.ColumnDefinitions.Add($c1)
-            $grid.ColumnDefinitions.Add($c2)
-            $grid.ColumnDefinitions.Add($c3)
-            $grid.ColumnDefinitions.Add($c4)
+            [void]$grid.ColumnDefinitions.Add($c1)
+            [void]$grid.ColumnDefinitions.Add($c2)
+            [void]$grid.ColumnDefinitions.Add($c3)
+            [void]$grid.ColumnDefinitions.Add($c4)
 
             # Checkbox / nom
             $cb = New-Object System.Windows.Controls.CheckBox
@@ -136,7 +136,7 @@ function Initialize-UI {
             }
 
             [System.Windows.Controls.Grid]::SetColumn($cb, 0)
-            $grid.Children.Add($cb)
+            [void]$grid.Children.Add($cb)
 
             # Version
             if ($info.Installed -and $info.Version) {
@@ -148,7 +148,7 @@ function Initialize-UI {
                 $txt.Margin    = "6,0"
                 $txt.VerticalAlignment = "Center"
                 [System.Windows.Controls.Grid]::SetColumn($txt, 1)
-                $grid.Children.Add($txt)
+                [void]$grid.Children.Add($txt)
             }
 
             # Bouton update
@@ -173,7 +173,7 @@ function Initialize-UI {
                 })
 
                 [System.Windows.Controls.Grid]::SetColumn($btnU, 2)
-                $grid.Children.Add($btnU)
+                [void]$grid.Children.Add($btnU)
             }
 
             # Bouton suppression
@@ -198,11 +198,11 @@ function Initialize-UI {
                 })
 
                 [System.Windows.Controls.Grid]::SetColumn($btnD, 3)
-                $grid.Children.Add($btnD)
+                [void]$grid.Children.Add($btnD)
             }
 
             $rowBorder.Child = $grid
-            $SoftwareList.Children.Add($rowBorder)
+            [void]$SoftwareList.Children.Add($rowBorder)
         }
     }
 
@@ -227,7 +227,7 @@ $BtnScan.Add_Click({
     $i = 0
 
     foreach ($app in $script:apps) {
-        $i++
+        [void]$i++
         $pct = [int](($i / $total) * 100)
         $ProgressBar.Visibility = "Visible"
         $ProgressBar.Value      = $pct
@@ -330,6 +330,17 @@ $BtnClearLog.Add_Click({
 #  LANCEMENT
 # ─────────────────────────────────────────────
 Initialize-UI
+
+# ASCII
+Write-Log "Version 2.0.0 - Davy" "DEBUG" $LogBox      
+Write-Log "  ___ _   _ _____ ___  ____  ____   _   _ ____  " "INFO" $LogBox
+Write-Log " |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ " "INFO" $LogBox
+Write-Log "  | ||  \| | |_ | | | | |_) \___ \ | | | | | | |" "INFO" $LogBox
+Write-Log "  | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |" "INFO" $LogBox
+Write-Log " |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ " "INFO" $LogBox
+write-Log "    I N F O R S U D - T E C H N O L O G I E S   " "INFO" $LogBox
+write-Log "     https://www.inforsud-technologies.com"              "INFO" $LogBox
 $TxtStatus.Text = "Cliquez sur Scanner pour demarrer"
 Write-Log "AppInstaller demarre." "INFO" $LogBox
-$window.ShowDialog()
+
+[void]$window.ShowDialog()

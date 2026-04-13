@@ -406,3 +406,1166 @@
 [22:03:00][OK]    TeamViewer (Full) v15.76.5 - installe [MAJ dispo]
 [22:03:00][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
 [22:03:00][INFO]  === Scan termine ===
+[22:09:00][INFO]  AppInstaller demarre.
+[22:09:05][INFO]  === Scan demarre ===
+[22:09:05][INFO]  Recuperation de la liste winget...
+[22:09:08][OK]    Google Chrome v147.0.7727.56 - installe [MAJ dispo]
+[22:09:08][OK]    Mozilla Firefox v148.0.2 - installe [MAJ dispo]
+[22:09:08][OK]    Microsoft Edge v146.0.3856.109 - installe [MAJ dispo]
+[22:09:08][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[22:09:08][OK]    7-Zip v26.00 - installe [MAJ dispo]
+[22:09:08][OK]    Notepad++ v8.9.3 - installe [MAJ dispo]
+[22:09:08][OK]    VLC Media Player v3.0.21 - installe [MAJ dispo]
+[22:09:08][OK]    Visual Studio Code v1.115.0 - installe [MAJ dispo]
+[22:09:08][OK]    Microsoft Teams v26072.519.4556.7438 - installe [MAJ dispo]
+[22:09:08][OK]    TeamViewer (Full) v15.76.5 - installe [MAJ dispo]
+[22:09:08][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[22:09:08][INFO]  === Scan termine ===
+[22:11:18][INFO]  AppInstaller demarre.
+[22:11:20][INFO]  === Scan demarre ===
+[22:11:20][INFO]  Recuperation de la liste winget...
+[22:11:23][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[22:11:23][OK]    Google Chrome v147.0.7727.56 - installe [MAJ dispo]
+[22:11:23][INFO]  DEBUG: Mozilla Firefox (x64 fr) | Mozilla.Firefox | 148.0.2 | 149.0.2 | winget
+[22:11:23][OK]    Mozilla Firefox v148.0.2 - installe [MAJ dispo]
+[22:11:23][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[22:11:23][OK]    Microsoft Edge v146.0.3856.109 - installe [MAJ dispo]
+[22:11:23][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[22:11:23][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[22:11:23][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[22:11:23][OK]    7-Zip v26.00 - installe [MAJ dispo]
+[22:11:23][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[22:11:23][OK]    Notepad++ v8.9.3 - installe [MAJ dispo]
+[22:11:23][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.21 | 3.0.23 | winget
+[22:11:23][OK]    VLC Media Player v3.0.21 - installe [MAJ dispo]
+[22:11:23][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[22:11:23][OK]    Visual Studio Code v1.115.0 - installe [MAJ dispo]
+[22:11:23][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[22:11:23][OK]    Microsoft Teams v26072.519.4556.7438 - installe [MAJ dispo]
+[22:11:23][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[22:11:23][OK]    TeamViewer (Full) v15.76.5 - installe [MAJ dispo]
+[22:11:23][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[22:11:23][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[22:11:23][INFO]  === Scan termine ===
+[22:16:48][INFO]  AppInstaller demarre.
+[22:16:50][INFO]  === Scan demarre ===
+[22:16:50][INFO]  Recuperation de la liste winget...
+[22:16:52][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[22:16:52][OK]    Google Chrome v147.0.7727.56 - installe [MAJ dispo]
+[22:16:52][INFO]  DEBUG: Mozilla Firefox (x64 fr) | Mozilla.Firefox | 148.0.2 | 149.0.2 | winget
+[22:16:52][OK]    Mozilla Firefox v148.0.2 - installe [MAJ dispo]
+[22:16:52][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[22:16:52][OK]    Microsoft Edge v146.0.3856.109 - installe [MAJ dispo]
+[22:16:52][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[22:16:52][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[22:16:52][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[22:16:52][OK]    7-Zip v26.00 - installe [MAJ dispo]
+[22:16:52][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[22:16:52][OK]    Notepad++ v8.9.3 - installe [MAJ dispo]
+[22:16:52][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.21 | 3.0.23 | winget
+[22:16:52][OK]    VLC Media Player v3.0.21 - installe [MAJ dispo]
+[22:16:52][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[22:16:52][OK]    Visual Studio Code v1.115.0 - installe [MAJ dispo]
+[22:16:52][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[22:16:52][OK]    Microsoft Teams v26072.519.4556.7438 - installe [MAJ dispo]
+[22:16:52][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[22:16:52][OK]    TeamViewer (Full) v15.76.5 - installe [MAJ dispo]
+[22:16:52][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[22:16:52][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[22:16:52][INFO]  === Scan termine ===
+[22:17:11][INFO]  AppInstaller demarre.
+[22:17:27][INFO]  AppInstaller demarre.
+[22:17:29][INFO]  === Scan demarre ===
+[22:17:29][INFO]  Recuperation de la liste winget...
+[22:17:31][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[22:17:31][OK]    Google Chrome v147.0.7727.56 - installe
+[22:17:31][INFO]  DEBUG: Mozilla Firefox (x64 fr) | Mozilla.Firefox | 148.0.2 | 149.0.2 | winget
+[22:17:31][OK]    Mozilla Firefox v148.0.2 - installe [MAJ dispo]
+[22:17:31][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[22:17:31][OK]    Microsoft Edge v146.0.3856.109 - installe
+[22:17:31][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[22:17:31][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[22:17:31][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[22:17:31][OK]    7-Zip v26.00 - installe
+[22:17:31][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[22:17:31][OK]    Notepad++ v8.9.3 - installe
+[22:17:31][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.21 | 3.0.23 | winget
+[22:17:31][OK]    VLC Media Player v3.0.21 - installe [MAJ dispo]
+[22:17:31][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[22:17:31][OK]    Visual Studio Code v1.115.0 - installe
+[22:17:31][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[22:17:31][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[22:17:31][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[22:17:31][OK]    TeamViewer (Full) v15.76.5 - installe
+[22:17:31][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[22:17:31][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[22:17:31][INFO]  === Scan termine ===
+[22:23:31][INFO]  Mise a jour de Mozilla Firefox...
+[22:23:32][INFO]     - 
+[22:23:32][INFO]     - 
+[22:23:33][INFO]     \ 
+[22:23:33][INFO]  Found Mozilla Firefox (en-US) [Mozilla.Firefox] Version 149.0.2
+[22:23:33][INFO]  This application is licensed to you by its owner.
+[22:23:33][INFO]  Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+[22:23:33][INFO]  Downloading https://download-installer.cdn.mozilla.net/pub/firefox/releases/149.0.2/win64/en-US/Firefox%20Setup%20149.0.2.exe
+[22:23:33][INFO]     - 
+[22:23:34][INFO]     \ 
+[22:23:34][INFO]     | 
+[22:23:35][INFO]     / 
+[22:23:35][INFO]    █████████████████████▒▒▒▒▒▒▒▒▒  58.4 MB / 82.4 MB
+[22:23:35][INFO]    ██████████████████████████████  82.4 MB / 82.4 MB
+[22:23:35][INFO]  Successfully verified installer hash
+[22:23:35][INFO]  Starting package install...
+[22:23:36][INFO]     - 
+[22:23:36][INFO]     \ 
+[22:23:36][INFO]     | 
+[22:23:36][INFO]     / 
+[22:23:37][INFO]     - 
+[22:23:37][INFO]     \ 
+[22:23:37][INFO]     | 
+[22:23:37][INFO]     / 
+[22:23:38][INFO]     - 
+[22:23:38][INFO]     \ 
+[22:23:38][INFO]     | 
+[22:23:38][INFO]     / 
+[22:23:39][INFO]     - 
+[22:23:39][INFO]     \ 
+[22:23:39][INFO]     | 
+[22:23:40][INFO]     / 
+[22:23:40][INFO]     - 
+[22:23:40][INFO]     \ 
+[22:23:40][INFO]     | 
+[22:23:41][INFO]     / 
+[22:23:41][INFO]     - 
+[22:23:41][INFO]     \ 
+[22:23:41][INFO]     | 
+[22:23:42][INFO]     / 
+[22:23:42][INFO]     - 
+[22:23:42][INFO]     \ 
+[22:23:42][INFO]     | 
+[22:23:43][INFO]     / 
+[22:23:43][INFO]     - 
+[22:23:43][INFO]     \ 
+[22:23:43][INFO]     | 
+[22:23:44][INFO]     / 
+[22:23:44][INFO]     - 
+[22:23:44][INFO]     \ 
+[22:23:44][INFO]     | 
+[22:23:45][INFO]     / 
+[22:23:45][INFO]     - 
+[22:23:45][INFO]     \ 
+[22:23:45][INFO]     | 
+[22:23:46][INFO]     / 
+[22:23:46][INFO]     - 
+[22:23:46][INFO]     \ 
+[22:23:46][INFO]     | 
+[22:23:47][INFO]     / 
+[22:23:47][INFO]     - 
+[22:23:47][INFO]     \ 
+[22:23:47][INFO]     | 
+[22:23:48][INFO]     / 
+[22:23:48][INFO]     - 
+[22:23:48][INFO]     \ 
+[22:23:49][INFO]     | 
+[22:23:49][INFO]     / 
+[22:23:49][INFO]     - 
+[22:23:49][INFO]  Successfully installed
+[22:23:49][OK]    Mozilla Firefox mis a jour.
+[22:23:49][INFO]  === Scan demarre ===
+[22:23:49][INFO]  Recuperation de la liste winget...
+[22:23:51][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[22:23:51][OK]    Google Chrome v147.0.7727.56 - installe
+[22:23:51][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[22:23:51][OK]    Mozilla Firefox v149.0.2 - installe
+[22:23:51][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[22:23:51][OK]    Microsoft Edge v146.0.3856.109 - installe
+[22:23:51][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[22:23:51][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[22:23:51][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[22:23:51][OK]    7-Zip v26.00 - installe
+[22:23:51][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[22:23:51][OK]    Notepad++ v8.9.3 - installe
+[22:23:51][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.21 | 3.0.23 | winget
+[22:23:51][OK]    VLC Media Player v3.0.21 - installe [MAJ dispo]
+[22:23:51][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[22:23:51][OK]    Visual Studio Code v1.115.0 - installe
+[22:23:51][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[22:23:51][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[22:23:51][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[22:23:51][OK]    TeamViewer (Full) v15.76.5 - installe
+[22:23:51][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[22:23:51][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[22:23:51][INFO]  === Scan termine ===
+[22:24:06][INFO]  Mise a jour de VLC Media Player...
+[22:24:06][INFO]     - 
+[22:24:07][INFO]     - 
+[22:24:07][INFO]     \ 
+[22:24:07][INFO]  Found VLC media player [VideoLAN.VLC] Version 3.0.23
+[22:24:07][INFO]  This application is licensed to you by its owner.
+[22:24:07][INFO]  Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+[22:24:08][INFO]  Successfully verified installer hash
+[22:24:08][INFO]  Starting package install...
+[22:24:08][INFO]  The installer will request to run as administrator. Expect a prompt.
+[22:24:09][INFO]     - 
+[22:24:09][INFO]     \ 
+[22:24:09][INFO]     | 
+[22:24:09][INFO]     / 
+[22:24:10][INFO]     - 
+[22:24:10][INFO]     \ 
+[22:24:10][INFO]     | 
+[22:24:10][INFO]     / 
+[22:24:11][INFO]     - 
+[22:24:11][INFO]     \ 
+[22:24:11][INFO]     | 
+[22:24:11][INFO]     / 
+[22:24:12][INFO]     - 
+[22:24:12][INFO]     \ 
+[22:24:12][INFO]     | 
+[22:24:12][INFO]     / 
+[22:24:13][INFO]     - 
+[22:24:13][INFO]     \ 
+[22:24:13][INFO]     | 
+[22:24:13][INFO]     / 
+[22:24:14][INFO]     - 
+[22:24:14][INFO]     \ 
+[22:24:14][INFO]     | 
+[22:24:14][INFO]     / 
+[22:24:15][INFO]     - 
+[22:24:15][INFO]     \ 
+[22:24:15][INFO]     | 
+[22:24:15][INFO]     / 
+[22:24:16][INFO]     - 
+[22:24:16][INFO]     \ 
+[22:24:16][INFO]     | 
+[22:24:16][INFO]     / 
+[22:24:17][INFO]     - 
+[22:24:17][INFO]     \ 
+[22:24:17][INFO]     | 
+[22:24:18][INFO]     / 
+[22:24:18][INFO]     - 
+[22:24:18][INFO]     \ 
+[22:24:18][INFO]     | 
+[22:24:19][INFO]     / 
+[22:24:19][INFO]     - 
+[22:24:19][INFO]     \ 
+[22:24:19][INFO]     | 
+[22:24:19][INFO]  Successfully installed
+[22:24:20][OK]    VLC Media Player mis a jour.
+[22:24:20][INFO]  === Scan demarre ===
+[22:24:20][INFO]  Recuperation de la liste winget...
+[22:24:22][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[22:24:22][OK]    Google Chrome v147.0.7727.56 - installe
+[22:24:22][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[22:24:22][OK]    Mozilla Firefox v149.0.2 - installe
+[22:24:22][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[22:24:22][OK]    Microsoft Edge v146.0.3856.109 - installe
+[22:24:22][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[22:24:22][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[22:24:22][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[22:24:22][OK]    7-Zip v26.00 - installe
+[22:24:22][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[22:24:22][OK]    Notepad++ v8.9.3 - installe
+[22:24:22][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.23 | winget
+[22:24:22][OK]    VLC Media Player v3.0.23 - installe
+[22:24:22][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[22:24:22][OK]    Visual Studio Code v1.115.0 - installe
+[22:24:22][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[22:24:22][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[22:24:22][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[22:24:22][OK]    TeamViewer (Full) v15.76.5 - installe
+[22:24:22][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[22:24:22][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[22:24:22][INFO]  === Scan termine ===
+[22:39:20][INFO]  AppInstaller demarre.
+[22:41:10][INFO]  AppInstaller demarre.
+[22:41:23][INFO]  AppInstaller demarre.
+[22:41:34][INFO]  === Scan demarre ===
+[22:41:34][INFO]  Recuperation de la liste winget...
+[22:41:36][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[22:41:36][OK]    Google Chrome v147.0.7727.56 - installe
+[22:41:36][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[22:41:36][OK]    Mozilla Firefox v149.0.2 - installe
+[22:41:36][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[22:41:36][OK]    Microsoft Edge v146.0.3856.109 - installe
+[22:41:36][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[22:41:36][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[22:41:36][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[22:41:36][OK]    7-Zip v26.00 - installe
+[22:41:36][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[22:41:36][OK]    Notepad++ v8.9.3 - installe
+[22:41:36][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.23 | winget
+[22:41:36][OK]    VLC Media Player v3.0.23 - installe
+[22:41:36][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[22:41:36][OK]    Visual Studio Code v1.115.0 - installe
+[22:41:36][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[22:41:36][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[22:41:36][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[22:41:36][OK]    TeamViewer (Full) v15.76.5 - installe
+[22:41:36][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[22:41:36][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[22:41:36][INFO]  === Scan termine ===
+[22:42:20][INFO]  === Debut installation (1 logiciels) ===
+[22:42:20][INFO]  [1/1] Installation de Adobe Acrobat Reader DC...
+[22:42:21][INFO]     - 
+[22:42:21][INFO]     - 
+[22:42:21][INFO]     \ 
+[22:42:21][INFO]  Found Adobe Acrobat Reader (64-bit) [Adobe.Acrobat.Reader.64-bit] Version 26.001.21411
+[22:42:21][INFO]  This application is licensed to you by its owner.
+[22:42:21][INFO]  Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+[22:42:26][INFO]  Successfully verified installer hash
+[22:42:26][INFO]  Starting package install...
+[22:42:26][INFO]     - 
+[22:42:27][INFO]     \ 
+[22:42:27][INFO]     | 
+[22:42:27][INFO]     / 
+[22:42:27][INFO]     - 
+[22:42:28][INFO]     \ 
+[22:42:28][INFO]     | 
+[22:42:28][INFO]     / 
+[22:42:28][INFO]     - 
+[22:42:29][INFO]     \ 
+[22:42:29][INFO]     | 
+[22:42:29][INFO]     / 
+[22:42:29][INFO]     - 
+[22:42:30][INFO]     \ 
+[22:42:30][INFO]     | 
+[22:42:30][INFO]     / 
+[22:42:30][INFO]     - 
+[22:42:31][INFO]     \ 
+[22:42:31][INFO]     | 
+[22:42:31][INFO]     / 
+[22:42:31][INFO]     - 
+[22:42:32][INFO]     \ 
+[22:42:32][INFO]     | 
+[22:42:32][INFO]     / 
+[22:42:32][INFO]     - 
+[22:42:33][INFO]     \ 
+[22:42:33][INFO]     | 
+[22:42:33][INFO]     / 
+[22:42:34][INFO]     - 
+[22:42:34][INFO]     \ 
+[22:42:34][INFO]     | 
+[22:42:34][INFO]     / 
+[22:42:35][INFO]     - 
+[22:42:35][INFO]     \ 
+[22:42:35][INFO]     | 
+[22:42:35][INFO]     / 
+[22:42:36][INFO]     - 
+[22:42:36][INFO]     \ 
+[22:42:36][INFO]     | 
+[22:42:36][INFO]     / 
+[22:42:37][INFO]     - 
+[22:42:37][INFO]     \ 
+[22:42:37][INFO]     | 
+[22:42:37][INFO]     / 
+[22:42:38][INFO]     - 
+[22:42:38][INFO]     \ 
+[22:42:38][INFO]     | 
+[22:42:38][INFO]     / 
+[22:42:39][INFO]     - 
+[22:42:39][INFO]     \ 
+[22:42:39][INFO]     | 
+[22:42:39][INFO]     / 
+[22:42:40][INFO]     - 
+[22:42:40][INFO]     \ 
+[22:42:40][INFO]     | 
+[22:42:40][INFO]     / 
+[22:42:41][INFO]     - 
+[22:42:41][INFO]     \ 
+[22:42:41][INFO]     | 
+[22:42:41][INFO]     / 
+[22:42:42][INFO]     - 
+[22:42:42][INFO]     \ 
+[22:42:42][INFO]     | 
+[22:42:42][INFO]     / 
+[22:42:43][INFO]     - 
+[22:42:43][INFO]     \ 
+[22:42:43][INFO]     | 
+[22:42:43][INFO]     / 
+[22:42:44][INFO]     - 
+[22:42:44][INFO]     \ 
+[22:42:44][INFO]     | 
+[22:42:44][INFO]     / 
+[22:42:45][INFO]     - 
+[22:42:45][INFO]     \ 
+[22:42:45][INFO]     | 
+[22:42:45][INFO]     / 
+[22:42:46][INFO]     - 
+[22:42:46][INFO]     \ 
+[22:42:46][INFO]     | 
+[22:42:47][INFO]     / 
+[22:42:47][INFO]     - 
+[22:42:47][INFO]     \ 
+[22:42:47][INFO]     | 
+[22:42:48][INFO]     / 
+[22:42:48][INFO]     - 
+[22:42:48][INFO]     \ 
+[22:42:48][INFO]     | 
+[22:42:49][INFO]     / 
+[22:42:49][INFO]     - 
+[22:42:49][INFO]     \ 
+[22:42:49][INFO]     | 
+[22:42:50][INFO]     / 
+[22:42:50][INFO]     - 
+[22:42:50][INFO]     \ 
+[22:42:50][INFO]     | 
+[22:42:51][INFO]     / 
+[22:42:51][INFO]     - 
+[22:42:51][INFO]     \ 
+[22:42:51][INFO]     | 
+[22:42:52][INFO]     / 
+[22:42:52][INFO]     - 
+[22:42:52][INFO]     \ 
+[22:42:52][INFO]     | 
+[22:42:53][INFO]     / 
+[22:42:53][INFO]     - 
+[22:42:53][INFO]     \ 
+[22:42:54][INFO]     | 
+[22:42:54][INFO]     / 
+[22:42:54][INFO]     - 
+[22:42:54][INFO]     \ 
+[22:42:55][INFO]     | 
+[22:42:55][INFO]     / 
+[22:42:55][INFO]     - 
+[22:42:55][INFO]     \ 
+[22:42:56][INFO]     | 
+[22:42:56][INFO]     / 
+[22:42:56][INFO]     - 
+[22:42:56][INFO]     \ 
+[22:42:57][INFO]     | 
+[22:42:57][INFO]     / 
+[22:42:57][INFO]     - 
+[22:42:57][INFO]     \ 
+[22:42:58][INFO]     | 
+[22:42:58][INFO]     / 
+[22:42:58][INFO]     - 
+[22:42:58][INFO]     \ 
+[22:42:59][INFO]     | 
+[22:42:59][INFO]     / 
+[22:42:59][INFO]     - 
+[22:42:59][INFO]     \ 
+[22:43:00][INFO]     | 
+[22:43:00][INFO]     / 
+[22:43:00][INFO]     - 
+[22:43:00][INFO]     \ 
+[22:43:01][INFO]     | 
+[22:43:01][INFO]     / 
+[22:43:01][INFO]     - 
+[22:43:02][INFO]     \ 
+[22:43:02][INFO]     | 
+[22:43:02][INFO]     / 
+[22:43:02][INFO]     - 
+[22:43:03][INFO]     \ 
+[22:43:03][INFO]     | 
+[22:43:03][INFO]     / 
+[22:43:03][INFO]     - 
+[22:43:04][INFO]     \ 
+[22:43:04][INFO]     | 
+[22:43:04][INFO]     / 
+[22:43:04][INFO]     - 
+[22:43:05][INFO]     \ 
+[22:43:05][INFO]     | 
+[22:43:05][INFO]     / 
+[22:43:05][INFO]     - 
+[22:43:06][INFO]     \ 
+[22:43:06][INFO]     | 
+[22:43:06][INFO]     / 
+[22:43:06][INFO]     - 
+[22:43:07][INFO]     \ 
+[22:43:07][INFO]     | 
+[22:43:07][INFO]     / 
+[22:43:07][INFO]     - 
+[22:43:08][INFO]     \ 
+[22:43:08][INFO]     | 
+[22:43:08][INFO]     / 
+[22:43:09][INFO]     - 
+[22:43:09][INFO]     \ 
+[22:43:09][INFO]     | 
+[22:43:09][INFO]     / 
+[22:43:10][INFO]     - 
+[22:43:10][INFO]     \ 
+[22:43:10][INFO]     | 
+[22:43:10][INFO]     / 
+[22:43:11][INFO]     - 
+[22:43:11][INFO]     \ 
+[22:43:11][INFO]     | 
+[22:43:11][INFO]     / 
+[22:43:12][INFO]     - 
+[22:43:12][INFO]     \ 
+[22:43:12][INFO]     | 
+[22:43:12][INFO]     / 
+[22:43:13][INFO]     - 
+[22:43:13][INFO]     \ 
+[22:43:13][INFO]     | 
+[22:43:13][INFO]     / 
+[22:43:14][INFO]     - 
+[22:43:14][INFO]     \ 
+[22:43:14][INFO]     | 
+[22:43:14][INFO]     / 
+[22:43:15][INFO]     - 
+[22:43:15][INFO]     \ 
+[22:43:15][INFO]     | 
+[22:43:15][INFO]     / 
+[22:43:16][INFO]     - 
+[22:43:16][INFO]     \ 
+[22:43:16][INFO]     | 
+[22:43:16][INFO]     / 
+[22:43:17][INFO]     - 
+[22:43:17][INFO]     \ 
+[22:43:17][INFO]     | 
+[22:43:17][INFO]     / 
+[22:43:18][INFO]     - 
+[22:43:18][INFO]     \ 
+[22:43:18][INFO]     | 
+[22:43:19][INFO]     / 
+[22:43:19][INFO]     - 
+[22:43:19][INFO]     \ 
+[22:43:19][INFO]     | 
+[22:43:20][INFO]     / 
+[22:43:20][INFO]     - 
+[22:43:20][INFO]     \ 
+[22:43:20][INFO]     | 
+[22:43:21][INFO]     / 
+[22:43:21][INFO]     - 
+[22:43:21][INFO]     \ 
+[22:43:21][INFO]     | 
+[22:43:22][INFO]     / 
+[22:43:22][INFO]     - 
+[22:43:22][INFO]     \ 
+[22:43:22][INFO]     | 
+[22:43:23][INFO]     / 
+[22:43:23][INFO]     - 
+[22:43:23][INFO]     \ 
+[22:43:23][INFO]     | 
+[22:43:24][INFO]     / 
+[22:43:24][INFO]     - 
+[22:43:24][INFO]     \ 
+[22:43:24][INFO]     | 
+[22:43:25][INFO]     / 
+[22:43:25][INFO]     - 
+[22:43:25][INFO]     \ 
+[22:43:25][INFO]     | 
+[22:43:26][INFO]     / 
+[22:43:26][INFO]     - 
+[22:43:26][INFO]     \ 
+[22:43:26][INFO]     | 
+[22:43:27][INFO]     / 
+[22:43:27][INFO]     - 
+[22:43:27][INFO]     \ 
+[22:43:27][INFO]     | 
+[22:43:28][INFO]     / 
+[22:43:28][INFO]     - 
+[22:43:28][INFO]     \ 
+[22:43:28][INFO]     | 
+[22:43:29][INFO]     / 
+[22:43:29][INFO]     - 
+[22:43:29][INFO]     \ 
+[22:43:30][INFO]     | 
+[22:43:30][INFO]     / 
+[22:43:30][INFO]     - 
+[22:43:30][INFO]     \ 
+[22:43:31][INFO]     | 
+[22:43:31][INFO]     / 
+[22:43:31][INFO]     - 
+[22:43:31][INFO]     \ 
+[22:43:32][INFO]     | 
+[22:43:32][INFO]     / 
+[22:43:32][INFO]     - 
+[22:43:32][INFO]     \ 
+[22:43:33][INFO]     | 
+[22:43:33][INFO]     / 
+[22:43:33][INFO]     - 
+[22:43:33][INFO]     \ 
+[22:43:34][INFO]     | 
+[22:43:34][INFO]     / 
+[22:43:34][INFO]     - 
+[22:43:34][INFO]     \ 
+[22:43:35][INFO]     | 
+[22:43:35][INFO]     / 
+[22:43:35][INFO]     - 
+[22:43:35][INFO]     \ 
+[22:43:36][INFO]     | 
+[22:43:36][INFO]     / 
+[22:43:36][INFO]     - 
+[22:43:36][INFO]     \ 
+[22:43:37][INFO]     | 
+[22:43:37][INFO]     / 
+[22:43:37][INFO]     - 
+[22:43:38][INFO]     \ 
+[22:43:38][INFO]     | 
+[22:43:38][INFO]     / 
+[22:43:38][INFO]     - 
+[22:43:39][INFO]     \ 
+[22:43:39][INFO]     | 
+[22:43:39][INFO]     / 
+[22:43:39][INFO]     - 
+[22:43:40][INFO]     \ 
+[22:43:40][INFO]     | 
+[22:43:40][INFO]     / 
+[22:43:40][INFO]     - 
+[22:43:41][INFO]     \ 
+[22:43:41][INFO]     | 
+[22:43:41][INFO]     / 
+[22:43:41][INFO]     - 
+[22:43:42][INFO]     \ 
+[22:43:42][INFO]     | 
+[22:43:42][INFO]     / 
+[22:43:42][INFO]     - 
+[22:43:43][INFO]     \ 
+[22:43:43][INFO]     | 
+[22:43:43][INFO]     / 
+[22:43:43][INFO]     - 
+[22:43:44][INFO]     \ 
+[22:43:44][INFO]     | 
+[22:43:44][INFO]     / 
+[22:43:44][INFO]     - 
+[22:43:45][INFO]     \ 
+[22:43:45][INFO]     | 
+[22:43:45][INFO]     / 
+[22:43:45][INFO]     - 
+[22:43:46][INFO]     \ 
+[22:43:46][INFO]     | 
+[22:43:46][INFO]     / 
+[22:43:46][INFO]     - 
+[22:43:47][INFO]     \ 
+[22:43:47][INFO]     | 
+[22:43:47][INFO]     / 
+[22:43:48][INFO]     - 
+[22:43:48][INFO]     \ 
+[22:43:48][INFO]     | 
+[22:43:48][INFO]     / 
+[22:43:49][INFO]     - 
+[22:43:49][INFO]     \ 
+[22:43:49][INFO]     | 
+[22:43:49][INFO]     / 
+[22:43:50][INFO]     - 
+[22:43:50][INFO]     \ 
+[22:43:50][INFO]     | 
+[22:43:50][INFO]     / 
+[22:43:51][INFO]     - 
+[22:43:51][INFO]     \ 
+[22:43:51][INFO]     | 
+[22:43:51][INFO]     / 
+[22:43:52][INFO]     - 
+[22:43:52][INFO]     \ 
+[22:43:52][INFO]     | 
+[22:43:52][INFO]     / 
+[22:43:53][INFO]     - 
+[22:43:53][INFO]     \ 
+[22:43:53][INFO]     | 
+[22:43:53][INFO]     / 
+[22:43:54][INFO]     - 
+[22:43:54][INFO]     \ 
+[22:43:54][INFO]     | 
+[22:43:54][INFO]     / 
+[22:43:55][INFO]     - 
+[22:43:55][INFO]     \ 
+[22:43:55][INFO]     | 
+[22:43:56][INFO]     / 
+[22:43:56][INFO]     - 
+[22:43:56][INFO]     \ 
+[22:43:56][INFO]     | 
+[22:43:57][INFO]     / 
+[22:43:57][INFO]     - 
+[22:43:57][INFO]     \ 
+[22:43:57][INFO]     | 
+[22:43:58][INFO]     / 
+[22:43:58][INFO]     - 
+[22:43:58][INFO]     \ 
+[22:43:58][INFO]     | 
+[22:43:59][INFO]     / 
+[22:43:59][INFO]     - 
+[22:43:59][INFO]     \ 
+[22:43:59][INFO]     | 
+[22:44:00][INFO]     / 
+[22:44:00][INFO]     - 
+[22:44:00][INFO]     \ 
+[22:44:00][INFO]     | 
+[22:44:01][INFO]     / 
+[22:44:01][INFO]     - 
+[22:44:01][INFO]     \ 
+[22:44:01][INFO]     | 
+[22:44:02][INFO]     / 
+[22:44:02][INFO]     - 
+[22:44:02][INFO]     \ 
+[22:44:03][INFO]     | 
+[22:44:03][INFO]     / 
+[22:44:03][INFO]     - 
+[22:44:03][INFO]     \ 
+[22:44:04][INFO]     | 
+[22:44:04][INFO]     / 
+[22:44:04][INFO]     - 
+[22:44:04][INFO]     \ 
+[22:44:05][INFO]     | 
+[22:44:05][INFO]     / 
+[22:44:05][INFO]     - 
+[22:44:05][INFO]     \ 
+[22:44:06][INFO]     | 
+[22:44:06][INFO]     / 
+[22:44:06][INFO]     - 
+[22:44:06][INFO]     \ 
+[22:44:07][INFO]     | 
+[22:44:07][INFO]     / 
+[22:44:07][INFO]     - 
+[22:44:07][INFO]     \ 
+[22:44:08][INFO]     | 
+[22:44:08][INFO]     / 
+[22:44:08][INFO]     - 
+[22:44:08][INFO]     \ 
+[22:44:09][INFO]     | 
+[22:44:09][INFO]     / 
+[22:44:09][INFO]     - 
+[22:44:09][INFO]     \ 
+[22:44:10][INFO]     | 
+[22:44:10][INFO]     / 
+[22:44:10][INFO]     - 
+[22:44:11][INFO]     \ 
+[22:44:11][INFO]     | 
+[22:44:11][INFO]     / 
+[22:44:11][INFO]     - 
+[22:44:12][INFO]     \ 
+[22:44:12][INFO]     | 
+[22:44:12][INFO]     / 
+[22:44:12][INFO]     - 
+[22:44:13][INFO]     \ 
+[22:44:13][INFO]     | 
+[22:44:13][INFO]     / 
+[22:44:13][INFO]     - 
+[22:44:14][INFO]     \ 
+[22:44:14][INFO]     | 
+[22:44:14][INFO]     / 
+[22:44:14][INFO]     - 
+[22:44:15][INFO]     \ 
+[22:44:15][INFO]     | 
+[22:44:15][INFO]     / 
+[22:44:15][INFO]     - 
+[22:44:16][INFO]     \ 
+[22:44:16][INFO]     | 
+[22:44:16][INFO]     / 
+[22:44:16][INFO]     - 
+[22:44:17][INFO]     \ 
+[22:44:17][INFO]     | 
+[22:44:17][INFO]     / 
+[22:44:17][INFO]     - 
+[22:44:18][INFO]     \ 
+[22:44:18][INFO]     | 
+[22:44:18][INFO]     / 
+[22:44:18][INFO]     - 
+[22:44:19][INFO]     \ 
+[22:44:19][INFO]     | 
+[22:44:19][INFO]     / 
+[22:44:19][INFO]     - 
+[22:44:20][INFO]     \ 
+[22:44:20][INFO]     | 
+[22:44:20][INFO]     / 
+[22:44:21][INFO]     - 
+[22:44:21][INFO]     \ 
+[22:44:21][INFO]     | 
+[22:44:21][INFO]     / 
+[22:44:22][INFO]     - 
+[22:44:22][INFO]     \ 
+[22:44:22][INFO]     | 
+[22:44:22][INFO]     / 
+[22:44:23][INFO]     - 
+[22:44:23][INFO]     \ 
+[22:44:23][INFO]     | 
+[22:44:23][INFO]     / 
+[22:44:24][INFO]     - 
+[22:44:24][INFO]     \ 
+[22:44:24][INFO]     | 
+[22:44:24][INFO]     / 
+[22:44:25][INFO]     - 
+[22:44:25][INFO]     \ 
+[22:44:25][INFO]     | 
+[22:44:25][INFO]     / 
+[22:44:26][INFO]     - 
+[22:44:26][INFO]     \ 
+[22:44:26][INFO]     | 
+[22:44:26][INFO]     / 
+[22:44:27][INFO]     - 
+[22:44:27][INFO]     \ 
+[22:44:27][INFO]     | 
+[22:44:28][INFO]     / 
+[22:44:28][INFO]     - 
+[22:44:28][INFO]     \ 
+[22:44:28][INFO]     | 
+[22:44:29][INFO]     / 
+[22:44:29][INFO]     - 
+[22:44:29][INFO]     \ 
+[22:44:29][INFO]     | 
+[22:44:30][INFO]     / 
+[22:44:30][INFO]     - 
+[22:44:30][INFO]     \ 
+[22:44:30][INFO]     | 
+[22:44:31][INFO]     / 
+[22:44:31][INFO]     - 
+[22:44:31][INFO]     \ 
+[22:44:31][INFO]     | 
+[22:44:32][INFO]     / 
+[22:44:32][INFO]     - 
+[22:44:32][INFO]     \ 
+[22:44:32][INFO]     | 
+[22:44:33][INFO]     / 
+[22:44:33][INFO]     - 
+[22:44:33][INFO]     \ 
+[22:44:33][INFO]     | 
+[22:44:34][INFO]     / 
+[22:44:34][INFO]     - 
+[22:44:34][INFO]     \ 
+[22:44:34][INFO]     | 
+[22:44:35][INFO]     / 
+[22:44:35][INFO]     - 
+[22:44:35][INFO]     \ 
+[22:44:36][INFO]     | 
+[22:44:36][INFO]     / 
+[22:44:36][INFO]     - 
+[22:44:36][INFO]  Successfully installed
+[22:44:37][OK]    Adobe Acrobat Reader DC installe avec succes.
+[22:44:37][INFO]  === Installation terminee ===
+[22:44:37][INFO]  === Scan demarre ===
+[22:44:37][INFO]  Recuperation de la liste winget...
+[22:44:38][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[22:44:38][OK]    Google Chrome v147.0.7727.56 - installe
+[22:44:39][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[22:44:39][OK]    Mozilla Firefox v149.0.2 - installe
+[22:44:39][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[22:44:39][OK]    Microsoft Edge v146.0.3856.109 - installe
+[22:44:39][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[22:44:39][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[22:44:39][INFO]  DEBUG: Adobe Acrobat (64-bit) | Adobe.Acrobat.Reader.64-bit | 26.001.21411 | winget
+[22:44:39][OK]    Adobe Acrobat Reader DC v26.001.21411 - installe
+[22:44:39][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[22:44:39][OK]    7-Zip v26.00 - installe
+[22:44:39][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[22:44:39][OK]    Notepad++ v8.9.3 - installe
+[22:44:39][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.23 | winget
+[22:44:39][OK]    VLC Media Player v3.0.23 - installe
+[22:44:39][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[22:44:39][OK]    Visual Studio Code v1.115.0 - installe
+[22:44:39][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[22:44:39][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[22:44:39][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[22:44:39][OK]    TeamViewer (Full) v15.76.5 - installe
+[22:44:39][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[22:44:39][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[22:44:39][INFO]  === Scan termine ===
+[22:45:16][INFO]  Console effacee.
+[22:46:00][INFO]  Desinstallation de 7-Zip...
+[22:46:01][INFO]     - 
+[22:46:01][INFO]     - 
+[22:46:02][INFO]     \ 
+[22:46:02][INFO]  Found 7-Zip 26.00 (x64) [7zip.7zip]
+[22:46:02][INFO]  Starting package uninstall...
+[22:46:02][INFO]     - 
+[22:46:02][INFO]     \ 
+[22:46:03][INFO]     | 
+[22:46:03][INFO]     / 
+[22:46:03][INFO]     - 
+[22:46:03][INFO]     \ 
+[22:46:03][INFO]  Successfully uninstalled
+[22:46:03][OK]    7-Zip desinstalle.
+[22:46:03][INFO]  === Scan demarre ===
+[22:46:03][INFO]  Recuperation de la liste winget...
+[22:46:05][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[22:46:05][OK]    Google Chrome v147.0.7727.56 - installe
+[22:46:05][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[22:46:05][OK]    Mozilla Firefox v149.0.2 - installe
+[22:46:05][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[22:46:05][OK]    Microsoft Edge v146.0.3856.109 - installe
+[22:46:05][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[22:46:05][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[22:46:05][INFO]  DEBUG: Adobe Acrobat (64-bit) | Adobe.Acrobat.Reader.64-bit | 26.001.21411 | winget
+[22:46:05][OK]    Adobe Acrobat Reader DC v26.001.21411 - installe
+[22:46:05][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[22:46:05][OK]    Notepad++ v8.9.3 - installe
+[22:46:05][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.23 | winget
+[22:46:05][OK]    VLC Media Player v3.0.23 - installe
+[22:46:05][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[22:46:05][OK]    Visual Studio Code v1.115.0 - installe
+[22:46:05][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[22:46:05][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[22:46:05][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[22:46:05][OK]    TeamViewer (Full) v15.76.5 - installe
+[22:46:05][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[22:46:05][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[22:46:05][INFO]  === Scan termine ===
+[22:46:11][INFO]  Console effacee.
+[22:46:23][INFO]  === Debut installation (1 logiciels) ===
+[22:46:23][INFO]  [1/1] Installation de 7-Zip...
+[22:46:24][INFO]     - 
+[22:46:24][INFO]     - 
+[22:46:25][INFO]     \ 
+[22:46:25][INFO]  Found 7-Zip [7zip.7zip] Version 26.00
+[22:46:25][INFO]  This application is licensed to you by its owner.
+[22:46:25][INFO]  Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+[22:46:25][INFO]  Downloading https://7-zip.org/a/7z2600-x64.exe
+[22:46:25][INFO]     - 
+[22:46:26][INFO]     \ 
+[22:46:26][INFO]     | 
+[22:46:26][INFO]     / 
+[22:46:26][INFO]     - 
+[22:46:27][INFO]     \ 
+[22:46:27][INFO]     | 
+[22:46:27][INFO]    ██████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   592 KB / 1.57 MB
+[22:46:27][INFO]    ██████████████████████████████  1.57 MB / 1.57 MB
+[22:46:27][INFO]  Successfully verified installer hash
+[22:46:27][INFO]  Starting package install...
+[22:46:27][INFO]  The installer will request to run as administrator. Expect a prompt.
+[22:46:28][INFO]     - 
+[22:46:28][INFO]     \ 
+[22:46:28][INFO]     | 
+[22:46:28][INFO]     / 
+[22:46:29][INFO]     - 
+[22:46:29][INFO]     \ 
+[22:46:29][INFO]     | 
+[22:46:29][INFO]     / 
+[22:46:29][INFO]  Successfully installed
+[22:46:30][OK]    7-Zip installe avec succes.
+[22:46:30][INFO]  === Installation terminee ===
+[22:46:30][INFO]  === Scan demarre ===
+[22:46:30][INFO]  Recuperation de la liste winget...
+[22:46:31][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[22:46:31][OK]    Google Chrome v147.0.7727.56 - installe
+[22:46:31][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[22:46:31][OK]    Mozilla Firefox v149.0.2 - installe
+[22:46:31][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[22:46:31][OK]    Microsoft Edge v146.0.3856.109 - installe
+[22:46:31][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[22:46:31][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[22:46:31][INFO]  DEBUG: Adobe Acrobat (64-bit) | Adobe.Acrobat.Reader.64-bit | 26.001.21411 | winget
+[22:46:31][OK]    Adobe Acrobat Reader DC v26.001.21411 - installe
+[22:46:32][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[22:46:32][OK]    7-Zip v26.00 - installe
+[22:46:32][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[22:46:32][OK]    Notepad++ v8.9.3 - installe
+[22:46:32][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.23 | winget
+[22:46:32][OK]    VLC Media Player v3.0.23 - installe
+[22:46:32][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[22:46:32][OK]    Visual Studio Code v1.115.0 - installe
+[22:46:32][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[22:46:32][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[22:46:32][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[22:46:32][OK]    TeamViewer (Full) v15.76.5 - installe
+[22:46:32][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[22:46:32][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[22:46:32][INFO]  === Scan termine ===
+[22:47:00][INFO]  Console effacee.
+[22:52:43][INFO]  AppInstaller demarre.
+[22:52:43][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[22:52:43][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[22:52:43][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[22:52:43][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[22:52:43][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[22:52:43][INFO]  AppInstaller demarre.
+[22:52:52][INFO]  === Scan demarre ===
+[22:52:52][INFO]  Recuperation de la liste winget...
+[22:52:54][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[22:52:54][OK]    Google Chrome v147.0.7727.56 - installe
+[22:52:54][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[22:52:54][OK]    Mozilla Firefox v149.0.2 - installe
+[22:52:54][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[22:52:54][OK]    Microsoft Edge v146.0.3856.109 - installe
+[22:52:54][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[22:52:54][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[22:52:54][INFO]  DEBUG: Adobe Acrobat (64-bit) | Adobe.Acrobat.Reader.64-bit | 26.001.21411 | winget
+[22:52:54][OK]    Adobe Acrobat Reader DC v26.001.21411 - installe
+[22:52:54][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[22:52:54][OK]    7-Zip v26.00 - installe
+[22:52:54][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[22:52:54][OK]    Notepad++ v8.9.3 - installe
+[22:52:54][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.23 | winget
+[22:52:54][OK]    VLC Media Player v3.0.23 - installe
+[22:52:54][INFO]  DEBUG: Docker Desktop | Docker.DockerDesktop | 4.68.0 | winget
+[22:52:54][OK]    Docker Desktop v4.68.0 - installe
+[22:52:54][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[22:52:54][OK]    Visual Studio Code v1.115.0 - installe
+[22:52:54][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[22:52:54][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[22:52:54][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[22:52:54][OK]    TeamViewer (Full) v15.76.5 - installe
+[22:52:54][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[22:52:54][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[22:52:55][INFO]  === Scan termine ===
+[22:55:33][INFO]  AppInstaller demarre.
+[22:55:33][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[22:55:33][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[22:55:33][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[22:55:33][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[22:55:33][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[22:55:33][INFO]       I N F O R S U D   T E C H N O L O G I E S  
+[22:55:33][INFO]       https://www.inforsud.com
+[22:55:33][INFO]  AppInstaller demarre.
+[22:57:26][INFO]  AppInstaller demarre.
+[22:57:26][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[22:57:26][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[22:57:26][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[22:57:26][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[22:57:26][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[22:57:26][INFO]      I N F O R S U D   T E C H N O L O G I E S  
+[22:57:26][INFO]       https://www.inforsud-technologies.com
+[22:57:26][INFO]  AppInstaller demarre.
+[22:57:57][INFO]  AppInstaller demarre.
+[22:57:57][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[22:57:57][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[22:57:57][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[22:57:57][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[22:57:57][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[22:57:57][INFO]      I N F O R S U D   T E C H N O L O G I E S  
+[22:57:57][INFO]       https://www.inforsud-technologies.com
+[22:57:57][INFO]  AppInstaller demarre.
+[22:58:14][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[22:58:14][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[22:58:14][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[22:58:14][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[22:58:14][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[22:58:14][INFO]      I N F O R S U D   T E C H N O L O G I E S  
+[22:58:14][INFO]       https://www.inforsud-technologies.com
+[22:58:14][INFO]  AppInstaller demarre.
+[23:01:02][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:01:02][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:01:02][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:01:02][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:01:02][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:01:02][INFO]      I N F O R S U D   T E C H N O L O G I E S  
+[23:01:02][INFO]       https://www.inforsud-technologies.com
+[23:01:02][INFO]  Version 1.0.0 - Davy
+[23:01:02][INFO]  AppInstaller demarre.
+[23:01:46][INFO]  Version 1.0.0 - Davy
+[23:01:46][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:01:46][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:01:46][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:01:46][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:01:46][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:01:46][INFO]      I N F O R S U D   T E C H N O L O G I E S  
+[23:01:46][INFO]       https://www.inforsud-technologies.com
+[23:01:46][INFO]  AppInstaller demarre.
+[23:02:33][INFO]  Version 1.0.0 - Davy
+[23:02:33][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:02:33][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:02:33][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:02:33][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:02:33][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:02:33][INFO]      I N F O R S U D - T E C H N O L O G I E S   
+[23:02:33][INFO]       https://www.inforsud-technologies.com
+[23:02:33][INFO]  AppInstaller demarre.
+[23:02:43][INFO]  === Scan demarre ===
+[23:02:43][INFO]  Recuperation de la liste winget...
+[23:02:44][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[23:02:44][OK]    Google Chrome v147.0.7727.56 - installe
+[23:02:44][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[23:02:44][OK]    Mozilla Firefox v149.0.2 - installe
+[23:02:44][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[23:02:44][OK]    Microsoft Edge v146.0.3856.109 - installe
+[23:02:44][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[23:02:44][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[23:02:44][INFO]  DEBUG: Adobe Acrobat (64-bit) | Adobe.Acrobat.Reader.64-bit | 26.001.21411 | winget
+[23:02:44][OK]    Adobe Acrobat Reader DC v26.001.21411 - installe
+[23:02:44][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[23:02:44][OK]    7-Zip v26.00 - installe
+[23:02:44][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[23:02:44][OK]    Notepad++ v8.9.3 - installe
+[23:02:44][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.23 | winget
+[23:02:44][OK]    VLC Media Player v3.0.23 - installe
+[23:02:44][INFO]  DEBUG: Docker Desktop | Docker.DockerDesktop | 4.68.0 | winget
+[23:02:44][OK]    Docker Desktop v4.68.0 - installe
+[23:02:44][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[23:02:44][OK]    Visual Studio Code v1.115.0 - installe
+[23:02:44][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[23:02:44][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[23:02:44][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[23:02:44][OK]    TeamViewer (Full) v15.76.5 - installe
+[23:02:44][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[23:02:44][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[23:02:45][INFO]  === Scan termine ===
+[23:03:27][INFO]  Version 1.0.0 - Davy
+[23:03:27][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:03:27][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:03:27][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:03:27][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:03:27][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:03:27][INFO]      I N F O R S U D - T E C H N O L O G I E S   
+[23:03:27][INFO]       https://www.inforsud-technologies.com
+[23:03:27][INFO]  AppInstaller demarre.
+[23:05:52][INFO]  Version 1.0.0 - Davy
+[23:05:52][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:05:52][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:05:52][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:05:52][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:05:52][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:05:52][INFO]      I N F O R S U D - T E C H N O L O G I E S   
+[23:05:52][INFO]       https://www.inforsud-technologies.com
+[23:05:52][INFO]  AppInstaller demarre.
+[23:06:07][INFO]  Version 1.0.0 - Davy
+[23:06:07][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:06:07][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:06:07][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:06:07][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:06:07][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:06:07][INFO]      I N F O R S U D - T E C H N O L O G I E S   
+[23:06:07][INFO]       https://www.inforsud-technologies.com
+[23:06:07][INFO]  AppInstaller demarre.
+[23:08:42][INFO]  Version 1.0.0 - Davy
+[23:08:42][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:08:42][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:08:42][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:08:42][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:08:42][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:08:42][INFO]      I N F O R S U D - T E C H N O L O G I E S   
+[23:08:42][INFO]       https://www.inforsud-technologies.com
+[23:08:42][INFO]  AppInstaller demarre.
+[23:09:10][INFO]  Version 1.0.0 - Davy
+[23:09:10][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:09:10][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:09:10][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:09:10][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:09:10][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:09:10][INFO]      I N F O R S U D - T E C H N O L O G I E S   
+[23:09:10][INFO]       https://www.inforsud-technologies.com
+[23:09:10][INFO]  AppInstaller demarre.
+[23:09:32][INFO]  Version 1.0.0 - Davy
+[23:09:32][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:09:32][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:09:32][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:09:32][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:09:32][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:09:32][INFO]      I N F O R S U D - T E C H N O L O G I E S   
+[23:09:32][INFO]       https://www.inforsud-technologies.com
+[23:09:32][INFO]  AppInstaller demarre.
+[23:12:17][INFO]  Version 1.0.0 - Davy
+[23:12:17][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:12:17][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:12:17][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:12:17][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:12:17][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:12:17][INFO]      I N F O R S U D - T E C H N O L O G I E S   
+[23:12:17][INFO]       https://www.inforsud-technologies.com
+[23:12:17][INFO]  AppInstaller demarre.
+[23:12:19][INFO]  === Scan demarre ===
+[23:12:19][INFO]  Recuperation de la liste winget...
+[23:12:21][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[23:12:21][OK]    Google Chrome v147.0.7727.56 - installe
+[23:12:21][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[23:12:21][OK]    Mozilla Firefox v149.0.2 - installe
+[23:12:21][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[23:12:21][OK]    Microsoft Edge v146.0.3856.109 - installe
+[23:12:21][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[23:12:21][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[23:12:21][INFO]  DEBUG: Adobe Acrobat (64-bit) | Adobe.Acrobat.Reader.64-bit | 26.001.21411 | winget
+[23:12:21][OK]    Adobe Acrobat Reader DC v26.001.21411 - installe
+[23:12:21][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[23:12:21][OK]    7-Zip v26.00 - installe
+[23:12:21][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[23:12:21][OK]    Notepad++ v8.9.3 - installe
+[23:12:21][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.23 | winget
+[23:12:21][OK]    VLC Media Player v3.0.23 - installe
+[23:12:21][INFO]  DEBUG: Docker Desktop | Docker.DockerDesktop | 4.68.0 | winget
+[23:12:21][OK]    Docker Desktop v4.68.0 - installe
+[23:12:21][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[23:12:21][OK]    Visual Studio Code v1.115.0 - installe
+[23:12:21][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[23:12:21][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[23:12:21][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[23:12:21][OK]    TeamViewer (Full) v15.76.5 - installe
+[23:12:21][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[23:12:21][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[23:12:22][INFO]  === Scan termine ===

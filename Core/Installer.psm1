@@ -122,7 +122,7 @@ function Get-WingetListSnapshot {
 function Get-SoftwareInfo {
     param(
         [string]$Id,
-        [string[]]$Snapshot   # resultat de Get-WingetListSnapshot
+        [string[]]$Snapshot
     )
 
     $result = @{
@@ -137,16 +137,37 @@ function Get-SoftwareInfo {
 
     foreach ($line in $Snapshot) {
         if ($line -match $escaped) {
-            $parts = $line -split "\s{2,}"
-            if ($parts.Count -ge 2) { $result.Installed = $true }
-            if ($parts.Count -ge 3) { $result.Version   = $parts[2].Trim() }
-            if ($parts.Count -ge 4) {
-             $availableVersion = $parts[3].Trim()
 
-            if ($availableVersion -and $availableVersion -ne $result.Version) {
-            $result.Update = $true
-    }
-}
+            $parts = $line -split "\s{2,}"
+
+            # DEBUG (temporaire)
+            Write-Log "DEBUG: $($parts -join ' | ')" "DEBUG" $LogBox
+
+            # Installé
+            if ($parts.Count -ge 2) {
+                $result.Installed = $true
+            }
+
+            # Version installée
+            if ($parts.Count -ge 3) {
+                $result.Version = $parts[2].Trim()
+            }
+
+            # ✅ CORRECTION : MAJ uniquement si colonne "Available" existe
+            if ($parts.Count -ge 5) {
+
+                $installedVersion = $parts[2].Trim()
+                $availableVersion = $parts[3].Trim()
+
+                if (
+                    $availableVersion -and
+                    $availableVersion -ne $installedVersion -and
+                    $availableVersion -match '^\d'
+                ) {
+                    $result.Update = $true
+                }
+            }
+
             break
         }
     }
