@@ -1569,3 +1569,239 @@
 [23:12:21][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
 [23:12:21][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
 [23:12:22][INFO]  === Scan termine ===
+[23:31:19][INFO]  Version 2.0.0 - Davy
+[23:31:19][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:31:19][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:31:19][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:31:19][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:31:19][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:31:19][INFO]      I N F O R S U D - T E C H N O L O G I E S   
+[23:31:19][INFO]       https://www.inforsud-technologies.com
+[23:31:19][INFO]  AppInstaller demarre.
+[23:35:32][INFO]  Version 2.0.0 - Davy
+[23:35:32][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:35:32][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:35:32][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:35:32][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:35:32][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:35:32][INFO]      I N F O R S U D - T E C H N O L O G I E S   
+[23:35:32][INFO]       https://www.inforsud-technologies.com
+[23:35:32][INFO]  AppInstaller demarre.
+[23:42:42][INFO]  Version 2.0.0 - Davy
+[23:42:42][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:42:42][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:42:42][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:42:42][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:42:42][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:42:42][INFO]      I N F O R S U D - T E C H N O L O G I E S   
+[23:42:42][INFO]       https://www.inforsud-technologies.com
+[23:42:42][INFO]  AppInstaller demarre.
+[23:42:44][INFO]  === Scan demarre ===
+[23:42:44][INFO]  Recuperation de la liste winget...
+[23:42:46][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[23:42:46][OK]    Google Chrome v147.0.7727.56 - installe
+[23:42:46][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[23:42:46][OK]    Mozilla Firefox v149.0.2 - installe
+[23:42:46][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[23:42:46][OK]    Microsoft Edge v146.0.3856.109 - installe
+[23:42:46][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[23:42:46][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[23:42:46][INFO]  DEBUG: Adobe Acrobat (64-bit) | Adobe.Acrobat.Reader.64-bit | 26.001.21411 | winget
+[23:42:46][OK]    Adobe Acrobat Reader DC v26.001.21411 - installe
+[23:42:46][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[23:42:46][OK]    7-Zip v26.00 - installe
+[23:42:46][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[23:42:46][OK]    Notepad++ v8.9.3 - installe
+[23:42:46][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.23 | winget
+[23:42:46][OK]    VLC Media Player v3.0.23 - installe
+[23:42:46][INFO]  DEBUG: Docker Desktop | Docker.DockerDesktop | 4.68.0 | winget
+[23:42:46][OK]    Docker Desktop v4.68.0 - installe
+[23:42:46][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[23:42:46][OK]    Visual Studio Code v1.115.0 - installe
+[23:42:46][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[23:42:46][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[23:42:46][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[23:42:46][OK]    TeamViewer (Full) v15.76.5 - installe
+[23:42:46][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[23:42:46][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[23:42:46][INFO]  === Scan termine ===
+[23:45:23][INFO]  Version 2.0.0 - Davy
+[23:45:23][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:45:23][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:45:23][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:45:23][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:45:23][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:45:23][INFO]      I N F O R S U D - T E C H N O L O G I E S   
+[23:45:23][INFO]       https://www.inforsud-technologies.com
+[23:45:23][INFO]  AppInstaller demarre.
+[23:45:28][INFO]  === Scan demarre ===
+[23:45:28][INFO]  Recuperation de la liste winget...
+[23:45:30][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[23:45:30][OK]    Google Chrome v147.0.7727.56 - installe
+[23:45:30][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[23:45:30][OK]    Mozilla Firefox v149.0.2 - installe
+[23:45:30][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39ÔÇª winget
+[23:45:30][OK]    Microsoft Edge v146.0.3856.109 - installe
+[23:45:30][INFO]  DEBUG: Microsoft 365 Apps for enterprise - enÔÇª Microsoft.Office | 16.0.19822.20168 | winget
+[23:45:30][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[23:45:30][INFO]  DEBUG: Adobe Acrobat (64-bit) | Adobe.Acrobat.Reader.64-bit | 26.001.21411 | winget
+[23:45:30][OK]    Adobe Acrobat Reader DC v26.001.21411 - installe
+[23:45:30][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[23:45:30][OK]    7-Zip v26.00 - installe
+[23:45:30][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[23:45:30][OK]    Notepad++ v8.9.3 - installe
+[23:45:30][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.23 | winget
+[23:45:30][OK]    VLC Media Player v3.0.23 - installe
+[23:45:30][INFO]  DEBUG: Docker Desktop | Docker.DockerDesktop | 4.68.0 | winget
+[23:45:30][OK]    Docker Desktop v4.68.0 - installe
+[23:45:30][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[23:45:30][OK]    Visual Studio Code v1.115.0 - installe
+[23:45:30][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[23:45:30][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[23:45:30][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[23:45:30][OK]    TeamViewer (Full) v15.76.5 - installe
+[23:45:30][INFO]  DEBUG: Microsoft Visual C++ v14 RedistributabÔÇª Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[23:45:30][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[23:45:30][INFO]  === Scan termine ===
+[23:45:55][INFO]  Desinstallation de 7-Zip...
+[23:45:56][INFO]     - 
+[23:45:56][INFO]     - 
+[23:45:56][INFO]     \ 
+[23:45:57][INFO]     | 
+[23:45:57][INFO]  Found 7-Zip 26.00 (x64) [7zip.7zip]
+[23:45:57][INFO]  Starting package uninstall...
+[23:45:57][INFO]     - 
+[23:45:58][INFO]     \ 
+[23:45:58][INFO]     | 
+[23:45:58][INFO]     / 
+[23:45:58][INFO]     - 
+[23:45:59][INFO]     \ 
+[23:45:59][INFO]     | 
+[23:45:59][INFO]  Successfully uninstalled
+[23:45:59][OK]    7-Zip desinstalle.
+[23:45:59][INFO]  === Scan demarre ===
+[23:45:59][INFO]  Recuperation de la liste winget...
+[23:46:01][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[23:46:01][OK]    Google Chrome v147.0.7727.56 - installe
+[23:46:01][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[23:46:01][OK]    Mozilla Firefox v149.0.2 - installe
+[23:46:01][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39ÔÇª winget
+[23:46:01][OK]    Microsoft Edge v146.0.3856.109 - installe
+[23:46:01][INFO]  DEBUG: Microsoft 365 Apps for enterprise - enÔÇª Microsoft.Office | 16.0.19822.20168 | winget
+[23:46:01][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[23:46:01][INFO]  DEBUG: Adobe Acrobat (64-bit) | Adobe.Acrobat.Reader.64-bit | 26.001.21411 | winget
+[23:46:01][OK]    Adobe Acrobat Reader DC v26.001.21411 - installe
+[23:46:01][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[23:46:01][OK]    Notepad++ v8.9.3 - installe
+[23:46:01][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.23 | winget
+[23:46:01][OK]    VLC Media Player v3.0.23 - installe
+[23:46:01][INFO]  DEBUG: Docker Desktop | Docker.DockerDesktop | 4.68.0 | winget
+[23:46:01][OK]    Docker Desktop v4.68.0 - installe
+[23:46:01][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[23:46:01][OK]    Visual Studio Code v1.115.0 - installe
+[23:46:01][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[23:46:01][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[23:46:01][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[23:46:01][OK]    TeamViewer (Full) v15.76.5 - installe
+[23:46:01][INFO]  DEBUG: Microsoft Visual C++ v14 RedistributabÔÇª Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[23:46:01][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[23:46:01][INFO]  === Scan termine ===
+[23:46:08][INFO]  === Debut installation (1 logiciels) ===
+[23:46:08][INFO]  [1/1] Installation de 7-Zip...
+[23:46:08][INFO]     - 
+[23:46:09][INFO]     - 
+[23:46:09][INFO]     \ 
+[23:46:09][INFO]  Found 7-Zip [7zip.7zip] Version 26.00
+[23:46:09][INFO]  This application is licensed to you by its owner.
+[23:46:09][INFO]  Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+[23:46:09][INFO]  Downloading https://7-zip.org/a/7z2600-x64.exe
+[23:46:09][INFO]     - 
+[23:46:10][INFO]     \ 
+[23:46:10][INFO]     | 
+[23:46:10][INFO]     / 
+[23:46:10][INFO]     - 
+[23:46:11][INFO]     \ 
+[23:46:11][INFO]     | 
+[23:46:11][INFO]    ÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆÔûÆ   592 KB / 1.57 MB
+[23:46:11][INFO]    ÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûê  1.57 MB / 1.57 MB
+[23:46:11][INFO]  Successfully verified installer hash
+[23:46:11][INFO]  Starting package install...
+[23:46:11][INFO]  The installer will request to run as administrator. Expect a prompt.
+[23:46:12][INFO]     - 
+[23:46:12][INFO]     \ 
+[23:46:12][INFO]     | 
+[23:46:12][INFO]     / 
+[23:46:13][INFO]     - 
+[23:46:13][INFO]     \ 
+[23:46:13][INFO]     | 
+[23:46:14][INFO]     / 
+[23:46:14][INFO]  Successfully installed
+[23:46:14][OK]    7-Zip installe avec succes.
+[23:46:14][INFO]  === Installation terminee ===
+[23:46:14][INFO]  === Scan demarre ===
+[23:46:14][INFO]  Recuperation de la liste winget...
+[23:46:16][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[23:46:16][OK]    Google Chrome v147.0.7727.56 - installe
+[23:46:16][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[23:46:16][OK]    Mozilla Firefox v149.0.2 - installe
+[23:46:16][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39ÔÇª winget
+[23:46:16][OK]    Microsoft Edge v146.0.3856.109 - installe
+[23:46:16][INFO]  DEBUG: Microsoft 365 Apps for enterprise - enÔÇª Microsoft.Office | 16.0.19822.20168 | winget
+[23:46:16][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[23:46:16][INFO]  DEBUG: Adobe Acrobat (64-bit) | Adobe.Acrobat.Reader.64-bit | 26.001.21411 | winget
+[23:46:16][OK]    Adobe Acrobat Reader DC v26.001.21411 - installe
+[23:46:16][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[23:46:16][OK]    7-Zip v26.00 - installe
+[23:46:16][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[23:46:16][OK]    Notepad++ v8.9.3 - installe
+[23:46:16][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.23 | winget
+[23:46:16][OK]    VLC Media Player v3.0.23 - installe
+[23:46:16][INFO]  DEBUG: Docker Desktop | Docker.DockerDesktop | 4.68.0 | winget
+[23:46:16][OK]    Docker Desktop v4.68.0 - installe
+[23:46:16][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[23:46:16][OK]    Visual Studio Code v1.115.0 - installe
+[23:46:16][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[23:46:16][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[23:46:16][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[23:46:16][OK]    TeamViewer (Full) v15.76.5 - installe
+[23:46:16][INFO]  DEBUG: Microsoft Visual C++ v14 RedistributabÔÇª Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[23:46:16][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[23:46:16][INFO]  === Scan termine ===
+[23:50:29][INFO]  Version 2.0.0 - Davy
+[23:50:29][INFO]    ___ _   _ _____ ___  ____  ____   _   _ ____  
+[23:50:29][INFO]   |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ 
+[23:50:29][INFO]    | ||  \| | |_ | | | | |_) \___ \ | | | | | | |
+[23:50:29][INFO]    | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |
+[23:50:29][INFO]   |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ 
+[23:50:29][INFO]      I N F O R S U D - T E C H N O L O G I E S   
+[23:50:29][INFO]       https://www.inforsud-technologies.com
+[23:50:29][INFO]  AppInstaller demarre.
+[23:50:50][INFO]  === Scan demarre ===
+[23:50:50][INFO]  Recuperation de la liste winget...
+[23:50:52][INFO]  DEBUG: Google Chrome | Google.Chrome | 147.0.7727.56 | winget
+[23:50:52][OK]    Google Chrome v147.0.7727.56 - installe
+[23:50:52][INFO]  DEBUG: Mozilla Firefox (x64 en-US) | Mozilla.Firefox | 149.0.2 | winget
+[23:50:52][OK]    Mozilla Firefox v149.0.2 - installe
+[23:50:52][INFO]  DEBUG: Microsoft Edge | Microsoft.Edge | 146.0.3856.109 | 147.0.39… winget
+[23:50:52][OK]    Microsoft Edge v146.0.3856.109 - installe
+[23:50:52][INFO]  DEBUG: Microsoft 365 Apps for enterprise - en… Microsoft.Office | 16.0.19822.20168 | winget
+[23:50:52][OK]    Microsoft 365 Apps for enterprise vwinget - installe
+[23:50:52][INFO]  DEBUG: Adobe Acrobat (64-bit) | Adobe.Acrobat.Reader.64-bit | 26.001.21411 | winget
+[23:50:52][OK]    Adobe Acrobat Reader DC v26.001.21411 - installe
+[23:50:52][INFO]  DEBUG: 7-Zip 26.00 (x64) | 7zip.7zip | 26.00 | winget
+[23:50:52][OK]    7-Zip v26.00 - installe
+[23:50:52][INFO]  DEBUG: Notepad++ (64-bit x64) | Notepad++.Notepad++ | 8.9.3 | winget
+[23:50:52][OK]    Notepad++ v8.9.3 - installe
+[23:50:52][INFO]  DEBUG: VLC media player | VideoLAN.VLC | 3.0.23 | winget
+[23:50:52][OK]    VLC Media Player v3.0.23 - installe
+[23:50:52][INFO]  DEBUG: Docker Desktop | Docker.DockerDesktop | 4.68.0 | winget
+[23:50:52][OK]    Docker Desktop v4.68.0 - installe
+[23:50:52][INFO]  DEBUG: Microsoft Visual Studio Code (User) | Microsoft.VisualStudioCode | 1.115.0 | winget
+[23:50:52][OK]    Visual Studio Code v1.115.0 - installe
+[23:50:52][INFO]  DEBUG: Microsoft Teams | Microsoft.Teams | 26072.519.4556.7438 | winget
+[23:50:52][OK]    Microsoft Teams v26072.519.4556.7438 - installe
+[23:50:52][INFO]  DEBUG: TeamViewer | TeamViewer.TeamViewer | 15.76.5 | winget
+[23:50:52][OK]    TeamViewer (Full) v15.76.5 - installe
+[23:50:52][INFO]  DEBUG: Microsoft Visual C++ v14 Redistributab… Microsoft.VCRedist.2015+.x64 | 14.50.35719.0 | winget
+[23:50:52][OK]    Microsoft Visual C++ Redistributable 2015-2022 vwinget - installe
+[23:50:52][INFO]  === Scan termine ===

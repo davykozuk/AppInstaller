@@ -1,16 +1,28 @@
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+# Gestion du chemin compatible EXE + Script
+if ($MyInvocation.MyCommand.Path -and (Test-Path $MyInvocation.MyCommand.Path)) {
+    # Mode script (.ps1)
+    $script:BasePath = Split-Path -Parent $MyInvocation.MyCommand.Path
+}
+else {
+    # Mode EXE (PS2EXE)
+    $script:BasePath = Split-Path -Parent ([System.Diagnostics.Process]::GetCurrentProcess().MainModule.FileName)
+}
+
+Set-Location $script:BasePath
+
+if ($Host.Name -eq "ConsoleHost") {
+    [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+}
+
 Add-Type -AssemblyName PresentationFramework
 
-Import-Module "$PSScriptRoot\Services\LogService.psm1"  -Force
-Import-Module "$PSScriptRoot\Core\ConfigLoader.psm1"    -Force
-Import-Module "$PSScriptRoot\Core\Installer.psm1"       -Force
+Import-Module "$script:BasePath\Services\LogService.psm1" -Force
+Import-Module "$script:BasePath\Core\ConfigLoader.psm1" -Force
+Import-Module "$script:BasePath\Core\Installer.psm1" -Force
 
-# ─────────────────────────────────────────────
-#  CHARGEMENT UI
-# ─────────────────────────────────────────────
-[xml]$xaml = Get-Content "$PSScriptRoot\UI\MainWindow.xaml" -Raw
-$reader   = New-Object System.Xml.XmlNodeReader $xaml
-$window   = [Windows.Markup.XamlReader]::Load($reader)
+[xml]$xaml = Get-Content "$script:BasePath\UI\MainWindow.xaml" -Raw
+$reader = New-Object System.Xml.XmlNodeReader $xaml
+$window = [Windows.Markup.XamlReader]::Load($reader)
 
 $SoftwareList  = $window.FindName("SoftwareList")
 $LogBox        = $window.FindName("LogBox")
@@ -52,7 +64,7 @@ function Update-StatusBar {
 # ─────────────────────────────────────────────
 #  DONNEES
 # ─────────────────────────────────────────────
-$script:apps  = Get-SoftwareConfig -Path "$PSScriptRoot\Config\apps.json"
+$script:apps = Get-SoftwareConfig -Path "$script:BasePath\Config\apps.json"
 $script:state = @{}
 
 # ─────────────────────────────────────────────

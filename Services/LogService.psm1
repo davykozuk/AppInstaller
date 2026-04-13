@@ -3,7 +3,6 @@ function Write-Log {
 
     $time = Get-Date -Format "HH:mm:ss"
 
-    # Couleur selon niveau dans la console
     $prefix = switch ($Level) {
         "OK"    { "[OK]   " }
         "WARN"  { "[WARN] " }
@@ -13,8 +12,14 @@ function Write-Log {
 
     $line = "[$time]$prefix $Message"
 
-    # Ecriture fichier log (chemin absolu depuis la racine du projet)
-    $logDir  = Join-Path $PSScriptRoot "..\Logs"
+    # ✅ FIX PS2EXE : base path fiable
+    if ($MyInvocation.MyCommand.Path) {
+        $basePath = Split-Path $MyInvocation.MyCommand.Path -Parent
+    } else {
+        $basePath = Get-Location
+    }
+
+    $logDir  = Join-Path $basePath "Logs"
     $logPath = Join-Path $logDir "app.log"
 
     if (-not (Test-Path $logDir)) {
@@ -27,15 +32,12 @@ function Write-Log {
         [System.Text.Encoding]::UTF8
     )
 
-    # Mise a jour UI (thread-safe via Dispatcher si necessaire)
     if ($LogBox) {
-        $coloredLine = $line
-
-        # Couleur dans le LogBox via foreground de tout le textbox (simplifie)
-        # Pour une vraie coloration par ligne il faudrait un RichTextBox
-        $LogBox.AppendText("$coloredLine`r`n")
+        $LogBox.AppendText("$line`r`n")
         $LogBox.ScrollToEnd()
     }
 }
+
+Export-ModuleMember -Function Write-Log
 
 Export-ModuleMember -Function Write-Log
