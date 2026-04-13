@@ -1,274 +1,335 @@
-﻿[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 Add-Type -AssemblyName PresentationFramework
 
-Import-Module "$PSScriptRoot\Services\LogService.psm1" -Force
-Import-Module "$PSScriptRoot\Core\ConfigLoader.psm1" -Force
-Import-Module "$PSScriptRoot\Core\Installer.psm1" -Force
+Import-Module "$PSScriptRoot\Services\LogService.psm1"  -Force
+Import-Module "$PSScriptRoot\Core\ConfigLoader.psm1"    -Force
+Import-Module "$PSScriptRoot\Core\Installer.psm1"       -Force
 
-# ================= UI =================
+# ─────────────────────────────────────────────
+#  CHARGEMENT UI
+# ─────────────────────────────────────────────
 [xml]$xaml = Get-Content "$PSScriptRoot\UI\MainWindow.xaml" -Raw
-$reader = New-Object System.Xml.XmlNodeReader $xaml
-$window = [Windows.Markup.XamlReader]::Load($reader)
+$reader   = New-Object System.Xml.XmlNodeReader $xaml
+$window   = [Windows.Markup.XamlReader]::Load($reader)
 
-$AppListPanel = $window.FindName("AppListPanel")
-$LogBox       = $window.FindName("LogBox")
-$BtnInstall   = $window.FindName("BtnInstall")
-$BtnScan      = $window.FindName("BtnScan")
-$ChkSilent    = $window.FindName("ChkSilent")
-$Loader       = $window.FindName("LoaderOverlay")
-if (-not $AppListPanel) {
-    Write-Host "ERROR: AppListPanel not found"
+$SoftwareList  = $window.FindName("SoftwareList")
+$LogBox        = $window.FindName("LogBox")
+$BtnInstall    = $window.FindName("BtnInstall")
+$BtnScan       = $window.FindName("BtnScan")
+$ChkSilent     = $window.FindName("ChkSilent")
+$Loader        = $window.FindName("LoaderOverlay")
+$LoaderText    = $window.FindName("LoaderText")
+$TxtSearch     = $window.FindName("TxtSearch")
+$BtnSelectAll  = $window.FindName("BtnSelectAll")
+$BtnDeselectAll= $window.FindName("BtnDeselectAll")
+$BtnClearLog   = $window.FindName("BtnClearLog")
+$TxtStatus     = $window.FindName("TxtStatus")
+$TxtInstalled  = $window.FindName("TxtInstalled")
+$TxtAvailable  = $window.FindName("TxtAvailable")
+$TxtUpdates    = $window.FindName("TxtUpdates")
+$ProgressBar   = $window.FindName("ProgressBar")
+
+# ─────────────────────────────────────────────
+#  HELPERS LOADER
+# ─────────────────────────────────────────────
+function Show-Loader {
+    param([string]$Text = "Chargement...")
+    $LoaderText.Text = $Text
+    $Loader.Visibility = "Visible"
+}
+function Hide-Loader { $Loader.Visibility = "Collapsed" }
+
+function Update-StatusBar {
+    $installed = ($script:state.Values | Where-Object { $_.Installed }).Count
+    $updates   = ($script:state.Values | Where-Object { $_.Update   }).Count
+    $total     = $script:apps.Count
+
+    $TxtInstalled.Text = "$installed installes"
+    $TxtAvailable.Text = "$($total - $installed) disponibles"
+    $TxtUpdates.Text   = if ($updates -gt 0) { "$updates mise(s) a jour" } else { "" }
 }
 
-# ================= LOADER =================
-function Show-Loader { if ($Loader) { $Loader.Visibility = "Visible" } }
-function Hide-Loader { if ($Loader) { $Loader.Visibility = "Collapsed" } }
-
-# ================= DATA =================
+# ─────────────────────────────────────────────
+#  DONNEES
+# ─────────────────────────────────────────────
 $script:apps  = Get-SoftwareConfig -Path "$PSScriptRoot\Config\apps.json"
 $script:state = @{}
 
-# ================= UI =================
+# ─────────────────────────────────────────────
+#  CONSTRUCTION DE LA LISTE
+# ─────────────────────────────────────────────
 function Initialize-UI {
+    param([string]$Filter = "")
 
-    $AppListPanel.Children.Clear()
+    $SoftwareList.Children.Clear()
 
-    $groups = $script:apps | Group-Object Category
+    $groups = $script:apps |
+        Where-Object { $Filter -eq "" -or $_.Name -like "*$Filter*" -or $_.Category -like "*$Filter*" } |
+        Group-Object Category
 
     foreach ($group in $groups) {
 
-        $lbl = New-Object System.Windows.Controls.TextBlock
-        $lbl.Text = $group.Name
-        $lbl.FontWeight = "Bold"
-        $lbl.Margin = "5,10,0,5"
-        $AppListPanel.Children.Add($lbl)
+        # ── En-tête de catégorie ──────────────────────
+        $catBorder = New-Object System.Windows.Controls.Border
+        $catBorder.Background    = "#EBF5FB"
+        $catBorder.CornerRadius  = "6"
+        $catBorder.Margin        = "0,10,0,4"
+        $catBorder.Padding       = "8,4"
 
+        $catLabel = New-Object System.Windows.Controls.TextBlock
+        $catLabel.Text       = $group.Name.ToUpper()
+        $catLabel.FontSize   = 11
+        $catLabel.FontWeight = "Bold"
+        $catLabel.Foreground = "#2980B9"
+
+        $catBorder.Child = $catLabel
+        $SoftwareList.Children.Add($catBorder)
+
+        # ── Apps de la catégorie ──────────────────────
         foreach ($app in $group.Group) {
 
             if (-not $script:state.ContainsKey($app.Id)) {
-                $script:state[$app.Id] = @{
-                    Installed = $false
-                    Version   = ""
-                    Update    = $false
-                }
+                $script:state[$app.Id] = @{ Installed = $false; Version = ""; Update = $false }
             }
 
             $info = $script:state[$app.Id]
 
+            # Row container avec hover
+            $rowBorder = New-Object System.Windows.Controls.Border
+            $rowBorder.CornerRadius = "6"
+            $rowBorder.Margin       = "0,1"
+            $rowBorder.Padding      = "6,5"
+            $rowBorder.Background   = "Transparent"
+
+            $rowBorder.Add_MouseEnter({
+                param($s,$e)
+                $s.Background = "#F4F6F9"
+            })
+            $rowBorder.Add_MouseLeave({
+                param($s,$e)
+                $s.Background = "Transparent"
+            })
+
             $grid = New-Object System.Windows.Controls.Grid
-            $grid.Margin = "5"
 
+            $c1 = New-Object System.Windows.Controls.ColumnDefinition; $c1.Width = "3*"
+            $c2 = New-Object System.Windows.Controls.ColumnDefinition; $c2.Width = "110"
+            $c3 = New-Object System.Windows.Controls.ColumnDefinition; $c3.Width = "32"
+            $c4 = New-Object System.Windows.Controls.ColumnDefinition; $c4.Width = "32"
+            $grid.ColumnDefinitions.Add($c1)
+            $grid.ColumnDefinitions.Add($c2)
+            $grid.ColumnDefinitions.Add($c3)
+            $grid.ColumnDefinitions.Add($c4)
 
-            # NOM (large)
-            $col1 = New-Object System.Windows.Controls.ColumnDefinition
-            $col1.Width = "3*"
-
-            # VERSION (fixe)
-            $col2 = New-Object System.Windows.Controls.ColumnDefinition
-            $col2.Width = "120"
-
-            # UPDATE
-            $col3 = New-Object System.Windows.Controls.ColumnDefinition
-            $col3.Width = "40"
-
-            # DELETE
-            $col4 = New-Object System.Windows.Controls.ColumnDefinition
-            $col4.Width = "40"
-
-            $grid.ColumnDefinitions.Add($col1)
-            $grid.ColumnDefinitions.Add($col2)
-            $grid.ColumnDefinitions.Add($col3)
-            $grid.ColumnDefinitions.Add($col4)
-
-            # CHECKBOX
+            # Checkbox / nom
             $cb = New-Object System.Windows.Controls.CheckBox
-            $cb.Tag = $app
+            $cb.Tag     = $app
             $cb.Content = $app.Name
-            $cb.IsChecked = $false
+            $cb.ToolTip = "ID : $($app.Id)"
+            $cb.MaxWidth = 340
+            $cb.HorizontalAlignment = "Left"
 
             if ($info.Installed) {
                 $cb.IsChecked = $true
                 $cb.IsEnabled = $false
-                $cb.Content += " (installe $($info.Version))"
-                $cb.Foreground = "Gray"
+                $cb.Foreground = "#95A5A6"
             }
 
-            [System.Windows.Controls.Grid]::SetColumn($cb,0)
+            [System.Windows.Controls.Grid]::SetColumn($cb, 0)
+            $grid.Children.Add($cb)
 
-            # UPDATE
+            # Version
+            if ($info.Installed -and $info.Version) {
+                $txt = New-Object System.Windows.Controls.TextBlock
+                $txt.Text      = $info.Version
+                $txt.Foreground = "#95A5A6"
+                $txt.FontStyle  = "Italic"
+                $txt.FontSize   = 11
+                $txt.Margin    = "6,0"
+                $txt.VerticalAlignment = "Center"
+                [System.Windows.Controls.Grid]::SetColumn($txt, 1)
+                $grid.Children.Add($txt)
+            }
+
+            # Bouton update
             if ($info.Update) {
-                $btnUpdate = New-Object System.Windows.Controls.Button
-                $btnUpdate.Content = "⬆"
-                $btnUpdate.Foreground = "#F39C12"
-                $btnUpdate.Background = "Transparent"
-                $btnUpdate.BorderThickness = 0
-                $btnUpdate.Tag = $app
-                $btnUpdate.ToolTip = "Mettre a jour $($app.Name)"
+                $btnU = New-Object System.Windows.Controls.Button
+                $btnU.Content    = [char]0x2B06   # ⬆
+                $btnU.Foreground = "#F39C12"
+                $btnU.Tag        = $app
+                $btnU.ToolTip    = "Mettre a jour $($app.Name)"
+                $btnU.Style      = $window.Resources["IconBtn"]
 
-                $btnUpdate.Add_Click({
+                $btnU.Add_Click({
                     param($s,$e)
-                    Show-Loader
+                    Show-Loader "Mise a jour..."
                     Update-Software -App $s.Tag -LogBox $LogBox
                     Hide-Loader
-                    $BtnScan.RaiseEvent([System.Windows.RoutedEventArgs]::new([System.Windows.Controls.Button]::ClickEvent))
+                    $BtnScan.RaiseEvent(
+                        [System.Windows.RoutedEventArgs]::new(
+                            [System.Windows.Controls.Button]::ClickEvent
+                        )
+                    )
                 })
 
-                [System.Windows.Controls.Grid]::SetColumn($btnUpdate,2)
-                $grid.Children.Add($btnUpdate)
+                [System.Windows.Controls.Grid]::SetColumn($btnU, 2)
+                $grid.Children.Add($btnU)
             }
 
-            # DELETE
+            # Bouton suppression
             if ($info.Installed) {
-                $btnDel = New-Object System.Windows.Controls.Button
-                $btnDel.Content = "🗑"
-                $btnDel.Foreground = "#E74C3C"
-                $btnDel.Background = "Transparent"
-                $btnDel.BorderThickness = 0
-                $btnDel.Tag = $app
-                $btnDel.ToolTip = "Desinstaller $($app.Name)"
+                $btnD = New-Object System.Windows.Controls.Button
+                $btnD.Content = "X"
+                $btnD.Foreground = "#E74C3C"
+                $btnD.Tag        = $app
+                $btnD.ToolTip    = "Desinstaller $($app.Name)"
+                $btnD.Style      = $window.Resources["IconBtn"]
 
-                $btnDel.Add_Click({
+                $btnD.Add_Click({
                     param($s,$e)
-                    Show-Loader
+                    Show-Loader "Desinstallation..."
                     Uninstall-SoftwareList -SoftwareList @($s.Tag) -LogBox $LogBox
                     Hide-Loader
-                    $BtnScan.RaiseEvent([System.Windows.RoutedEventArgs]::new([System.Windows.Controls.Button]::ClickEvent))
+                    $BtnScan.RaiseEvent(
+                        [System.Windows.RoutedEventArgs]::new(
+                            [System.Windows.Controls.Button]::ClickEvent
+                        )
+                    )
                 })
 
-                [System.Windows.Controls.Grid]::SetColumn($btnDel,3)
-                $grid.Children.Add($btnDel)
+                [System.Windows.Controls.Grid]::SetColumn($btnD, 3)
+                $grid.Children.Add($btnD)
             }
 
-            $grid.Children.Add($cb)
-            $AppListPanel.Children.Add($grid)
+            $rowBorder.Child = $grid
+            $SoftwareList.Children.Add($rowBorder)
         }
     }
+
+    Update-StatusBar
 }
 
-# ================= SCAN =================
+# ─────────────────────────────────────────────
+#  SCAN  (winget list UNE SEULE FOIS)
+# ─────────────────────────────────────────────
 $BtnScan.Add_Click({
-
-    Show-Loader
-    Write-Log "Scan en cours..." "INFO" $LogBox
+    Show-Loader "Scan en cours..."
+    Write-Log "=== Scan demarre ===" "INFO" $LogBox
+    $TxtStatus.Text = "Scan en cours..."
 
     $script:state.Clear()
 
-foreach ($app in $script:apps) {
+    # Une seule invocation winget list => tres rapide
+    Write-Log "Recuperation de la liste winget..." "INFO" $LogBox
+    $snapshot = Get-WingetListSnapshot
 
-    $isInstalled = Test-SoftwareInstalled -Id $app.Id
+    $total = $script:apps.Count
+    $i = 0
 
-    $row = New-Object System.Windows.Controls.Grid
-    $row.Margin = "5"
-    $row.Padding = "5"
-    $row.Background = "#ECF0F1"
+    foreach ($app in $script:apps) {
+        $i++
+        $pct = [int](($i / $total) * 100)
+        $ProgressBar.Visibility = "Visible"
+        $ProgressBar.Value      = $pct
 
-    $row.ColumnDefinitions.Add((New-Object System.Windows.Controls.ColumnDefinition -Property @{Width="40"}))
-    $row.ColumnDefinitions.Add((New-Object System.Windows.Controls.ColumnDefinition -Property @{Width="*"}))
-    $row.ColumnDefinitions.Add((New-Object System.Windows.Controls.ColumnDefinition -Property @{Width="120"}))
-    $row.ColumnDefinitions.Add((New-Object System.Windows.Controls.ColumnDefinition -Property @{Width="120"}))
-    $row.ColumnDefinitions.Add((New-Object System.Windows.Controls.ColumnDefinition -Property @{Width="120"}))
+        $info = Get-SoftwareInfo -Id $app.Id -Snapshot $snapshot
+        $script:state[$app.Id] = $info
 
-    # Checkbox
-    $cb = New-Object System.Windows.Controls.CheckBox
-    $cb.VerticalAlignment = "Center"
-    $cb.IsEnabled = -not $isInstalled
-    [System.Windows.Controls.Grid]::SetColumn($cb, 0)
-
-    # Name
-    $name = New-Object System.Windows.Controls.TextBlock
-    $name.Text = $app.Name
-    $name.TextTrimming = "CharacterEllipsis"
-    $name.VerticalAlignment = "Center"
-    $name.ToolTip = $app.Name
-    [System.Windows.Controls.Grid]::SetColumn($name, 1)
-
-    # Version
-    $version = New-Object System.Windows.Controls.TextBlock
-    $version.Text = $app.Version
-    $version.HorizontalAlignment = "Center"
-    $version.VerticalAlignment = "Center"
-    [System.Windows.Controls.Grid]::SetColumn($version, 2)
-
-    # Status badge
-    $status = New-Object System.Windows.Controls.TextBlock
-    $status.VerticalAlignment = "Center"
-    $status.HorizontalAlignment = "Center"
-
-    if ($isInstalled) {
-        $status.Text = "Installed"
-        $status.Foreground = "Green"
-    } else {
-        $status.Text = "Not installed"
-        $status.Foreground = "Red"
+        if ($info.Installed) {
+            $v = if ($info.Version) { " v$($info.Version)" } else { "" }
+            Write-Log "$($app.Name)$v - installe$(if($info.Update){' [MAJ dispo]'})" "OK" $LogBox
+        }
     }
 
-    [System.Windows.Controls.Grid]::SetColumn($status, 3)
+    $ProgressBar.Visibility = "Collapsed"
 
-    # Action button
-    $btn = New-Object System.Windows.Controls.Button
-    $btn.Padding = "5"
-    $btn.Margin = "2"
-
-    if ($isInstalled) {
-        $btn.Content = "Remove"
-        $btn.ToolTip = "Uninstall $($app.Name)"
-    } else {
-        $btn.Content = "Install"
-        $btn.ToolTip = "Install $($app.Name)"
-    }
-
-    [System.Windows.Controls.Grid]::SetColumn($btn, 4)
-
-    # Add elements
-    $row.Children.Add($cb)
-    $row.Children.Add($name)
-    $row.Children.Add($version)
-    $row.Children.Add($status)
-    $row.Children.Add($btn)
-
-    $AppListPanel.Children.Add($row)
-}
-
-    Initialize-UI
-    Write-Log "Scan termine" "INFO" $LogBox
-
+    Initialize-UI -Filter $TxtSearch.Text
+    Write-Log "=== Scan termine ===" "INFO" $LogBox
+    $TxtStatus.Text = "Scan termine"
     Hide-Loader
 })
 
-# ================= INSTALL =================
+# ─────────────────────────────────────────────
+#  INSTALLATION
+# ─────────────────────────────────────────────
 $BtnInstall.Add_Click({
 
     $list = @()
 
-    foreach ($grid in $AppListPanel.Children | Where-Object { $_ -is [System.Windows.Controls.Grid] }) {
+    foreach ($child in $SoftwareList.Children) {
+        $grid = $null
+
+        # Chercher le Grid dans le Border de la row
+        if ($child -is [System.Windows.Controls.Border] -and $child.Child -is [System.Windows.Controls.Grid]) {
+            $grid = $child.Child
+        }
+
+        if (-not $grid) { continue }
 
         $cb = $grid.Children | Where-Object { $_ -is [System.Windows.Controls.CheckBox] }
-
         if ($cb -and $cb.IsChecked -and $cb.IsEnabled) {
-
             $info = $script:state[$cb.Tag.Id]
-
-            if ($info.Update) {
-                Write-Log "$($cb.Tag.Name) ignore (update)" "INFO" $LogBox
-                continue
-            }
-
-            if (-not $info.Installed) {
+            if ($info -and -not $info.Installed -and -not $info.Update) {
                 $list += $cb.Tag
             }
         }
     }
 
     if ($list.Count -eq 0) {
-        Write-Log "Aucun logiciel a installer" "WARN" $LogBox
+        Write-Log "Aucun logiciel a installer selectionne." "WARN" $LogBox
         return
     }
 
-    Show-Loader
+    Write-Log "=== Debut installation ($($list.Count) logiciels) ===" "INFO" $LogBox
+    Show-Loader "Installation en cours..."
     Install-SoftwareList -SoftwareList $list -Silent $ChkSilent.IsChecked -LogBox $LogBox
     Hide-Loader
+    Write-Log "=== Installation terminee ===" "INFO" $LogBox
+
+    # Rescan auto
+    $BtnScan.RaiseEvent([System.Windows.RoutedEventArgs]::new([System.Windows.Controls.Button]::ClickEvent))
 })
 
-# ================= INIT =================
+# ─────────────────────────────────────────────
+#  RECHERCHE EN TEMPS REEL
+# ─────────────────────────────────────────────
+$TxtSearch.Add_TextChanged({
+    Initialize-UI -Filter $TxtSearch.Text
+})
+
+# ─────────────────────────────────────────────
+#  SELECTION / DESELECTION GLOBALE
+# ─────────────────────────────────────────────
+$BtnSelectAll.Add_Click({
+    foreach ($child in $SoftwareList.Children) {
+        if ($child -is [System.Windows.Controls.Border] -and $child.Child -is [System.Windows.Controls.Grid]) {
+            $cb = $child.Child.Children | Where-Object { $_ -is [System.Windows.Controls.CheckBox] }
+            if ($cb -and $cb.IsEnabled) { $cb.IsChecked = $true }
+        }
+    }
+})
+
+$BtnDeselectAll.Add_Click({
+    foreach ($child in $SoftwareList.Children) {
+        if ($child -is [System.Windows.Controls.Border] -and $child.Child -is [System.Windows.Controls.Grid]) {
+            $cb = $child.Child.Children | Where-Object { $_ -is [System.Windows.Controls.CheckBox] }
+            if ($cb -and $cb.IsEnabled) { $cb.IsChecked = $false }
+        }
+    }
+})
+
+# ─────────────────────────────────────────────
+#  EFFACER LES LOGS
+# ─────────────────────────────────────────────
+$BtnClearLog.Add_Click({
+    $LogBox.Clear()
+    Write-Log "Console effacee." "INFO" $LogBox
+})
+
+# ─────────────────────────────────────────────
+#  LANCEMENT
+# ─────────────────────────────────────────────
 Initialize-UI
+$TxtStatus.Text = "Cliquez sur Scanner pour demarrer"
+Write-Log "AppInstaller demarre." "INFO" $LogBox
 $window.ShowDialog()
