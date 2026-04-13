@@ -5,9 +5,7 @@ Import-Module "$PSScriptRoot\Services\LogService.psm1" -Force
 Import-Module "$PSScriptRoot\Core\ConfigLoader.psm1" -Force
 Import-Module "$PSScriptRoot\Core\Installer.psm1" -Force
 
-# =========================
-# LOAD UI
-# =========================
+# ================= UI =================
 [xml]$xaml = Get-Content "$PSScriptRoot\UI\MainWindow.xaml" -Raw
 $reader = New-Object System.Xml.XmlNodeReader $xaml
 $window = [Windows.Markup.XamlReader]::Load($reader)
@@ -19,28 +17,15 @@ $BtnScan      = $window.FindName("BtnScan")
 $ChkSilent    = $window.FindName("ChkSilent")
 $Loader       = $window.FindName("LoaderOverlay")
 
-# =========================
-# LOADER
-# =========================
-function Show-Loader {
-    if ($Loader) { $Loader.Visibility = "Visible" }
-}
+# ================= LOADER =================
+function Show-Loader { if ($Loader) { $Loader.Visibility = "Visible" } }
+function Hide-Loader { if ($Loader) { $Loader.Visibility = "Collapsed" } }
 
-function Hide-Loader {
-    if ($Loader) { $Loader.Visibility = "Collapsed" }
-}
-function Refresh-UI {
-    Initialize-UI
-}
-# =========================
-# DATA
-# =========================
+# ================= DATA =================
 $script:apps  = Get-SoftwareConfig -Path "$PSScriptRoot\Config\apps.json"
 $script:state = @{}
 
-# =========================
-# UI BUILD
-# =========================
+# ================= UI =================
 function Initialize-UI {
 
     $SoftwareList.Children.Clear()
@@ -53,33 +38,52 @@ function Initialize-UI {
         $lbl.Text = $group.Name
         $lbl.FontWeight = "Bold"
         $lbl.Margin = "5,10,0,5"
-        $lbl.Foreground = "#2C3E50"
-
-        $SoftwareList.Children.Add($lbl) | Out-Null
+        $SoftwareList.Children.Add($lbl)
 
         foreach ($app in $group.Group) {
 
-            # ===== RECUP INFO =====
-            $info = $null
-            if ($script:state.ContainsKey($app.Id)) {
-                $info = $script:state[$app.Id]
+            if (-not $script:state.ContainsKey($app.Id)) {
+                $script:state[$app.Id] = @{
+                    Installed = $false
+                    Version   = ""
+                    Update    = $false
+                }
             }
 
-            # ===== GRID =====
+            $info = $script:state[$app.Id]
+
             $grid = New-Object System.Windows.Controls.Grid
             $grid.Margin = "5"
 
-            $grid.ColumnDefinitions.Add((New-Object System.Windows.Controls.ColumnDefinition))
-            $grid.ColumnDefinitions.Add((New-Object System.Windows.Controls.ColumnDefinition))
-            $grid.ColumnDefinitions.Add((New-Object System.Windows.Controls.ColumnDefinition))
 
-            # ===== CHECKBOX =====
+            # NOM (large)
+            $col1 = New-Object System.Windows.Controls.ColumnDefinition
+            $col1.Width = "3*"
+
+            # VERSION (fixe)
+            $col2 = New-Object System.Windows.Controls.ColumnDefinition
+            $col2.Width = "120"
+
+            # UPDATE
+            $col3 = New-Object System.Windows.Controls.ColumnDefinition
+            $col3.Width = "40"
+
+            # DELETE
+            $col4 = New-Object System.Windows.Controls.ColumnDefinition
+            $col4.Width = "40"
+
+            $grid.ColumnDefinitions.Add($col1)
+            $grid.ColumnDefinitions.Add($col2)
+            $grid.ColumnDefinitions.Add($col3)
+            $grid.ColumnDefinitions.Add($col4)
+
+            # CHECKBOX
             $cb = New-Object System.Windows.Controls.CheckBox
             $cb.Tag = $app
             $cb.Content = $app.Name
             $cb.IsChecked = $false
 
-            if ($info -and $info.Installed) {
+            if ($info.Installed) {
                 $cb.IsChecked = $true
                 $cb.IsEnabled = $false
                 $cb.Content += " (installe $($info.Version))"
@@ -88,92 +92,79 @@ function Initialize-UI {
 
             [System.Windows.Controls.Grid]::SetColumn($cb,0)
 
-            # ===== UPDATE BADGE =====
-            if ($info -and $info.Update) {
+            # UPDATE
+            if ($info.Update) {
+                $btnUpdate = New-Object System.Windows.Controls.Button
+                $btnUpdate.Content = "⬆"
+                $btnUpdate.Foreground = "#F39C12"
+                $btnUpdate.Background = "Transparent"
+                $btnUpdate.BorderThickness = 0
+                $btnUpdate.Tag = $app
+                $btnUpdate.ToolTip = "Mettre a jour $($app.Name)"
 
-    $btnUpdate = New-Object System.Windows.Controls.Button
-    $btnUpdate.Content = "⬆"
-    $btnUpdate.Foreground = "#F39C12"
-    $btnUpdate.Background = "Transparent"
-    $btnUpdate.BorderThickness = 0
-    $btnUpdate.Tag = $app
+                $btnUpdate.Add_Click({
+                    param($s,$e)
+                    Show-Loader
+                    Update-Software -App $s.Tag -LogBox $LogBox
+                    Hide-Loader
+                    $BtnScan.RaiseEvent([System.Windows.RoutedEventArgs]::new([System.Windows.Controls.Button]::ClickEvent))
+                })
 
-    $btnUpdate.Add_Click({
-        param($s,$e)
+                [System.Windows.Controls.Grid]::SetColumn($btnUpdate,2)
+                $grid.Children.Add($btnUpdate)
+            }
 
-        Show-Loader
-        Update-Software -App $s.Tag -LogBox $LogBox
-        Hide-Loader
-
-        Refresh-UI
-    })
-
-    [System.Windows.Controls.Grid]::SetColumn($btnUpdate,1)
-    $grid.Children.Add($btnUpdate) | Out-Null
-}
-
-            # ===== DELETE =====
-            if ($info -and $info.Installed) {
+            # DELETE
+            if ($info.Installed) {
                 $btnDel = New-Object System.Windows.Controls.Button
                 $btnDel.Content = "🗑"
                 $btnDel.Foreground = "#E74C3C"
                 $btnDel.Background = "Transparent"
                 $btnDel.BorderThickness = 0
                 $btnDel.Tag = $app
+                $btnDel.ToolTip = "Desinstaller $($app.Name)"
 
                 $btnDel.Add_Click({
                     param($s,$e)
-
+                    Show-Loader
                     Uninstall-SoftwareList -SoftwareList @($s.Tag) -LogBox $LogBox
-
-                    Refresh-UI
+                    Hide-Loader
+                    $BtnScan.RaiseEvent([System.Windows.RoutedEventArgs]::new([System.Windows.Controls.Button]::ClickEvent))
                 })
 
-                [System.Windows.Controls.Grid]::SetColumn($btnDel,2)
-                $grid.Children.Add($btnDel) | Out-Null
+                [System.Windows.Controls.Grid]::SetColumn($btnDel,3)
+                $grid.Children.Add($btnDel)
             }
 
-            # ===== AJOUT =====
-            $grid.Children.Add($cb) | Out-Null
-            $SoftwareList.Children.Add($grid) | Out-Null
+            $grid.Children.Add($cb)
+            $SoftwareList.Children.Add($grid)
         }
     }
 }
 
-# =========================
-# SCAN
-# =========================
+# ================= SCAN =================
 $BtnScan.Add_Click({
 
-    try {
-        Show-Loader
-        Write-Log "Scan en cours..." "INFO" $LogBox
+    Show-Loader
+    Write-Log "Scan en cours..." "INFO" $LogBox
 
-        $script:state.Clear()
+    $script:state.Clear()
 
-        foreach ($app in $script:apps) {
+    foreach ($app in $script:apps) {
 
-            Write-Log "Scan $($app.Name)..." "INFO" $LogBox
-            $window.Dispatcher.Invoke([action]{}, "Background")
+        Write-Log "Scan $($app.Name)..." "INFO" $LogBox
 
-            $info = Get-SoftwareInfo -Id $app.Id
-            $script:state[$app.Id] = $info
-
-            Write-Log "$($app.Name) -> Installed=$($info.Installed) Version=$($info.Version) Update=$($info.Update)" "INFO" $LogBox
-        }
-
-        Initialize-UI
-
-        Write-Log "Scan termine" "INFO" $LogBox
+        $info = Get-SoftwareInfo -Id $app.Id
+        $script:state[$app.Id] = $info
     }
-    finally {
-        Hide-Loader
-    }
+
+    Initialize-UI
+    Write-Log "Scan termine" "INFO" $LogBox
+
+    Hide-Loader
 })
 
-# =========================
-# INSTALL
-# =========================
+# ================= INSTALL =================
 $BtnInstall.Add_Click({
 
     $list = @()
@@ -186,13 +177,12 @@ $BtnInstall.Add_Click({
 
             $info = $script:state[$cb.Tag.Id]
 
-            # 🔥 CRITIQUE : on ignore updates
-            if ($info.Update -eq $true) {
+            if ($info.Update) {
                 Write-Log "$($cb.Tag.Name) ignore (update)" "INFO" $LogBox
                 continue
             }
 
-            if ($info.Installed -eq $false) {
+            if (-not $info.Installed) {
                 $list += $cb.Tag
             }
         }
@@ -208,8 +198,6 @@ $BtnInstall.Add_Click({
     Hide-Loader
 })
 
-# =========================
-# INIT
-# =========================
+# ================= INIT =================
 Initialize-UI
 $window.ShowDialog()

@@ -30,7 +30,6 @@ function Install-SoftwareList {
     param($SoftwareList, $Silent, $LogBox)
 
     foreach ($app in $SoftwareList) {
-
         Write-Log "Installation $($app.Name)..." "INFO" $LogBox
 
         $args = @("install","--id",$app.Id,"--exact","--accept-source-agreements","--accept-package-agreements")
@@ -48,13 +47,25 @@ function Update-Software {
 
     $args = @(
         "upgrade",
-        "--id", $App.Id,
+        "--id",$App.Id,
         "--exact",
         "--accept-source-agreements",
         "--accept-package-agreements"
     )
 
     Invoke-WingetCommand -Arguments $args -LogBox $LogBox
+}
+
+function Uninstall-SoftwareList {
+    param($SoftwareList, $LogBox)
+
+    foreach ($app in $SoftwareList) {
+        Write-Log "Desinstallation $($app.Name)..." "INFO" $LogBox
+
+        $args = @("uninstall","--id",$app.Id,"--exact","--accept-source-agreements")
+
+        Invoke-WingetCommand -Arguments $args -LogBox $LogBox
+    }
 }
 
 function Get-SoftwareInfo {
@@ -67,29 +78,33 @@ function Get-SoftwareInfo {
     }
 
     try {
-        $output = winget list --id $Id --exact 2>$null
+        # 🔥 On récupère TOUT
+        $output = winget list 2>$null
 
-        if ($output -and $output -notmatch "Aucun package") {
+        if (-not $output) { return $result }
 
-            $lines = $output -split "`n" | Where-Object { $_.Trim() }
+        $lines = $output -split "`n"
 
-            if ($lines.Count -ge 3) {
-                $parts = $lines[2] -split "\s{2,}"
+        foreach ($line in $lines) {
+
+            if ($line -match [regex]::Escape($Id)) {
+
+                $parts = $line -split "\s{2,}"
+
+                if ($parts.Count -ge 2) {
+                    $result.Installed = $true
+                }
 
                 if ($parts.Count -ge 3) {
-                    $result.Installed = $true
                     $result.Version = $parts[2]
                 }
 
                 if ($parts.Count -ge 4) {
                     $result.Update = $true
                 }
-            }
-        }
 
-        # 🔥 FIX FIREFOX / CAS BIZARRE
-        if (-not $result.Installed -and $result.Update) {
-            $result.Installed = $true
+                break
+            }
         }
 
         return $result
@@ -99,4 +114,8 @@ function Get-SoftwareInfo {
     }
 }
 
-Export-ModuleMember -Function *
+Export-ModuleMember -Function `
+    Install-SoftwareList, `
+    Uninstall-SoftwareList, `
+    Update-Software, `
+    Get-SoftwareInfo
