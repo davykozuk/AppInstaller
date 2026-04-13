@@ -10,12 +10,15 @@ Import-Module "$PSScriptRoot\Core\Installer.psm1" -Force
 $reader = New-Object System.Xml.XmlNodeReader $xaml
 $window = [Windows.Markup.XamlReader]::Load($reader)
 
-$SoftwareList = $window.FindName("SoftwareList")
+$AppListPanel = $window.FindName("AppListPanel")
 $LogBox       = $window.FindName("LogBox")
 $BtnInstall   = $window.FindName("BtnInstall")
 $BtnScan      = $window.FindName("BtnScan")
 $ChkSilent    = $window.FindName("ChkSilent")
 $Loader       = $window.FindName("LoaderOverlay")
+if (-not $AppListPanel) {
+    Write-Host "ERROR: AppListPanel not found"
+}
 
 # ================= LOADER =================
 function Show-Loader { if ($Loader) { $Loader.Visibility = "Visible" } }
@@ -28,7 +31,7 @@ $script:state = @{}
 # ================= UI =================
 function Initialize-UI {
 
-    $SoftwareList.Children.Clear()
+    $AppListPanel.Children.Clear()
 
     $groups = $script:apps | Group-Object Category
 
@@ -38,7 +41,7 @@ function Initialize-UI {
         $lbl.Text = $group.Name
         $lbl.FontWeight = "Bold"
         $lbl.Margin = "5,10,0,5"
-        $SoftwareList.Children.Add($lbl)
+        $AppListPanel.Children.Add($lbl)
 
         foreach ($app in $group.Group) {
 
@@ -137,7 +140,7 @@ function Initialize-UI {
             }
 
             $grid.Children.Add($cb)
-            $SoftwareList.Children.Add($grid)
+            $AppListPanel.Children.Add($grid)
         }
     }
 }
@@ -150,13 +153,81 @@ $BtnScan.Add_Click({
 
     $script:state.Clear()
 
-    foreach ($app in $script:apps) {
+foreach ($app in $script:apps) {
 
-        Write-Log "Scan $($app.Name)..." "INFO" $LogBox
+    $isInstalled = Test-SoftwareInstalled -Id $app.Id
 
-        $info = Get-SoftwareInfo -Id $app.Id
-        $script:state[$app.Id] = $info
+    $row = New-Object System.Windows.Controls.Grid
+    $row.Margin = "5"
+    $row.Padding = "5"
+    $row.Background = "#ECF0F1"
+
+    $row.ColumnDefinitions.Add((New-Object System.Windows.Controls.ColumnDefinition -Property @{Width="40"}))
+    $row.ColumnDefinitions.Add((New-Object System.Windows.Controls.ColumnDefinition -Property @{Width="*"}))
+    $row.ColumnDefinitions.Add((New-Object System.Windows.Controls.ColumnDefinition -Property @{Width="120"}))
+    $row.ColumnDefinitions.Add((New-Object System.Windows.Controls.ColumnDefinition -Property @{Width="120"}))
+    $row.ColumnDefinitions.Add((New-Object System.Windows.Controls.ColumnDefinition -Property @{Width="120"}))
+
+    # Checkbox
+    $cb = New-Object System.Windows.Controls.CheckBox
+    $cb.VerticalAlignment = "Center"
+    $cb.IsEnabled = -not $isInstalled
+    [System.Windows.Controls.Grid]::SetColumn($cb, 0)
+
+    # Name
+    $name = New-Object System.Windows.Controls.TextBlock
+    $name.Text = $app.Name
+    $name.TextTrimming = "CharacterEllipsis"
+    $name.VerticalAlignment = "Center"
+    $name.ToolTip = $app.Name
+    [System.Windows.Controls.Grid]::SetColumn($name, 1)
+
+    # Version
+    $version = New-Object System.Windows.Controls.TextBlock
+    $version.Text = $app.Version
+    $version.HorizontalAlignment = "Center"
+    $version.VerticalAlignment = "Center"
+    [System.Windows.Controls.Grid]::SetColumn($version, 2)
+
+    # Status badge
+    $status = New-Object System.Windows.Controls.TextBlock
+    $status.VerticalAlignment = "Center"
+    $status.HorizontalAlignment = "Center"
+
+    if ($isInstalled) {
+        $status.Text = "Installed"
+        $status.Foreground = "Green"
+    } else {
+        $status.Text = "Not installed"
+        $status.Foreground = "Red"
     }
+
+    [System.Windows.Controls.Grid]::SetColumn($status, 3)
+
+    # Action button
+    $btn = New-Object System.Windows.Controls.Button
+    $btn.Padding = "5"
+    $btn.Margin = "2"
+
+    if ($isInstalled) {
+        $btn.Content = "Remove"
+        $btn.ToolTip = "Uninstall $($app.Name)"
+    } else {
+        $btn.Content = "Install"
+        $btn.ToolTip = "Install $($app.Name)"
+    }
+
+    [System.Windows.Controls.Grid]::SetColumn($btn, 4)
+
+    # Add elements
+    $row.Children.Add($cb)
+    $row.Children.Add($name)
+    $row.Children.Add($version)
+    $row.Children.Add($status)
+    $row.Children.Add($btn)
+
+    $AppListPanel.Children.Add($row)
+}
 
     Initialize-UI
     Write-Log "Scan termine" "INFO" $LogBox
@@ -169,7 +240,7 @@ $BtnInstall.Add_Click({
 
     $list = @()
 
-    foreach ($grid in $SoftwareList.Children | Where-Object { $_ -is [System.Windows.Controls.Grid] }) {
+    foreach ($grid in $AppListPanel.Children | Where-Object { $_ -is [System.Windows.Controls.Grid] }) {
 
         $cb = $grid.Children | Where-Object { $_ -is [System.Windows.Controls.CheckBox] }
 
