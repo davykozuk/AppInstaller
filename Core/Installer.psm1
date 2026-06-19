@@ -1,173 +1,208 @@
-function Test-SoftwareInstalled {
-    param(
-        [Parameter(Mandatory)]
-        [string]$Id
-    )
+function Invoke-WingetCommand {
+    param([string[]]$Arguments, $LogBox, $Queue)
 
-    try {
-        $output = winget list --id $Id --exact 2>$null
+    $psi = New-Object System.Diagnostics.ProcessStartInfo
+    $psi.FileName = "winget"
+    $psi.Arguments = $Arguments -join " "
+    $psi.RedirectStandardOutput = $true
+    $psi.RedirectStandardError  = $true
+    $psi.UseShellExecute = $false
+    $psi.CreateNoWindow = $true
 
-        if (-not $output) {
-            return $false
+    $p = New-Object System.Diagnostics.Process
+    $p.StartInfo = $psi
+    $p.Start() | Out-Null
+
+    # Lecture non-bloquante avec timeout implicite via HasExited.
+    # NOTE : cette boucle Start-Sleep est OK car elle s'execute desormais
+    # dans un runspace de FOND (voir Main.ps1 / Start-AsyncTask), plus
+    # jamais sur le thread UI -> elle ne gele plus la fenetre.
+    while (-not $p.HasExited) {
+        while (-not $p.StandardOutput.EndOfStream) {
+            $line = $p.StandardOutput.ReadLine()
+            if ($line.Trim()) { Write-Log $line "INFO" $LogBox $Queue }
         }
-
-        # Convertit en tableau de lignes propres
-        $lines = $output -split "`n" | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne "" }
-
-        # Cas : aucun résultat
-        if ($lines -match "Aucun package") {
-            return $false
+        while (-not $p.StandardError.EndOfStream) {
+            $line = $p.StandardError.ReadLine()
+            if ($line.Trim()) { Write-Log $line "ERROR" $LogBox $Queue }
         }
-
-        # Cherche une vraie ligne contenant l'ID EXACT
-        foreach ($line in $lines) {
-            if ($line -match "^\S+.*\s+$Id\s+") {
-                return $true
-            }
-        }
-
-        return $false
+        Start-Sleep -Milliseconds 100
     }
-    catch {
-        return $false
+
+    # Vider les buffers residuels
+    while (-not $p.StandardOutput.EndOfStream) {
+        $line = $p.StandardOutput.ReadLine()
+        if ($line.Trim()) { Write-Log $line "INFO" $LogBox $Queue }
     }
+
+    return $p.ExitCode
 }
 
 function Install-SoftwareList {
-    param($SoftwareList, $Silent, $LogBox)
+    param($SoftwareList, $Silent, $LogBox, $Queue, $ProgressState)
+
+    $total = $SoftwareList.Count
+    $i = 0
 
     foreach ($app in $SoftwareList) {
+        $i++
 
-        Write-Log "Installation $($app.Name)..." "INFO" $LogBox
-
-        try {
-            if ($app.Type -eq "winget") {
-
-                $args = @(
-                    "install",
-                    "--id", $app.Id,
-                    "--accept-package-agreements",
-                    "--accept-source-agreements"
-                )
-
-                if ($Silent) {
-                    $args += "--silent"
-                }
-
-                $process = Start-Process "winget" `
-                    -ArgumentList $args `
-                    -Wait `
-                    -PassThru `
-                    -NoNewWindow
-
-                if ($process.ExitCode -eq 0) {
-                    Write-Log "$($app.Name) installe avec succès" "INFO" $LogBox
-                }
-                else {
-                    Write-Log "Erreur installation $($app.Name) (code $($process.ExitCode))" "ERROR" $LogBox
-                }
-            }
+        if ($ProgressState) {
+            $ProgressState.Current = $i
+            $ProgressState.Total   = $total
+            $ProgressState.Status  = $app.Name
         }
-        catch {
-            Write-Log "Exception installation $($app.Name) : $($_.Exception.Message)" "ERROR" $LogBox
+
+        Write-Log "[$i/$total] Installation de $($app.Name)..." "INFO" $LogBox $Queue
+
+        $args = @(
+            "install",
+            "--id", $app.Id,
+            "--exact",
+            "--accept-source-agreements",
+            "--accept-package-agreements"
+        )
+
+        if ($Silent) { $args += "--silent" }
+
+        $exitCode = Invoke-WingetCommand -Arguments $args -LogBox $LogBox -Queue $Queue
+
+        if ($exitCode -eq 0) {
+            Write-Log "$($app.Name) installe avec succes." "OK" $LogBox $Queue
+        } else {
+            Write-Log "$($app.Name) : code de retour $exitCode" "WARN" $LogBox $Queue
         }
     }
-
-    Write-Log "Installation terminee" "INFO" $LogBox
 }
-function Uninstall-SoftwareList {
-    param($SoftwareList, $LogBox)
 
-    foreach ($app in $SoftwareList) {
+function Update-Software {
+    param($App, $LogBox, $Queue, $ProgressState)
 
-        Write-Log "Desinstallation $($app.Name)..." "INFO" $LogBox
-
-        try {
-            if ($app.Type -eq "winget") {
-
-                $args = @(
-                    "uninstall",
-                    "--id", $app.Id,
-                    "--accept-source-agreements"
-                )
-
-                $process = Start-Process "winget" `
-                    -ArgumentList $args `
-                    -Wait `
-                    -PassThru `
-                    -NoNewWindow
-
-                if ($process.ExitCode -eq 0) {
-                    Write-Log "$($app.Name) desinstalle avec succès" "INFO" $LogBox
-                }
-                else {
-                    Write-Log "Erreur desinstallation $($app.Name) (code $($process.ExitCode))" "ERROR" $LogBox
-                }
-            }
-        }
-        catch {
-            Write-Log "Exception desinstallation $($app.Name) : $($_.Exception.Message)" "ERROR" $LogBox
-        }
+    if ($ProgressState) {
+        $ProgressState.Current = 0
+        $ProgressState.Total   = 1
+        $ProgressState.Status  = $App.Name
     }
 
-    Write-Log "Desinstallation terminee" "INFO" $LogBox
+    Write-Log "Mise a jour de $($App.Name)..." "INFO" $LogBox $Queue
+
+    $args = @(
+        "upgrade",
+        "--id", $App.Id,
+        "--exact",
+        "--accept-source-agreements",
+        "--accept-package-agreements"
+    )
+
+    $exitCode = Invoke-WingetCommand -Arguments $args -LogBox $LogBox -Queue $Queue
+
+    if ($exitCode -eq 0) {
+        Write-Log "$($App.Name) mis a jour." "OK" $LogBox $Queue
+    } else {
+        Write-Log "$($App.Name) : echec mise a jour (code $exitCode)" "WARN" $LogBox $Queue
+    }
+
+    if ($ProgressState) { $ProgressState.Current = 1 }
+}
+
+function Uninstall-SoftwareList {
+    param($SoftwareList, $LogBox, $Queue, $ProgressState)
+
+    $total = $SoftwareList.Count
+    $i = 0
+
+    foreach ($app in $SoftwareList) {
+        $i++
+        if ($ProgressState) {
+            $ProgressState.Current = $i
+            $ProgressState.Total   = $total
+            $ProgressState.Status  = $app.Name
+        }
+
+        Write-Log "Desinstallation de $($app.Name)..." "INFO" $LogBox $Queue
+
+        $args = @(
+            "uninstall",
+            "--id", $app.Id,
+            "--exact",
+            "--accept-source-agreements"
+        )
+
+        $exitCode = Invoke-WingetCommand -Arguments $args -LogBox $LogBox -Queue $Queue
+
+        if ($exitCode -eq 0) {
+            Write-Log "$($app.Name) desinstalle." "OK" $LogBox $Queue
+        }
+    }
+}
+
+# OPTIMISATION : winget list est appele UNE SEULE FOIS
+# puis le resultat est parse pour toutes les apps.
+function Get-WingetListSnapshot {
+    try {
+        $output = winget list 2>$null
+        return $output -split "`n"
+    } catch {
+        return @()
+    }
 }
 
 function Get-SoftwareInfo {
     param(
-        [Parameter(Mandatory)]
-        [string]$Id
+        [string]$Id,
+        [string[]]$Snapshot
     )
 
-    $result = [PSCustomObject]@{
+    $result = @{
         Installed = $false
-        InstalledVersion = $null
-        AvailableVersion = $null
+        Version   = ""
+        Update    = $false
     }
 
-    try {
-        # -------- INSTALLED --------
-        $listOutput = winget list --id $Id --exact 2>$null
+    if (-not $Snapshot) { return $result }
 
-        if ($listOutput -notmatch "Aucun package") {
+    $escaped = [regex]::Escape($Id)
 
-            $lines = $listOutput -split "`n" | ForEach-Object { $_.Trim() } | Where-Object { $_ }
+    foreach ($line in $Snapshot) {
+        if ($line -match $escaped) {
 
-            if ($lines.Count -ge 3) {
-                $data = $lines[2]
+            $parts = $line -split "\s{2,}"
 
-                # Split sur espaces multiples
-                $parts = $data -split "\s{2,}"
+            # Installe
+            if ($parts.Count -ge 2) {
+                $result.Installed = $true
+            }
 
-                if ($parts.Count -ge 3) {
-                    $result.Installed = $true
-                    $result.InstalledVersion = $parts[2]
+            # Version installee
+            if ($parts.Count -ge 3) {
+                $result.Version = $parts[2].Trim()
+            }
+
+            # MAJ uniquement si colonne "Available" existe
+            if ($parts.Count -ge 5) {
+
+                $installedVersion = $parts[2].Trim()
+                $availableVersion = $parts[3].Trim()
+
+                if (
+                    $availableVersion -and
+                    $availableVersion -ne $installedVersion -and
+                    $availableVersion -match '^\d'
+                ) {
+                    $result.Update = $true
                 }
             }
+
+            break
         }
-
-        # -------- AVAILABLE --------
-        $upgradeOutput = winget upgrade --id $Id --exact 2>$null
-
-        if ($upgradeOutput -notmatch "Aucun package") {
-
-            $lines = $upgradeOutput -split "`n" | ForEach-Object { $_.Trim() } | Where-Object { $_ }
-
-            if ($lines.Count -ge 3) {
-                $data = $lines[2]
-                $parts = $data -split "\s{2,}"
-
-                if ($parts.Count -ge 4) {
-                    $result.AvailableVersion = $parts[3]
-                }
-            }
-        }
-
-        return $result
     }
-    catch {
-        return $result
-    }
+
+    return $result
 }
 
-Export-ModuleMember -Function Test-SoftwareInstalled, Install-SoftwareList, Uninstall-SoftwareList, Get-SoftwareInfo
+Export-ModuleMember -Function `
+    Install-SoftwareList, `
+    Uninstall-SoftwareList, `
+    Update-Software, `
+    Get-SoftwareInfo, `
+    Get-WingetListSnapshot
