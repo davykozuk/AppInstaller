@@ -1,249 +1,525 @@
+# Gestion du chemin compatible EXE + Script
+if ($MyInvocation.MyCommand.Path -and (Test-Path $MyInvocation.MyCommand.Path)) {
+    # Mode script (.ps1)
+    $script:BasePath = Split-Path -Parent $MyInvocation.MyCommand.Path
+}
+else {
+    # Mode EXE (PS2EXE)
+    $script:BasePath = Split-Path -Parent ([System.Diagnostics.Process]::GetCurrentProcess().MainModule.FileName)
+}
+
+Set-Location $script:BasePath
+
+if ($Host.Name -eq "ConsoleHost") {
+    [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+}
+
 Add-Type -AssemblyName PresentationFramework
 
-# =========================
-# Nettoyage modules
-# =========================
-Get-Module ConfigLoader, Installer, WinGetService, LogService, WingetInstaller | Remove-Module -Force -ErrorAction SilentlyContinue
+Import-Module "$script:BasePath\Services\LogService.psm1" -Force
+Import-Module "$script:BasePath\Core\ConfigLoader.psm1" -Force
+Import-Module "$script:BasePath\Core\Installer.psm1" -Force
 
-# =========================
-# Imports
-# =========================
-Import-Module "$PSScriptRoot\Services\LogService.psm1" -Force
-Import-Module "$PSScriptRoot\Services\WinGetService.psm1" -Force
-Import-Module "$PSScriptRoot\Core\ConfigLoader.psm1" -Force
-Import-Module "$PSScriptRoot\Core\Installer.psm1" -Force
-Import-Module "$PSScriptRoot\Services\WingetInstaller.psm1" -Force
-
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-
-# =========================
-# UI
-# =========================
-[xml]$xaml = Get-Content "$PSScriptRoot\UI\MainWindow.xaml" -Raw
+[xml]$xaml = Get-Content "$script:BasePath\UI\MainWindow.xaml" -Raw
 $reader = New-Object System.Xml.XmlNodeReader $xaml
 $window = [Windows.Markup.XamlReader]::Load($reader)
 
-$SoftwareList = $window.FindName("SoftwareList")
-$LogBox       = $window.FindName("LogBox")
-$BtnInstall   = $window.FindName("BtnInstall")
-$ChkSilent    = $window.FindName("ChkSilent")
+$SoftwareList  = $window.FindName("SoftwareList")
+$LogBox        = $window.FindName("LogBox")
+$BtnInstall    = $window.FindName("BtnInstall")
+$BtnScan       = $window.FindName("BtnScan")
+$ChkSilent     = $window.FindName("ChkSilent")
+$Loader        = $window.FindName("LoaderOverlay")
+$LoaderText    = $window.FindName("LoaderText")
+$TxtSearch     = $window.FindName("TxtSearch")
+$BtnSelectAll  = $window.FindName("BtnSelectAll")
+$BtnDeselectAll= $window.FindName("BtnDeselectAll")
+$BtnClearLog   = $window.FindName("BtnClearLog")
+$TxtStatus     = $window.FindName("TxtStatus")
+$TxtInstalled  = $window.FindName("TxtInstalled")
+$TxtAvailable  = $window.FindName("TxtAvailable")
+$TxtUpdates    = $window.FindName("TxtUpdates")
+$ProgressBar   = $window.FindName("ProgressBar")
 
-$script:checkboxes = @()
-$script:apps = @()
+# ─────────────────────────────────────────────
+#  HELPERS LOADER
+# ─────────────────────────────────────────────
+function Show-Loader {
+    param([string]$Text = "Chargement...")
+    $LoaderText.Text = $Text
+    $Loader.Visibility = "Visible"
+}
+function Hide-Loader { $Loader.Visibility = "Collapsed" }
 
-# =========================
-# WinGet check
-# =========================
-if (-not (Test-WinGet)) {
+function Update-StatusBar {
+    $installed = ($script:state.Values | Where-Object { $_.Installed }).Count
+    $updates   = ($script:state.Values | Where-Object { $_.Update   }).Count
+    $total     = $script:apps.Count
 
-    Write-Log "WinGet absent - installation..." "WARN" $LogBox
-
-    Install-WinGet -LogBox $LogBox
-    Start-Sleep 3
-
-    if (-not (Test-WinGet)) {
-        [System.Windows.MessageBox]::Show("WinGet non disponible", "Erreur", "OK", "Error")
-        exit
-    }
+    $TxtInstalled.Text = "$installed installes"
+    $TxtAvailable.Text = "$($total - $installed) disponibles"
+    $TxtUpdates.Text   = if ($updates -gt 0) { "$updates mise(s) a jour" } else { "" }
 }
 
-# =========================
-# Load apps
-# =========================
-function Load-Applications {
+# ─────────────────────────────────────────────
+#  MOTEUR ASYNCHRONE (evite le gel de l'UI)
+# ─────────────────────────────────────────────
+# Principe :
+#  - Tout appel a winget (scan / install / update / uninstall) est lance
+#    dans un RUNSPACE separe (un "thread" PowerShell independant).
+#  - Ce runspace ne touche JAMAIS un controle WPF directement (interdit
+#    entre threads). Il empile ses messages de log dans une ConcurrentQueue
+#    thread-safe, et publie sa progression dans un hashtable "Synchronized".
+#  - Un DispatcherTimer, qui s'execute lui sur le thread UI, vide la file
+#    toutes les ~120ms et met a jour LogBox / ProgressBar / LoaderText.
+#  - Le thread UI reste donc TOUJOURS libre de se redessiner et de
+#    reagir aux clics : plus de gel, et le loader s'affiche/s'actualise
+#    correctement.
+$script:AsyncLogQueue      = [System.Collections.Concurrent.ConcurrentQueue[string]]::new()
+$script:AsyncProgress      = [hashtable]::Synchronized(@{ Current = 0; Total = 0; Status = "" })
+$script:AsyncPS            = $null
+$script:AsyncRunspace      = $null
+$script:AsyncHandle        = $null
+$script:AsyncOnComplete    = $null
+$script:AsyncLoaderMessage = ""
 
-    $SoftwareList.Children.Clear()
-    $script:checkboxes = @()
+function Set-UiEnabled {
+    param([bool]$Enabled)
+    $BtnInstall.IsEnabled     = $Enabled
+    $BtnScan.IsEnabled        = $Enabled
+    $BtnSelectAll.IsEnabled   = $Enabled
+    $BtnDeselectAll.IsEnabled = $Enabled
+    $SoftwareList.IsEnabled   = $Enabled
+}
 
-    $path = Join-Path $PSScriptRoot "Config\apps.json"
-    $script:apps = Get-SoftwareConfig -Path $path
+# Lance $Work dans un runspace de fond.
+# $Work doit commencer par : param($BasePath, $Queue, $ProgressState, ...)
+#   et faire lui-meme ses Import-Module (il tourne dans un runspace "vierge").
+# $OnComplete (param($Result)) s'execute sur le thread UI une fois termine.
+function Start-AsyncTask {
+    param(
+        [scriptblock]$Work,
+        [scriptblock]$OnComplete,
+        [string]$LoaderMessage = "Traitement en cours...",
+        [object[]]$ExtraArgs = @()
+    )
 
-    $groups = $script:apps | Group-Object Category | Sort-Object Name
+    $script:AsyncProgress.Current = 0
+    $script:AsyncProgress.Total   = 0
+    $script:AsyncProgress.Status  = ""
+    $script:AsyncOnComplete       = $OnComplete
+    $script:AsyncLoaderMessage    = $LoaderMessage
 
-    foreach ($group in $groups) {
+    Set-UiEnabled $false
+    Show-Loader $LoaderMessage
+    $ProgressBar.Visibility = "Visible"
+    $ProgressBar.Value = 0
 
-        # ===== Category label =====
-        $lbl = New-Object System.Windows.Controls.TextBlock
-        $lbl.Text = $group.Name.ToUpper()
-        $lbl.FontWeight = "Bold"
-        $lbl.FontSize = 14
-        $lbl.Margin = "5,10,0,5"
+    $script:AsyncRunspace = [runspacefactory]::CreateRunspace()
+    $script:AsyncRunspace.ApartmentState = "STA"
+    $script:AsyncRunspace.ThreadOptions  = "ReuseThread"
+    $script:AsyncRunspace.Open()
 
-        $SoftwareList.Children.Add($lbl) | Out-Null
+    $script:AsyncPS = [powershell]::Create()
+    $script:AsyncPS.Runspace = $script:AsyncRunspace
 
-        foreach ($app in $group.Group) {
+    # On convertit le scriptblock en texte : c'est la methode fiable pour
+    # qu'il s'execute correctement DANS le nouveau runspace (et non celui
+    # de l'UI), avec resolution normale des Import-Module qu'il contient.
+    [void]$script:AsyncPS.AddScript($Work.ToString())
+    [void]$script:AsyncPS.AddArgument($script:BasePath)
+    [void]$script:AsyncPS.AddArgument($script:AsyncLogQueue)
+    [void]$script:AsyncPS.AddArgument($script:AsyncProgress)
+    foreach ($extra in $ExtraArgs) { [void]$script:AsyncPS.AddArgument($extra) }
 
-            # ===== Grid propre =====
-            $panel = New-Object System.Windows.Controls.Grid
-            $panel.Margin = "5,2,5,2"
+    $script:AsyncHandle = $script:AsyncPS.BeginInvoke()
+    $script:AsyncTimer.Start()
+}
 
-            $col1 = New-Object System.Windows.Controls.ColumnDefinition
-            $col1.Width = "*"
+# Timer cree UNE SEULE FOIS, au demarrage du script (comme les Add_Click
+# classiques ci-dessous, c'est un scriptblock "top-level" qui voit
+# naturellement les variables de script : $LogBox, $ProgressBar, etc.)
+$script:AsyncTimer = New-Object System.Windows.Threading.DispatcherTimer
+$script:AsyncTimer.Interval = [TimeSpan]::FromMilliseconds(120)
 
-            $col2 = New-Object System.Windows.Controls.ColumnDefinition
-            $col2.Width = "40"
+$script:AsyncTimer.Add_Tick({
 
-            $col3 = New-Object System.Windows.Controls.ColumnDefinition
-            $col3.Width = "50"
+    # 1) Vider la file de logs accumules par le runspace de fond
+    $line = $null
+    while ($script:AsyncLogQueue.TryDequeue([ref]$line)) {
+        $LogBox.AppendText("$line`r`n")
+        $LogBox.ScrollToEnd()
+    }
 
-            $panel.ColumnDefinitions.Add($col1)
-            $panel.ColumnDefinitions.Add($col2)
-            $panel.ColumnDefinitions.Add($col3)
-
-            # ===== Checkbox =====
-            $cb = New-Object System.Windows.Controls.CheckBox
-            $cb.Tag = $app
-            $cb.VerticalAlignment = "Center"
-
-            [System.Windows.Controls.Grid]::SetColumn($cb, 0)
-
-            # ===== Bouton uninstall =====
-            $btnRemove = New-Object System.Windows.Controls.Button
-            $btnRemove.Content = "X"
-            $btnRemove.Width = 25
-            $btnRemove.Height = 20
-            $btnRemove.Background = "Red"
-            $btnRemove.Foreground = "White"
-            $btnRemove.Tag = $app
-
-            $btnRemove.ToolTip = "Desinstaller $($app.Name)"
-
-            [System.Windows.Controls.Grid]::SetColumn($btnRemove, 1)
-
-            # ===== Bouton update =====
-            $btnUpdate = New-Object System.Windows.Controls.Button
-            $btnUpdate.Content = "Maj"
-            $btnUpdate.Width = 35
-            $btnUpdate.Height = 20
-            $btnUpdate.Background = "Orange"
-            $btnUpdate.Tag = $app
-
-            $btnUpdate.ToolTip = "Mettre a jour $($app.Name)"
-
-            [System.Windows.Controls.Grid]::SetColumn($btnUpdate, 2)
-
-            # ===== Detection =====
-            $isInstalled = Test-SoftwareInstalled -Id $app.Id
-
-            if ($isInstalled) {
-
-                $cb.Content = "$($app.Name) (installe)"
-                $cb.Foreground = "Gray"
-                $cb.IsChecked = $true
-                $cb.IsEnabled = $false
-
-                $btnRemove.Visibility = "Visible"
-                $btnUpdate.Visibility = "Visible"
-            }
-            else {
-                $cb.Content = $app.Name
-                $cb.IsChecked = $false
-                $cb.IsEnabled = $true
-
-                $btnRemove.Visibility = "Collapsed"
-                $btnUpdate.Visibility = "Collapsed"
-            }
-
-            Write-Log "Detection $($app.Name) : $isInstalled" "INFO" $LogBox
-
-            # ===== UNINSTALL =====
-            $btnRemove.Add_Click({
-                param($btn, $evt)
-
-                $appData = $btn.Tag
-
-                $res = [System.Windows.MessageBox]::Show(
-                    "Confirmer desinstallation de $($appData.Name) ?",
-                    "Confirmation",
-                    [System.Windows.MessageBoxButton]::YesNo,
-                    [System.Windows.MessageBoxImage]::Warning
-                )
-
-                if ($res -ne "Yes") { return }
-
-                Uninstall-SoftwareList -SoftwareList @($appData) -LogBox $LogBox
-
-                Load-Applications
-            })
-
-            # ===== UPDATE =====
-            $btnUpdate.Add_Click({
-                param($btn, $evt)
-
-                $appData = $btn.Tag
-
-                $res = [System.Windows.MessageBox]::Show(
-                    "Mettre a jour $($appData.Name) ?",
-                    "Confirmation",
-                    [System.Windows.MessageBoxButton]::YesNo,
-                    [System.Windows.MessageBoxImage]::Question
-                )
-
-                if ($res -ne "Yes") { return }
-
-                Write-Log "Maj $($appData.Name) en cours..." "INFO" $LogBox
-
-                Start-Process "winget" `
-                    -ArgumentList "upgrade --id $($appData.Id) --exact --accept-source-agreements --accept-package-agreements" `
-                    -Wait `
-                    -NoNewWindow
-
-                Write-Log "$($appData.Name) mis a jour" "INFO" $LogBox
-
-                Load-Applications
-            })
-
-            # ===== Ajout UI =====
-            $panel.Children.Add($cb) | Out-Null
-            $panel.Children.Add($btnRemove) | Out-Null
-            $panel.Children.Add($btnUpdate) | Out-Null
-
-            $SoftwareList.Children.Add($panel) | Out-Null
-            $script:checkboxes += $cb
+    # 2) Mettre a jour la barre de progression / le texte du loader
+    if ($script:AsyncProgress.Total -gt 0) {
+        $pct = [int](($script:AsyncProgress.Current / $script:AsyncProgress.Total) * 100)
+        $ProgressBar.Value = $pct
+        if ($script:AsyncProgress.Status) {
+            $LoaderText.Text = "$($script:AsyncLoaderMessage) ($($script:AsyncProgress.Status))"
         }
     }
 
-    Write-Log "Configuration chargee ($($script:apps.Count))" "INFO" $LogBox
+    # 3) Tache terminee ?
+    if ($script:AsyncHandle -and $script:AsyncHandle.IsCompleted) {
+        $script:AsyncTimer.Stop()
+
+        # Vidage final (au cas ou des messages soient arrives juste avant la fin)
+        $line = $null
+        while ($script:AsyncLogQueue.TryDequeue([ref]$line)) {
+            $LogBox.AppendText("$line`r`n")
+            $LogBox.ScrollToEnd()
+        }
+
+        $result = $null
+        try {
+            $result = $script:AsyncPS.EndInvoke($script:AsyncHandle)
+        } catch {
+            Write-Log "Erreur pendant la tache de fond : $($_.Exception.Message)" "ERROR" $LogBox
+        }
+
+        $script:AsyncPS.Dispose()
+        $script:AsyncRunspace.Close()
+        $script:AsyncRunspace.Dispose()
+        $script:AsyncHandle = $null
+
+        $ProgressBar.Visibility = "Collapsed"
+        Set-UiEnabled $true
+        Hide-Loader
+
+        if ($script:AsyncOnComplete) {
+            $callback = $script:AsyncOnComplete
+            $script:AsyncOnComplete = $null
+            & $callback $result
+        }
+    }
+})
+
+# ─────────────────────────────────────────────
+#  DONNEES
+# ─────────────────────────────────────────────
+$script:apps = Get-SoftwareConfig -Path "$script:BasePath\Config\apps.json"
+$script:state = @{}
+
+# ─────────────────────────────────────────────
+#  CONSTRUCTION DE LA LISTE
+# ─────────────────────────────────────────────
+function Initialize-UI {
+    param([string]$Filter = "")
+
+    $SoftwareList.Children.Clear()
+
+    $groups = $script:apps |
+        Where-Object { $Filter -eq "" -or $_.Name -like "*$Filter*" -or $_.Category -like "*$Filter*" } |
+        Group-Object Category
+
+    foreach ($group in $groups) {
+
+        # ── En-tête de catégorie ──────────────────────
+        $catBorder = New-Object System.Windows.Controls.Border
+        $catBorder.Background    = "#EBF5FB"
+        $catBorder.CornerRadius  = "6"
+        $catBorder.Margin        = "0,10,0,4"
+        $catBorder.Padding       = "8,4"
+
+        $catLabel = New-Object System.Windows.Controls.TextBlock
+        $catLabel.Text       = $group.Name.ToUpper()
+        $catLabel.FontSize   = 11
+        $catLabel.FontWeight = "Bold"
+        $catLabel.Foreground = "#2980B9"
+
+        $catBorder.Child = $catLabel
+        [void]$SoftwareList.Children.Add($catBorder)
+
+        # ── Apps de la catégorie ──────────────────────
+        foreach ($app in $group.Group) {
+
+            if (-not $script:state.ContainsKey($app.Id)) {
+                $script:state[$app.Id] = @{ Installed = $false; Version = ""; Update = $false }
+            }
+
+            $info = $script:state[$app.Id]
+
+            # Row container avec hover
+            $rowBorder = New-Object System.Windows.Controls.Border
+            $rowBorder.CornerRadius = "6"
+            $rowBorder.Margin       = "0,1"
+            $rowBorder.Padding      = "6,5"
+            $rowBorder.Background   = "Transparent"
+
+            $rowBorder.Add_MouseEnter({
+                param($s,$e)
+                $s.Background = "#F4F6F9"
+            })
+            $rowBorder.Add_MouseLeave({
+                param($s,$e)
+                $s.Background = "Transparent"
+            })
+
+            $grid = New-Object System.Windows.Controls.Grid
+
+            $c1 = New-Object System.Windows.Controls.ColumnDefinition; $c1.Width = "3*"
+            $c2 = New-Object System.Windows.Controls.ColumnDefinition; $c2.Width = "110"
+            $c3 = New-Object System.Windows.Controls.ColumnDefinition; $c3.Width = "32"
+            $c4 = New-Object System.Windows.Controls.ColumnDefinition; $c4.Width = "32"
+            [void]$grid.ColumnDefinitions.Add($c1)
+            [void]$grid.ColumnDefinitions.Add($c2)
+            [void]$grid.ColumnDefinitions.Add($c3)
+            [void]$grid.ColumnDefinitions.Add($c4)
+
+            # Checkbox / nom
+            $cb = New-Object System.Windows.Controls.CheckBox
+            $cb.Tag     = $app
+            $cb.Content = $app.Name
+            $cb.ToolTip = "ID : $($app.Id)"
+            $cb.MaxWidth = 340
+            $cb.HorizontalAlignment = "Left"
+
+            if ($info.Installed) {
+                $cb.IsChecked = $true
+                $cb.IsEnabled = $false
+                $cb.Foreground = "#95A5A6"
+            }
+
+            [System.Windows.Controls.Grid]::SetColumn($cb, 0)
+            [void]$grid.Children.Add($cb)
+
+            # Version
+            if ($info.Installed -and $info.Version) {
+                $txt = New-Object System.Windows.Controls.TextBlock
+                $txt.Text      = $info.Version
+                $txt.Foreground = "#95A5A6"
+                $txt.FontStyle  = "Italic"
+                $txt.FontSize   = 11
+                $txt.Margin    = "6,0"
+                $txt.VerticalAlignment = "Center"
+                [System.Windows.Controls.Grid]::SetColumn($txt, 1)
+                [void]$grid.Children.Add($txt)
+            }
+
+            # Bouton update
+            if ($info.Update) {
+                $btnU = New-Object System.Windows.Controls.Button
+                $btnU.Content    = [char]0x2B06   # ⬆
+                $btnU.Foreground = "#F39C12"
+                $btnU.Tag        = $app
+                $btnU.ToolTip    = "Mettre a jour $($app.Name)"
+                $btnU.Style      = $window.Resources["IconBtn"]
+
+                $btnU.Add_Click({
+                    param($s,$e)
+                    $app = $s.Tag
+
+                    Start-AsyncTask -LoaderMessage "Mise a jour de $($app.Name)..." -ExtraArgs @($app) -Work {
+                        param($BasePath, $Queue, $ProgressState, $App)
+                        Import-Module "$BasePath\Services\LogService.psm1" -Force
+                        Import-Module "$BasePath\Core\Installer.psm1" -Force
+                        Update-Software -App $App -Queue $Queue -ProgressState $ProgressState
+                    } -OnComplete {
+                        param($Result)
+                        $BtnScan.RaiseEvent(
+                            [System.Windows.RoutedEventArgs]::new(
+                                [System.Windows.Controls.Button]::ClickEvent
+                            )
+                        )
+                    }
+                })
+
+                [System.Windows.Controls.Grid]::SetColumn($btnU, 2)
+                [void]$grid.Children.Add($btnU)
+            }
+
+            # Bouton suppression
+            if ($info.Installed) {
+                $btnD = New-Object System.Windows.Controls.Button
+                $btnD.Content = "X"
+                $btnD.Foreground = "#E74C3C"
+                $btnD.Tag        = $app
+                $btnD.ToolTip    = "Desinstaller $($app.Name)"
+                $btnD.Style      = $window.Resources["IconBtn"]
+
+                $btnD.Add_Click({
+                    param($s,$e)
+                    $app = $s.Tag
+
+                    Start-AsyncTask -LoaderMessage "Desinstallation de $($app.Name)..." -ExtraArgs @($app) -Work {
+                        param($BasePath, $Queue, $ProgressState, $App)
+                        Import-Module "$BasePath\Services\LogService.psm1" -Force
+                        Import-Module "$BasePath\Core\Installer.psm1" -Force
+                        Uninstall-SoftwareList -SoftwareList @($App) -Queue $Queue -ProgressState $ProgressState
+                    } -OnComplete {
+                        param($Result)
+                        $BtnScan.RaiseEvent(
+                            [System.Windows.RoutedEventArgs]::new(
+                                [System.Windows.Controls.Button]::ClickEvent
+                            )
+                        )
+                    }
+                })
+
+                [System.Windows.Controls.Grid]::SetColumn($btnD, 3)
+                [void]$grid.Children.Add($btnD)
+            }
+
+            $rowBorder.Child = $grid
+            [void]$SoftwareList.Children.Add($rowBorder)
+        }
+    }
+
+    Update-StatusBar
 }
 
-# =========================
-# INSTALL
-# =========================
-$BtnInstall.Add_Click({
+# ─────────────────────────────────────────────
+#  SCAN  (winget list UNE SEULE FOIS, en arriere-plan)
+# ─────────────────────────────────────────────
+$BtnScan.Add_Click({
+    Write-Log "=== Scan demarre ===" "INFO" $LogBox
+    $TxtStatus.Text = "Scan en cours..."
 
-    $selected = $script:checkboxes | Where-Object { $_.IsChecked }
+    Start-AsyncTask -LoaderMessage "Scan en cours..." -Work {
+        param($BasePath, $Queue, $ProgressState)
+        Import-Module "$BasePath\Services\LogService.psm1" -Force
+        Import-Module "$BasePath\Core\ConfigLoader.psm1" -Force
+        Import-Module "$BasePath\Core\Installer.psm1" -Force
 
-    if ($selected.Count -eq 0) {
-        Write-Log "Aucun logiciel selectionne" "WARN" $LogBox
-        return
+        $apps = Get-SoftwareConfig -Path "$BasePath\Config\apps.json"
+
+        Write-Log "Recuperation de la liste winget..." "INFO" $null $Queue
+        $snapshot = Get-WingetListSnapshot
+
+        $total = $apps.Count
+        $i = 0
+        $results = @{}
+
+        foreach ($app in $apps) {
+            $i++
+            $ProgressState.Current = $i
+            $ProgressState.Total   = $total
+            $ProgressState.Status  = $app.Name
+
+            $info = Get-SoftwareInfo -Id $app.Id -Snapshot $snapshot
+            $results[$app.Id] = $info
+
+            if ($info.Installed) {
+                $v = if ($info.Version) { " v$($info.Version)" } else { "" }
+                Write-Log "$($app.Name)$v - installe$(if($info.Update){' [MAJ dispo]'})" "OK" $null $Queue
+            }
+        }
+
+        return $results
+    } -OnComplete {
+        param($Result)
+
+        if ($Result -and $Result.Count -gt 0) {
+            $script:state = $Result[0]
+        }
+
+        Initialize-UI -Filter $TxtSearch.Text
+        Write-Log "=== Scan termine ===" "INFO" $LogBox
+        $TxtStatus.Text = "Scan termine"
     }
+})
+
+# ─────────────────────────────────────────────
+#  INSTALLATION  (en arriere-plan)
+# ─────────────────────────────────────────────
+$BtnInstall.Add_Click({
 
     $list = @()
 
-    foreach ($cb in $selected) {
-        $app = $cb.Tag
+    foreach ($child in $SoftwareList.Children) {
+        $grid = $null
 
-        if (-not (Test-SoftwareInstalled -Id $app.Id)) {
-            $list += $app
+        # Chercher le Grid dans le Border de la row
+        if ($child -is [System.Windows.Controls.Border] -and $child.Child -is [System.Windows.Controls.Grid]) {
+            $grid = $child.Child
+        }
+
+        if (-not $grid) { continue }
+
+        $cb = $grid.Children | Where-Object { $_ -is [System.Windows.Controls.CheckBox] }
+        if ($cb -and $cb.IsChecked -and $cb.IsEnabled) {
+            $info = $script:state[$cb.Tag.Id]
+            if ($info -and -not $info.Installed -and -not $info.Update) {
+                $list += $cb.Tag
+            }
         }
     }
 
     if ($list.Count -eq 0) {
-        Write-Log "Rien a installer" "WARN" $LogBox
+        Write-Log "Aucun logiciel a installer selectionne." "WARN" $LogBox
         return
     }
 
-    Write-Log "Installation en cours..." "INFO" $LogBox
+    $silent = [bool]$ChkSilent.IsChecked
 
-    Install-SoftwareList -SoftwareList $list -Silent $ChkSilent.IsChecked -LogBox $LogBox
+    Write-Log "=== Debut installation ($($list.Count) logiciels) ===" "INFO" $LogBox
 
-    Write-Log "Installation terminee" "INFO" $LogBox
+    Start-AsyncTask -LoaderMessage "Installation en cours..." -ExtraArgs @($list, $silent) -Work {
+        param($BasePath, $Queue, $ProgressState, $SoftwareList, $Silent)
+        Import-Module "$BasePath\Services\LogService.psm1" -Force
+        Import-Module "$BasePath\Core\Installer.psm1" -Force
+        Install-SoftwareList -SoftwareList $SoftwareList -Silent $Silent -Queue $Queue -ProgressState $ProgressState
+    } -OnComplete {
+        param($Result)
+        Write-Log "=== Installation terminee ===" "INFO" $LogBox
 
-    Load-Applications
+        # Rescan auto
+        $BtnScan.RaiseEvent([System.Windows.RoutedEventArgs]::new([System.Windows.Controls.Button]::ClickEvent))
+    }
 })
 
-# =========================
-# START
-# =========================
-Load-Applications
-$window.ShowDialog() | Out-Null
+# ─────────────────────────────────────────────
+#  RECHERCHE EN TEMPS REEL
+# ─────────────────────────────────────────────
+$TxtSearch.Add_TextChanged({
+    Initialize-UI -Filter $TxtSearch.Text
+})
+
+# ─────────────────────────────────────────────
+#  SELECTION / DESELECTION GLOBALE
+# ─────────────────────────────────────────────
+$BtnSelectAll.Add_Click({
+    foreach ($child in $SoftwareList.Children) {
+        if ($child -is [System.Windows.Controls.Border] -and $child.Child -is [System.Windows.Controls.Grid]) {
+            $cb = $child.Child.Children | Where-Object { $_ -is [System.Windows.Controls.CheckBox] }
+            if ($cb -and $cb.IsEnabled) { $cb.IsChecked = $true }
+        }
+    }
+})
+
+$BtnDeselectAll.Add_Click({
+    foreach ($child in $SoftwareList.Children) {
+        if ($child -is [System.Windows.Controls.Border] -and $child.Child -is [System.Windows.Controls.Grid]) {
+            $cb = $child.Child.Children | Where-Object { $_ -is [System.Windows.Controls.CheckBox] }
+            if ($cb -and $cb.IsEnabled) { $cb.IsChecked = $false }
+        }
+    }
+})
+
+# ─────────────────────────────────────────────
+#  EFFACER LES LOGS
+# ─────────────────────────────────────────────
+$BtnClearLog.Add_Click({
+    $LogBox.Clear()
+    Write-Log "Console effacee." "INFO" $LogBox
+})
+
+# ─────────────────────────────────────────────
+#  LANCEMENT
+# ─────────────────────────────────────────────
+Initialize-UI
+
+# ASCII
+Write-Log "Version 2.0.0 - Davy" "DEBUG" $LogBox      
+Write-Log "  ___ _   _ _____ ___  ____  ____   _   _ ____  " "INFO" $LogBox
+Write-Log " |_ _| \ | |  ___/ _ \|  _ \/ ___| | | | |  _ \ " "INFO" $LogBox
+Write-Log "  | ||  \| | |_ | | | | |_) \___ \ | | | | | | |" "INFO" $LogBox
+Write-Log "  | || |\  |  _|| |_| |  _ < ___) || |_| | |_| |" "INFO" $LogBox
+Write-Log " |___|_| \_|_|   \___/|_| \_\____/  \___/|____/ " "INFO" $LogBox
+write-Log "    I N F O R S U D - T E C H N O L O G I E S   " "INFO" $LogBox
+write-Log "     https://www.inforsud-technologies.com"              "INFO" $LogBox
+$TxtStatus.Text = "Cliquez sur Scanner pour demarrer"
+Write-Log "AppInstaller demarre." "INFO" $LogBox
+
+[void]$window.ShowDialog()
