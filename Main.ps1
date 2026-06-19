@@ -17,6 +17,7 @@ if ($Host.Name -eq "ConsoleHost") {
 Add-Type -AssemblyName PresentationFramework
 
 Import-Module "$script:BasePath\Services\LogService.psm1" -Force
+Import-Module "$script:BasePath\Services\IconService.psm1" -Force
 Import-Module "$script:BasePath\Core\ConfigLoader.psm1" -Force
 Import-Module "$script:BasePath\Core\Installer.psm1" -Force
 
@@ -196,6 +197,61 @@ $script:AsyncTimer.Add_Tick({
 })
 
 # ─────────────────────────────────────────────
+#  SYNCHRO DES ICONES (telechargement silencieux en tache de fond)
+# ─────────────────────────────────────────────
+# Independant du moteur Start-AsyncTask ci-dessus : pas de loader, pas de
+# desactivation des boutons. Tourne une fois au demarrage, met les icones
+# en cache dans Cache\Icons\, puis rafraichit la liste pour les afficher.
+$script:IconSyncPS       = $null
+$script:IconSyncRunspace = $null
+$script:IconSyncHandle   = $null
+
+$script:IconSyncTimer = New-Object System.Windows.Threading.DispatcherTimer
+$script:IconSyncTimer.Interval = [TimeSpan]::FromMilliseconds(400)
+
+$script:IconSyncTimer.Add_Tick({
+    if ($script:IconSyncHandle -and $script:IconSyncHandle.IsCompleted) {
+        $script:IconSyncTimer.Stop()
+
+        try { [void]$script:IconSyncPS.EndInvoke($script:IconSyncHandle) } catch {}
+
+        $script:IconSyncPS.Dispose()
+        $script:IconSyncRunspace.Close()
+        $script:IconSyncRunspace.Dispose()
+        $script:IconSyncHandle = $null
+
+        # Rafraichit la liste pour remplacer les avatars de secours
+        # par les vraies icones tout juste telechargees.
+        Initialize-UI -Filter $TxtSearch.Text
+    }
+})
+
+function Start-IconSync {
+    if ($script:IconSyncHandle -and -not $script:IconSyncHandle.IsCompleted) { return }
+
+    $script:IconSyncRunspace = [runspacefactory]::CreateRunspace()
+    $script:IconSyncRunspace.ApartmentState = "STA"
+    $script:IconSyncRunspace.ThreadOptions  = "ReuseThread"
+    $script:IconSyncRunspace.Open()
+
+    $script:IconSyncPS = [powershell]::Create()
+    $script:IconSyncPS.Runspace = $script:IconSyncRunspace
+
+    $work = {
+        param($BasePath, $Apps)
+        Import-Module "$BasePath\Services\IconService.psm1" -Force
+        Sync-AppIcons -Apps $Apps -BasePath $BasePath
+    }
+
+    [void]$script:IconSyncPS.AddScript($work.ToString())
+    [void]$script:IconSyncPS.AddArgument($script:BasePath)
+    [void]$script:IconSyncPS.AddArgument($script:apps)
+
+    $script:IconSyncHandle = $script:IconSyncPS.BeginInvoke()
+    $script:IconSyncTimer.Start()
+}
+
+# ─────────────────────────────────────────────
 #  DONNEES
 # ─────────────────────────────────────────────
 $script:apps = Get-SoftwareConfig -Path "$script:BasePath\Config\apps.json"
@@ -258,14 +314,60 @@ function Initialize-UI {
 
             $grid = New-Object System.Windows.Controls.Grid
 
+            $c0 = New-Object System.Windows.Controls.ColumnDefinition; $c0.Width = "34"
             $c1 = New-Object System.Windows.Controls.ColumnDefinition; $c1.Width = "3*"
             $c2 = New-Object System.Windows.Controls.ColumnDefinition; $c2.Width = "110"
             $c3 = New-Object System.Windows.Controls.ColumnDefinition; $c3.Width = "32"
             $c4 = New-Object System.Windows.Controls.ColumnDefinition; $c4.Width = "32"
+            [void]$grid.ColumnDefinitions.Add($c0)
             [void]$grid.ColumnDefinitions.Add($c1)
             [void]$grid.ColumnDefinitions.Add($c2)
             [void]$grid.ColumnDefinitions.Add($c3)
             [void]$grid.ColumnDefinitions.Add($c4)
+
+            # Icone de l'application : vraie icone si deja en cache,
+            # sinon avatar colore avec l'initiale (remplace automatiquement
+            # des que Start-IconSync a fini de la telecharger).
+            $iconBorder = New-Object System.Windows.Controls.Border
+            $iconBorder.Width        = 24
+            $iconBorder.Height       = 24
+            $iconBorder.CornerRadius = "5"
+            $iconBorder.Margin       = "0,0,8,0"
+            $iconBorder.VerticalAlignment = "Center"
+
+            $iconPath = Get-AppIconPath -BasePath $script:BasePath -Id $app.Id
+
+            if ($iconPath) {
+                $img = New-Object System.Windows.Controls.Image
+                $img.Stretch = "Uniform"
+
+                $bmp = New-Object System.Windows.Media.Imaging.BitmapImage
+                $bmp.BeginInit()
+                $bmp.CacheOption = [System.Windows.Media.Imaging.BitmapCacheOption]::OnLoad
+                $bmp.UriSource   = New-Object System.Uri($iconPath, [System.UriKind]::Absolute)
+                $bmp.EndInit()
+                $bmp.Freeze()
+
+                $img.Source = $bmp
+                $iconBorder.Child = $img
+            }
+            else {
+                $palette = @("#3498DB","#9B59B6","#E67E22","#1ABC9C","#E74C3C","#2ECC71","#F39C12","#34495E")
+                $colorIndex = [Math]::Abs($app.Name.GetHashCode()) % $palette.Count
+                $iconBorder.Background = $palette[$colorIndex]
+
+                $letter = New-Object System.Windows.Controls.TextBlock
+                $letter.Text = $app.Name.Substring(0,1).ToUpper()
+                $letter.Foreground = "White"
+                $letter.FontWeight = "Bold"
+                $letter.FontSize = 11
+                $letter.HorizontalAlignment = "Center"
+                $letter.VerticalAlignment = "Center"
+                $iconBorder.Child = $letter
+            }
+
+            [System.Windows.Controls.Grid]::SetColumn($iconBorder, 0)
+            [void]$grid.Children.Add($iconBorder)
 
             # Checkbox / nom
             $cb = New-Object System.Windows.Controls.CheckBox
@@ -281,7 +383,7 @@ function Initialize-UI {
                 $cb.Foreground = "#95A5A6"
             }
 
-            [System.Windows.Controls.Grid]::SetColumn($cb, 0)
+            [System.Windows.Controls.Grid]::SetColumn($cb, 1)
             [void]$grid.Children.Add($cb)
 
             # Version
@@ -293,7 +395,7 @@ function Initialize-UI {
                 $txt.FontSize   = 11
                 $txt.Margin    = "6,0"
                 $txt.VerticalAlignment = "Center"
-                [System.Windows.Controls.Grid]::SetColumn($txt, 1)
+                [System.Windows.Controls.Grid]::SetColumn($txt, 2)
                 [void]$grid.Children.Add($txt)
             }
 
@@ -325,7 +427,7 @@ function Initialize-UI {
                     }
                 })
 
-                [System.Windows.Controls.Grid]::SetColumn($btnU, 2)
+                [System.Windows.Controls.Grid]::SetColumn($btnU, 3)
                 [void]$grid.Children.Add($btnU)
             }
 
@@ -357,7 +459,7 @@ function Initialize-UI {
                     }
                 })
 
-                [System.Windows.Controls.Grid]::SetColumn($btnD, 3)
+                [System.Windows.Controls.Grid]::SetColumn($btnD, 4)
                 [void]$grid.Children.Add($btnD)
             }
 
@@ -509,6 +611,7 @@ $BtnClearLog.Add_Click({
 #  LANCEMENT
 # ─────────────────────────────────────────────
 Initialize-UI
+Start-IconSync
 
 # ASCII
 Write-Log "Version 2.0.0 - Davy" "DEBUG" $LogBox      
