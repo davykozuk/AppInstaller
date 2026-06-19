@@ -5,14 +5,16 @@
 
   { "Name": "Microsoft 365 Apps for enterprise", "Id": "Microsoft.Office", "Type": "winget", "Category": "Bureautique" },
   { "Name": "Adobe Acrobat Reader DC", "Id": "Adobe.Acrobat.Reader.64-bit", "Type": "winget", "Category": "Bureautique" },
+  { "Name": "PDFCreator Free", "Id": "Avanquestpdfforge.PDFCreator-Free ", "Type": "winget", "Category": "Bureautique" },
+  { "Name": "Foxit PDF Reader", "Id": "Foxit.FoxitReader", "Type": "winget", "Category": "Bureautique" },
   { "Name": "LibreOffice", "Id": "TheDocumentFoundation.LibreOffice", "Type": "winget", "Category": "Bureautique" },
 
   { "Name": "7-Zip", "Id": "7zip.7zip", "Type": "winget", "Category": "Utilitaires" },
   { "Name": "Notepad++", "Id": "Notepad++.Notepad++", "Type": "winget", "Category": "Utilitaires" },
   { "Name": "VLC Media Player", "Id": "VideoLAN.VLC", "Type": "winget", "Category": "Utilitaires" },
-  { "Name": "Everything", "Id": "voidtools.Everything", "Type": "winget", "Category": "Utilitaires" },
   { "Name": "Greenshot", "Id": "Greenshot.Greenshot", "Type": "winget", "Category": "Utilitaires" },
 
+  { "Name": "Docker Desktop", "Id": "Docker.DockerDesktop", "Type": "winget", "Category": "Developpement" },
   { "Name": "Visual Studio Code", "Id": "Microsoft.VisualStudioCode", "Type": "winget", "Category": "Developpement" },
   { "Name": "Git", "Id": "Git.Git", "Type": "winget", "Category": "Developpement" },
   { "Name": "GitHub Desktop", "Id": "GitHub.GitHubDesktop", "Type": "winget", "Category": "Developpement" },
@@ -23,17 +25,17 @@
   { "Name": "Microsoft Teams", "Id": "Microsoft.Teams", "Type": "winget", "Category": "Communication" },
   { "Name": "Discord", "Id": "Discord.Discord", "Type": "winget", "Category": "Communication" },
 
-  { "Name": "TeamViewer Host", "Id": "TeamViewer.TeamViewerHost", "Type": "winget", "Category": "Support" },
+  { "Name": "TeamViewer Host", "Id": "TeamViewer.TeamViewer.Host", "Type": "winget", "Category": "Support" },
   { "Name": "TeamViewer (Full)", "Id": "TeamViewer.TeamViewer", "Type": "winget", "Category": "Support" },
   { "Name": "AnyDesk", "Id": "AnyDeskSoftwareGmbH.AnyDesk", "Type": "winget", "Category": "Support" },
 
   { "Name": "Cisco AnyConnect", "Id": "Cisco.AnyConnect", "Type": "winget", "Category": "Reseau" },
   { "Name": "FortiClient VPN", "Id": "Fortinet.FortiClientVPN", "Type": "winget", "Category": "Reseau" },
   { "Name": "OpenVPN", "Id": "OpenVPNTechnologies.OpenVPN", "Type": "winget", "Category": "Reseau" },
+  { "Name": "SonicWall NetExtender", "Id": "SonicWall.NetExtender", "Type": "winget", "Category": "Reseau" },
+  { "Name": "SonicWall Global VPN", "Id": "SonicWall.GlobalVPNClient", "Type": "winget", "Category": "Reseau" },
 
   { "Name": "Microsoft Visual C++ Redistributable 2015-2022", "Id": "Microsoft.VCRedist.2015+.x64", "Type": "winget", "Category": "Runtime" },
   { "Name": ".NET Desktop Runtime 8", "Id": "Microsoft.DotNet.DesktopRuntime.8", "Type": "winget", "Category": "Runtime" },
-  { "Name": "Java Runtime (Temurin 17)", "Id": "EclipseAdoptium.Temurin.17.JRE", "Type": "winget", "Category": "Runtime" },
-
-  { "Name": "Spotify", "Id": "Spotify.Spotify", "Type": "winget", "Category": "Optionnel" }
+  { "Name": "Java Runtime (Temurin 17)", "Id": "EclipseAdoptium.Temurin.17.JRE", "Type": "winget", "Category": "Runtime" }
 ]
